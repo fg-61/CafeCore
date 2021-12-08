@@ -51,9 +51,9 @@ namespace CafeCore.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(23, 27);
+            this.label1.Location = new System.Drawing.Point(27, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.Size = new System.Drawing.Size(72, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kat Adı";
             // 
@@ -61,9 +61,9 @@ namespace CafeCore.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(23, 76);
+            this.label2.Location = new System.Drawing.Point(26, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 20);
+            this.label2.Size = new System.Drawing.Size(132, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Kısaltma Kodu";
             // 
@@ -71,9 +71,9 @@ namespace CafeCore.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(23, 125);
+            this.label3.Location = new System.Drawing.Point(27, 166);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 20);
+            this.label3.Size = new System.Drawing.Size(162, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Kat Sıra Numarası";
             // 
@@ -81,9 +81,9 @@ namespace CafeCore.Forms
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(23, 174);
+            this.label4.Location = new System.Drawing.Point(26, 231);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 20);
+            this.label4.Size = new System.Drawing.Size(109, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Masa Sayısı";
             // 
@@ -91,9 +91,9 @@ namespace CafeCore.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(152, 81);
+            this.label6.Location = new System.Drawing.Point(192, 107);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(10, 13);
+            this.label6.Size = new System.Drawing.Size(12, 19);
             this.label6.TabIndex = 1;
             this.label6.Text = ":";
             // 
@@ -101,9 +101,9 @@ namespace CafeCore.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(152, 130);
+            this.label7.Location = new System.Drawing.Point(192, 172);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(10, 13);
+            this.label7.Size = new System.Drawing.Size(12, 19);
             this.label7.TabIndex = 1;
             this.label7.Text = ":";
             // 
@@ -111,53 +111,57 @@ namespace CafeCore.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(152, 179);
+            this.label8.Location = new System.Drawing.Point(192, 237);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(10, 13);
+            this.label8.Size = new System.Drawing.Size(12, 19);
             this.label8.TabIndex = 1;
             this.label8.Text = ":";
             // 
             // txtAd
             // 
             this.txtAd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAd.Location = new System.Drawing.Point(168, 26);
+            this.txtAd.Location = new System.Drawing.Point(220, 35);
+            this.txtAd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAd.Name = "txtAd";
-            this.txtAd.Size = new System.Drawing.Size(207, 25);
+            this.txtAd.Size = new System.Drawing.Size(236, 30);
             this.txtAd.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(152, 32);
+            this.label5.Location = new System.Drawing.Point(192, 42);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(10, 13);
+            this.label5.Size = new System.Drawing.Size(12, 19);
             this.label5.TabIndex = 1;
             this.label5.Text = ":";
             // 
             // txtKod
             // 
             this.txtKod.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtKod.Location = new System.Drawing.Point(168, 75);
+            this.txtKod.Location = new System.Drawing.Point(220, 100);
+            this.txtKod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtKod.Name = "txtKod";
-            this.txtKod.Size = new System.Drawing.Size(207, 25);
+            this.txtKod.Size = new System.Drawing.Size(236, 30);
             this.txtKod.TabIndex = 2;
             // 
             // txtSiraNo
             // 
             this.txtSiraNo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSiraNo.Location = new System.Drawing.Point(168, 124);
+            this.txtSiraNo.Location = new System.Drawing.Point(220, 165);
+            this.txtSiraNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSiraNo.Name = "txtSiraNo";
-            this.txtSiraNo.Size = new System.Drawing.Size(207, 25);
+            this.txtSiraNo.Size = new System.Drawing.Size(236, 30);
             this.txtSiraNo.TabIndex = 3;
             this.txtSiraNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSiraNo_KeyPress);
             // 
             // txtMasaSayisi
             // 
             this.txtMasaSayisi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMasaSayisi.Location = new System.Drawing.Point(168, 173);
+            this.txtMasaSayisi.Location = new System.Drawing.Point(220, 230);
+            this.txtMasaSayisi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMasaSayisi.Name = "txtMasaSayisi";
-            this.txtMasaSayisi.Size = new System.Drawing.Size(207, 25);
+            this.txtMasaSayisi.Size = new System.Drawing.Size(236, 30);
             this.txtMasaSayisi.TabIndex = 4;
             this.txtMasaSayisi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMasaSayisi_KeyPress);
             // 
@@ -167,9 +171,10 @@ namespace CafeCore.Forms
             this.btnEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEkle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEkle.ForeColor = System.Drawing.Color.White;
-            this.btnEkle.Location = new System.Drawing.Point(24, 303);
+            this.btnEkle.Location = new System.Drawing.Point(27, 404);
+            this.btnEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(95, 67);
+            this.btnEkle.Size = new System.Drawing.Size(109, 89);
             this.btnEkle.TabIndex = 5;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = false;
@@ -181,9 +186,10 @@ namespace CafeCore.Forms
             this.btnGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuncelle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnGuncelle.ForeColor = System.Drawing.Color.White;
-            this.btnGuncelle.Location = new System.Drawing.Point(280, 303);
+            this.btnGuncelle.Location = new System.Drawing.Point(320, 404);
+            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(95, 67);
+            this.btnGuncelle.Size = new System.Drawing.Size(109, 89);
             this.btnGuncelle.TabIndex = 7;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = false;
@@ -195,9 +201,10 @@ namespace CafeCore.Forms
             this.btnSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSil.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSil.ForeColor = System.Drawing.Color.White;
-            this.btnSil.Location = new System.Drawing.Point(152, 303);
+            this.btnSil.Location = new System.Drawing.Point(174, 404);
+            this.btnSil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(95, 67);
+            this.btnSil.Size = new System.Drawing.Size(109, 89);
             this.btnSil.TabIndex = 6;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = false;
@@ -207,18 +214,19 @@ namespace CafeCore.Forms
             // 
             this.lstKat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstKat.HideSelection = false;
-            this.lstKat.Location = new System.Drawing.Point(413, 26);
+            this.lstKat.Location = new System.Drawing.Point(472, 35);
+            this.lstKat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstKat.Name = "lstKat";
-            this.lstKat.Size = new System.Drawing.Size(437, 344);
+            this.lstKat.Size = new System.Drawing.Size(499, 459);
             this.lstKat.TabIndex = 8;
             this.lstKat.UseCompatibleStateImageBehavior = false;
             this.lstKat.SelectedIndexChanged += new System.EventHandler(this.lstKat_SelectedIndexChanged);
             // 
             // KatEkle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 404);
+            this.ClientSize = new System.Drawing.Size(1006, 539);
             this.Controls.Add(this.lstKat);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnGuncelle);
@@ -236,6 +244,7 @@ namespace CafeCore.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "KatEkle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kat Ekleme";

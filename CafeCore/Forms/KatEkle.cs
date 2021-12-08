@@ -53,7 +53,16 @@ namespace CafeCore.Forms
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+        private void lstKat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstKat.SelectedItems.Count == 0) return;
+            _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
 
+            txtAd.Text = _seciliKat.Ad;
+            txtKod.Text = _seciliKat.Kodu;
+            txtSiraNo.Text = _seciliKat.SiraNo.ToString();
+            txtMasaSayisi.Text = _seciliKat.MasaSayisi.ToString();
+        }
         private void btnEkle_Click(object sender, EventArgs e)
         {
             try
@@ -102,16 +111,7 @@ namespace CafeCore.Forms
             }
 
         }
-        private void lstKat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lstKat.SelectedItems.Count == 0) return;
-            _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
 
-            txtAd.Text = _seciliKat.Ad;
-            txtKod.Text = _seciliKat.Kodu;
-            txtSiraNo.Text = _seciliKat.SiraNo.ToString();
-            txtMasaSayisi.Text = _seciliKat.SiraNo.ToString();
-        }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
