@@ -15,7 +15,6 @@ namespace CafeCore.Forms
             InitializeComponent();
         }
         CafeContext _dbContext = new CafeContext();
-
         private void KategoriUrunEkle_Load(object sender, EventArgs e)
         {
             ListeyiDoldur();
@@ -58,12 +57,12 @@ namespace CafeCore.Forms
             lstUrun.Columns.Add("Ürün Adı");
             lstUrun.Columns.Add("Fiyat");
 
-            var urunView = _dbContext.Urunler.OrderBy(x => x.Ad).ToList();
+            var urunView = _dbContext.Urunler.OrderBy(x => x.Kategori.Ad).ToList();
             foreach (var item in urunView)
             {
                 ListViewItem viewItem = new ListViewItem(item.Kategori.Ad);
                 viewItem.SubItems.Add(item.Ad.ToString());
-                viewItem.SubItems.Add(item.Fiyat.ToString());
+                viewItem.SubItems.Add($"{item.Fiyat:c2}");
                 viewItem.Tag = item;
                 lstUrun.Items.Add(viewItem);
             }
@@ -82,7 +81,7 @@ namespace CafeCore.Forms
 
         private void txtUrunFiyat_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',';
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.';
         }
         // KATEGORİ KISMI //
         private void btnKategoriEkle_Click(object sender, EventArgs e)
@@ -255,7 +254,7 @@ namespace CafeCore.Forms
             _seciliUrun = lstUrun.SelectedItems[0].Tag as Urun;
 
             txtUrunAdi.Text = _seciliUrun.Ad;
-            txtUrunFiyat.Text = _seciliUrun.Fiyat.ToString();
+            txtUrunFiyat.Text = _seciliUrun.Fiyat.ToString(CultureInfo.InvariantCulture);
             cmbKategoriAdi.SelectedItem = _seciliUrun.Kategori;
         }
 
