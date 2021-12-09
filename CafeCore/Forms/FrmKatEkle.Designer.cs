@@ -268,7 +268,6 @@ namespace CafeCore.Forms
         private System.Windows.Forms.TextBox txtKod;
         private System.Windows.Forms.TextBox txtSiraNo;
         private System.Windows.Forms.TextBox txtMasaSayisi;
-        private System.Windows.Forms.DataGridView dgvKat;
         private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnSil;

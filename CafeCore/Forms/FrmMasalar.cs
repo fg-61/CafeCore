@@ -26,7 +26,7 @@ namespace CafeCore.Forms
         private void KatDoldur()
         {
             flpKatlar.Controls.Clear();
-            int katButonYukseklik = flpKatlar.Height - 10;
+            int katButonYukseklik = 120;
             int katButonGenislik = 120;
 
             var katlar = _dbContext.Katlar.Include(x => x.Masalar).Where(x => x.Masalar.Count > 0).OrderBy(x => x.SiraNo).ToList();
@@ -105,8 +105,12 @@ namespace CafeCore.Forms
             {
                 _frmSiparisler = new FrmSiparisler();
             }
-
+            
             _frmSiparisler._seciliMasa = btnMasa.Tag as Masa;
+
+
+            _frmSiparisler.ShowDialog();
+            this.Hide();
         }
     }
 }
