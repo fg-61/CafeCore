@@ -1,4 +1,4 @@
-﻿using KuzeyCodeFirst.Models.BaseEntity;
+﻿using CafeCore.Model.Abstracts;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

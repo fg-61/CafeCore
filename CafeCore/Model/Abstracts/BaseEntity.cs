@@ -1,11 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace KuzeyCodeFirst.Models.BaseEntity
+namespace CafeCore.Model.Abstracts
 {
     public abstract class BaseEntity
     {
         public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime? DeletedDate { get; set; }
+        public bool IsDeleted { get; set; } = false;
     }
 
     public interface IKey

@@ -1,6 +1,5 @@
-﻿
-using CafeCore.Data;
-using KuzeyCodeFirst.Models.BaseEntity;
+﻿using CafeCore.Data;
+using CafeCore.Model.Abstracts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
