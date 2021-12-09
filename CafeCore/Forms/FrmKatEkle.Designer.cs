@@ -1,7 +1,7 @@
 ﻿
 namespace CafeCore.Forms
 {
-    partial class KatEkle
+    partial class FrmKatEkle
     {
         /// <summary>
         /// Required designer variable.

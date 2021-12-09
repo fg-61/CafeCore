@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CafeCore.Forms
 {
-    public partial class Masalar : Form
+    public partial class FrmMasalar : Form
     {
-        public Masalar()
+        public FrmMasalar()
         {
             InitializeComponent();
         }
@@ -68,7 +68,7 @@ namespace CafeCore.Forms
             _seciliKat = (Kat)(btnKat.Tag);
 
             flpMasalar.Controls.Clear();
-            int masaButonYukseklik = 150;
+            int masaButonYukseklik = 120;
             int masaButonGenislik = 120;
 
             var masalar = _dbContext.Masalar.Where(x => x.KatId == _seciliKat.Id).ToList();
@@ -93,11 +93,20 @@ namespace CafeCore.Forms
                     button.BackColor = seciliKatColor;
                 }
             }
+
         }
 
+        private FrmSiparisler _frmSiparisler;
         private void BtnMasa_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Button btnMasa = sender as Button;
+
+            if (_frmSiparisler == null || _frmSiparisler.IsDisposed)
+            {
+                _frmSiparisler = new FrmSiparisler();
+            }
+
+            _frmSiparisler._seciliMasa = btnMasa.Tag as Masa;
         }
     }
 }

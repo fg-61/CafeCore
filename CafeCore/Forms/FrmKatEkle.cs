@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace CafeCore.Forms
 {
-    public partial class KatEkle : Form
+    public partial class FrmKatEkle : Form
     {
-        public KatEkle()
+        public FrmKatEkle()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace CafeCore.Forms
 {
-    partial class Masalar
+    partial class FrmMasalar
     {
         /// <summary>
         /// Required designer variable.
