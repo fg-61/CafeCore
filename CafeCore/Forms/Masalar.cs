@@ -1,5 +1,6 @@
 ﻿using CafeCore.Data;
 using CafeCore.Model;
+using CafeCore.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Drawing;
@@ -15,25 +16,20 @@ namespace CafeCore.Forms
             InitializeComponent();
         }
         CafeContext _dbContext = new CafeContext();
+        Color defaultKatColor = Color.LightGray, seciliKatColor = Color.RoyalBlue;
+
         private void Masalar_Load(object sender, EventArgs e)
         {
-            ListeyiDoldur();
+            KatDoldur();
         }
 
-        private void ListeyiDoldur()
-        {
-            KatDoldur();
-            MasaDoldur();
-        }
-        Color defaultKatColor = Color.LightGray, seciliKatColor = Color.RoyalBlue;
         private void KatDoldur()
         {
             flpKatlar.Controls.Clear();
             int katButonYukseklik = flpKatlar.Height - 10;
             int katButonGenislik = 120;
 
-            var katlar = _dbContext.Katlar.Include(x => x.Masalar).OrderBy(x => x.SiraNo).ToList();
-
+            var katlar = _dbContext.Katlar.Include(x => x.Masalar).Where(x => x.Masalar.Count > 0).OrderBy(x => x.SiraNo).ToList();
             for (int i = 0; i < katlar.Count; i++)
             {
                 Kat yeni = katlar[i];
@@ -47,37 +43,61 @@ namespace CafeCore.Forms
                 btn.Click += BtnKat_Click;
                 flpKatlar.Controls.Add(btn);
             }
+            Renklendir();
+        }
+        private void Renklendir()
+        {
+            var mevcutSiparisler = _dbContext.Masalar.Where(x => x.Durum == true);
+            foreach (Button button in flpMasalar.Controls)
+            {
+                button.BackColor = defaultKatColor;
+
+                if (mevcutSiparisler.Any(x => x.Ad.Equals(button.Text)))
+                {
+                    button.BackColor = seciliKatColor;
+                }
+            }
 
 
         }
 
+        private Kat _seciliKat;
         private void BtnKat_Click(object sender, EventArgs e)
         {
-            MasaDoldur();
-        }
+            Button btnKat = sender as Button;
+            _seciliKat = (Kat)(btnKat.Tag);
 
-        private void MasaDoldur()
-        {
             flpMasalar.Controls.Clear();
             int masaButonYukseklik = 150;
             int masaButonGenislik = 120;
 
-            var masalar = _dbContext.Masalar.OrderBy(x => x.SiraNo).ToList();
-
-            for (int i = 0; i < katlar.Count; i++)
+            var masalar = _dbContext.Masalar.Where(x => x.KatId == _seciliKat.Id).ToList();
+            for (int i = 0; i < _seciliKat.MasaSayisi; i++)
             {
-                Kat yeni = katlar[i];
-                Button btn = new Button()
+                Masa yeni = masalar[i];
+                Button btnMasa = new Button()
                 {
                     Text = yeni.Ad,
-                    Size = new Size(katButonGenislik, katButonYukseklik),
+                    Size = new Size(masaButonGenislik, masaButonYukseklik),
                     BackColor = defaultKatColor,
                     Tag = yeni
                 };
-                btn.Click += BtnKat_Click;
-                flpKatlar.Controls.Add(btn);
+                btnMasa.Click += BtnMasa_Click;
+                flpMasalar.Controls.Add(btnMasa);
             }
+            foreach (Button button in flpKatlar.Controls)
+            {
+                button.BackColor = defaultKatColor;
+                if (button.Text == btnKat.Text)
+                {
+                    button.BackColor = seciliKatColor;
+                }
+            }
+        }
 
-
+        private void BtnMasa_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

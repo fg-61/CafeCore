@@ -10,6 +10,8 @@ namespace CafeCore.Model
     {
         [Key]
         public int Id { get; set; }
+        [Required, StringLength(50)]
+        public string Ad { get; set; }
 
         [Required]
         public int No { get; set; } = 1;

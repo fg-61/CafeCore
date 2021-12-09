@@ -67,7 +67,7 @@ namespace CafeCore.Forms
         {
             try
             {
-                var yeni = new Kat
+                var yeniKat = new Kat
                 {
                     Ad = txtAd.Text,
                     Kodu = txtKod.Text,
@@ -75,7 +75,18 @@ namespace CafeCore.Forms
                     MasaSayisi = int.Parse(txtMasaSayisi.Text)
                 };
 
-                _dbContext.Katlar.Add(yeni);
+                for (int i = 0; i < yeniKat.MasaSayisi; i++)
+                {
+                    var yeniMasa = new Masa
+                    {
+                        Durum = false,
+                        No = i + 1,
+                        Ad = $"{ yeniKat.Kodu }/ Masa { i + 1 }"
+                    };
+                    yeniKat.Masalar.Add(yeniMasa);
+                }
+                
+                _dbContext.Katlar.Add(yeniKat);
                 _dbContext.SaveChanges();
             }
             catch (Exception ex)
@@ -138,8 +149,8 @@ namespace CafeCore.Forms
             }
 
             finally
-            { 
-                ListeyiDoldur(); 
+            {
+                ListeyiDoldur();
             }
 
 

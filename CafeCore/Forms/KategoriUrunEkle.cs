@@ -184,7 +184,8 @@ namespace CafeCore.Forms
             }
             finally
             {
-                ListeyiDoldur();
+                ListeyiDoldur()
+                    ;
             }
         }
         private Urun _seciliUrun;
@@ -256,6 +257,7 @@ namespace CafeCore.Forms
             txtUrunAdi.Text = _seciliUrun.Ad;
             txtUrunFiyat.Text = _seciliUrun.Fiyat.ToString(CultureInfo.InvariantCulture);
             cmbKategoriAdi.SelectedItem = _seciliUrun.Kategori;
+
         }
 
         private void cmbKategoriAdi_SelectedIndexChanged(object sender, EventArgs e)

@@ -21,15 +21,15 @@ namespace CafeCore.Data
                 optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CafeDb;Integrated Security=True;");
             }
         }
-        public override int SaveChanges()
-        {
-            var entiries = ChangeTracker.Entries()
-                .Where(x => x.Entity is BaseEntity && x.State == EntityState.Added);
+        //public override int SaveChanges()
+        //{
+        //    var entiries = ChangeTracker.Entries()
+        //        .Where(x => x.Entity is BaseEntity && x.State == EntityState.Added);
 
-            foreach (var item in entiries)
-            {
-                ((BaseEntity)item.Entity).CreatedDate = DateTime.Now;
-            }
+        //    foreach (var item in entiries)
+        //    {
+        //        ((BaseEntity)item.Entity).CreatedDate = DateTime.Now;
+        //    }
 
             //entiries = ChangeTracker.Entries()
             //    .Where(x => x.Entity is BaseEntity && x.State == EntityState.Modified);
