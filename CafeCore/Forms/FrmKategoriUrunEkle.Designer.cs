@@ -61,9 +61,10 @@
             this.tcKategoriEkle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcKategoriEkle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tcKategoriEkle.Location = new System.Drawing.Point(0, 0);
+            this.tcKategoriEkle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tcKategoriEkle.Name = "tcKategoriEkle";
             this.tcKategoriEkle.SelectedIndex = 0;
-            this.tcKategoriEkle.Size = new System.Drawing.Size(1006, 539);
+            this.tcKategoriEkle.Size = new System.Drawing.Size(880, 404);
             this.tcKategoriEkle.TabIndex = 25;
             // 
             // tpKategoriEkle
@@ -77,10 +78,11 @@
             this.tpKategoriEkle.Controls.Add(this.txtKategoriAd);
             this.tpKategoriEkle.Controls.Add(this.label2);
             this.tpKategoriEkle.Controls.Add(this.label1);
-            this.tpKategoriEkle.Location = new System.Drawing.Point(4, 54);
+            this.tpKategoriEkle.Location = new System.Drawing.Point(4, 46);
+            this.tpKategoriEkle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpKategoriEkle.Name = "tpKategoriEkle";
-            this.tpKategoriEkle.Padding = new System.Windows.Forms.Padding(3);
-            this.tpKategoriEkle.Size = new System.Drawing.Size(998, 481);
+            this.tpKategoriEkle.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpKategoriEkle.Size = new System.Drawing.Size(872, 354);
             this.tpKategoriEkle.TabIndex = 0;
             this.tpKategoriEkle.Text = "Kategori Ekle";
             // 
@@ -89,10 +91,9 @@
             this.lstKategori.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstKategori.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstKategori.HideSelection = false;
-            this.lstKategori.Location = new System.Drawing.Point(472, 10);
-            this.lstKategori.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lstKategori.Location = new System.Drawing.Point(413, 8);
             this.lstKategori.Name = "lstKategori";
-            this.lstKategori.Size = new System.Drawing.Size(499, 459);
+            this.lstKategori.Size = new System.Drawing.Size(437, 344);
             this.lstKategori.TabIndex = 23;
             this.lstKategori.UseCompatibleStateImageBehavior = false;
             this.lstKategori.SelectedIndexChanged += new System.EventHandler(this.lstKategori_SelectedIndexChanged);
@@ -103,10 +104,9 @@
             this.btnKategoriSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKategoriSil.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnKategoriSil.ForeColor = System.Drawing.Color.White;
-            this.btnKategoriSil.Location = new System.Drawing.Point(175, 380);
-            this.btnKategoriSil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnKategoriSil.Location = new System.Drawing.Point(153, 285);
             this.btnKategoriSil.Name = "btnKategoriSil";
-            this.btnKategoriSil.Size = new System.Drawing.Size(109, 89);
+            this.btnKategoriSil.Size = new System.Drawing.Size(95, 67);
             this.btnKategoriSil.TabIndex = 4;
             this.btnKategoriSil.Text = "Sil";
             this.btnKategoriSil.UseVisualStyleBackColor = false;
@@ -118,10 +118,9 @@
             this.btnKategoriGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKategoriGuncelle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnKategoriGuncelle.ForeColor = System.Drawing.Color.White;
-            this.btnKategoriGuncelle.Location = new System.Drawing.Point(321, 380);
-            this.btnKategoriGuncelle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnKategoriGuncelle.Location = new System.Drawing.Point(281, 285);
             this.btnKategoriGuncelle.Name = "btnKategoriGuncelle";
-            this.btnKategoriGuncelle.Size = new System.Drawing.Size(109, 89);
+            this.btnKategoriGuncelle.Size = new System.Drawing.Size(95, 67);
             this.btnKategoriGuncelle.TabIndex = 5;
             this.btnKategoriGuncelle.Text = "Güncelle";
             this.btnKategoriGuncelle.UseVisualStyleBackColor = false;
@@ -133,10 +132,9 @@
             this.btnKategoriEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKategoriEkle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnKategoriEkle.ForeColor = System.Drawing.Color.White;
-            this.btnKategoriEkle.Location = new System.Drawing.Point(28, 380);
-            this.btnKategoriEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnKategoriEkle.Location = new System.Drawing.Point(24, 285);
             this.btnKategoriEkle.Name = "btnKategoriEkle";
-            this.btnKategoriEkle.Size = new System.Drawing.Size(109, 89);
+            this.btnKategoriEkle.Size = new System.Drawing.Size(95, 67);
             this.btnKategoriEkle.TabIndex = 3;
             this.btnKategoriEkle.Text = "Ekle";
             this.btnKategoriEkle.UseVisualStyleBackColor = false;
@@ -145,29 +143,27 @@
             // txtKategoriSiraNo
             // 
             this.txtKategoriSiraNo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtKategoriSiraNo.Location = new System.Drawing.Point(28, 177);
-            this.txtKategoriSiraNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtKategoriSiraNo.Location = new System.Drawing.Point(24, 133);
             this.txtKategoriSiraNo.Name = "txtKategoriSiraNo";
-            this.txtKategoriSiraNo.Size = new System.Drawing.Size(236, 30);
+            this.txtKategoriSiraNo.Size = new System.Drawing.Size(207, 25);
             this.txtKategoriSiraNo.TabIndex = 2;
             this.txtKategoriSiraNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKategoriSiraNo_KeyPress);
             // 
             // txtKategoriAd
             // 
             this.txtKategoriAd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtKategoriAd.Location = new System.Drawing.Point(28, 89);
-            this.txtKategoriAd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtKategoriAd.Location = new System.Drawing.Point(24, 67);
             this.txtKategoriAd.Name = "txtKategoriAd";
-            this.txtKategoriAd.Size = new System.Drawing.Size(236, 30);
+            this.txtKategoriAd.Size = new System.Drawing.Size(207, 25);
             this.txtKategoriAd.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(28, 148);
+            this.label2.Location = new System.Drawing.Point(24, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(206, 25);
+            this.label2.Size = new System.Drawing.Size(162, 20);
             this.label2.TabIndex = 21;
             this.label2.Text = "Kategori Sıra Numarası";
             // 
@@ -175,9 +171,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(28, 60);
+            this.label1.Location = new System.Drawing.Point(24, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 25);
+            this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 20;
             this.label1.Text = "Kategori Adı";
             // 
@@ -194,10 +190,11 @@
             this.tpUrunEkle.Controls.Add(this.label3);
             this.tpUrunEkle.Controls.Add(this.label9);
             this.tpUrunEkle.Controls.Add(this.label10);
-            this.tpUrunEkle.Location = new System.Drawing.Point(4, 54);
+            this.tpUrunEkle.Location = new System.Drawing.Point(4, 46);
+            this.tpUrunEkle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpUrunEkle.Name = "tpUrunEkle";
-            this.tpUrunEkle.Padding = new System.Windows.Forms.Padding(3);
-            this.tpUrunEkle.Size = new System.Drawing.Size(998, 481);
+            this.tpUrunEkle.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpUrunEkle.Size = new System.Drawing.Size(869, 354);
             this.tpUrunEkle.TabIndex = 1;
             this.tpUrunEkle.Text = "Ürün Ekle";
             // 
@@ -205,9 +202,10 @@
             // 
             this.cmbKategoriAdi.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbKategoriAdi.FormattingEnabled = true;
-            this.cmbKategoriAdi.Location = new System.Drawing.Point(28, 61);
+            this.cmbKategoriAdi.Location = new System.Drawing.Point(24, 46);
+            this.cmbKategoriAdi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbKategoriAdi.Name = "cmbKategoriAdi";
-            this.cmbKategoriAdi.Size = new System.Drawing.Size(236, 33);
+            this.cmbKategoriAdi.Size = new System.Drawing.Size(207, 28);
             this.cmbKategoriAdi.TabIndex = 1;
             this.cmbKategoriAdi.SelectedIndexChanged += new System.EventHandler(this.cmbKategoriAdi_SelectedIndexChanged);
             // 
@@ -216,10 +214,9 @@
             this.lstUrun.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstUrun.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstUrun.HideSelection = false;
-            this.lstUrun.Location = new System.Drawing.Point(472, 10);
-            this.lstUrun.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lstUrun.Location = new System.Drawing.Point(413, 8);
             this.lstUrun.Name = "lstUrun";
-            this.lstUrun.Size = new System.Drawing.Size(499, 459);
+            this.lstUrun.Size = new System.Drawing.Size(437, 344);
             this.lstUrun.TabIndex = 23;
             this.lstUrun.UseCompatibleStateImageBehavior = false;
             this.lstUrun.SelectedIndexChanged += new System.EventHandler(this.lstUrun_SelectedIndexChanged);
@@ -230,10 +227,9 @@
             this.btnUrunSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUrunSil.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUrunSil.ForeColor = System.Drawing.Color.White;
-            this.btnUrunSil.Location = new System.Drawing.Point(175, 380);
-            this.btnUrunSil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUrunSil.Location = new System.Drawing.Point(153, 285);
             this.btnUrunSil.Name = "btnUrunSil";
-            this.btnUrunSil.Size = new System.Drawing.Size(109, 89);
+            this.btnUrunSil.Size = new System.Drawing.Size(95, 67);
             this.btnUrunSil.TabIndex = 5;
             this.btnUrunSil.Text = "Sil";
             this.btnUrunSil.UseVisualStyleBackColor = false;
@@ -245,10 +241,9 @@
             this.btnUrunGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUrunGuncelle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUrunGuncelle.ForeColor = System.Drawing.Color.White;
-            this.btnUrunGuncelle.Location = new System.Drawing.Point(321, 380);
-            this.btnUrunGuncelle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUrunGuncelle.Location = new System.Drawing.Point(281, 285);
             this.btnUrunGuncelle.Name = "btnUrunGuncelle";
-            this.btnUrunGuncelle.Size = new System.Drawing.Size(109, 89);
+            this.btnUrunGuncelle.Size = new System.Drawing.Size(95, 67);
             this.btnUrunGuncelle.TabIndex = 6;
             this.btnUrunGuncelle.Text = "Güncelle";
             this.btnUrunGuncelle.UseVisualStyleBackColor = false;
@@ -260,10 +255,9 @@
             this.btnUrunEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUrunEkle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUrunEkle.ForeColor = System.Drawing.Color.White;
-            this.btnUrunEkle.Location = new System.Drawing.Point(28, 380);
-            this.btnUrunEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUrunEkle.Location = new System.Drawing.Point(24, 285);
             this.btnUrunEkle.Name = "btnUrunEkle";
-            this.btnUrunEkle.Size = new System.Drawing.Size(109, 89);
+            this.btnUrunEkle.Size = new System.Drawing.Size(95, 67);
             this.btnUrunEkle.TabIndex = 4;
             this.btnUrunEkle.Text = "Ekle";
             this.btnUrunEkle.UseVisualStyleBackColor = false;
@@ -272,29 +266,27 @@
             // txtUrunFiyat
             // 
             this.txtUrunFiyat.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtUrunFiyat.Location = new System.Drawing.Point(28, 252);
-            this.txtUrunFiyat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUrunFiyat.Location = new System.Drawing.Point(24, 189);
             this.txtUrunFiyat.Name = "txtUrunFiyat";
-            this.txtUrunFiyat.Size = new System.Drawing.Size(236, 30);
+            this.txtUrunFiyat.Size = new System.Drawing.Size(207, 25);
             this.txtUrunFiyat.TabIndex = 3;
             this.txtUrunFiyat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUrunFiyat_KeyPress);
             // 
             // txtUrunAdi
             // 
             this.txtUrunAdi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtUrunAdi.Location = new System.Drawing.Point(28, 157);
-            this.txtUrunAdi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUrunAdi.Location = new System.Drawing.Point(24, 118);
             this.txtUrunAdi.Name = "txtUrunAdi";
-            this.txtUrunAdi.Size = new System.Drawing.Size(236, 30);
+            this.txtUrunAdi.Size = new System.Drawing.Size(207, 25);
             this.txtUrunAdi.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(28, 223);
+            this.label3.Location = new System.Drawing.Point(24, 167);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 25);
+            this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 22;
             this.label3.Text = "Ürün Fiyatı";
             // 
@@ -302,9 +294,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(28, 128);
+            this.label9.Location = new System.Drawing.Point(24, 96);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 25);
+            this.label9.Size = new System.Drawing.Size(67, 20);
             this.label9.TabIndex = 21;
             this.label9.Text = "Ürün Adı";
             // 
@@ -312,20 +304,21 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(28, 33);
+            this.label10.Location = new System.Drawing.Point(24, 25);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 25);
+            this.label10.Size = new System.Drawing.Size(93, 20);
             this.label10.TabIndex = 20;
             this.label10.Text = "Kategori Adı";
             // 
-            // KategoriUrunEkle
+            // FrmKategoriUrunEkle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 539);
+            this.ClientSize = new System.Drawing.Size(880, 404);
             this.Controls.Add(this.tcKategoriEkle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "KategoriUrunEkle";
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "FrmKategoriUrunEkle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.KategoriUrunEkle_Load);
             this.tcKategoriEkle.ResumeLayout(false);
