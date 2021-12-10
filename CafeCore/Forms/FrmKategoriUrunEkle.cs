@@ -184,8 +184,7 @@ namespace CafeCore.Forms
             }
             finally
             {
-                ListeyiDoldur()
-                    ;
+                ListeyiDoldur();
             }
         }
         private Urun _seciliUrun;

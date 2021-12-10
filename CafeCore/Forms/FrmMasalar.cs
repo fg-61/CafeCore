@@ -94,6 +94,7 @@ namespace CafeCore.Forms
 
         }
 
+
         private FrmSiparisler _frmSiparisler;
         private void BtnMasa_Click(object sender, EventArgs e)
         {
@@ -106,8 +107,7 @@ namespace CafeCore.Forms
             
             _frmSiparisler._seciliMasa = btnMasa.Tag as Masa;
             _frmSiparisler.ShowDialog();
-            this.Close();
-            this.Dispose(); 
+            this.Hide();
         }
     }
 }
