@@ -32,8 +32,8 @@ namespace CafeCore.Forms
         private void KategoriDoldur()
         {
             flpKategoriler.Controls.Clear();
-            int kategoriButonYukseklik = 120;
-            int kategoriButonGenislik = 120;
+            int kategoriButonYukseklik = 100;
+            int kategoriButonGenislik = 100;
 
             var kategoriler = _dbContext.Kategoriler.Include(x => x.Urunler).Where(x => x.Urunler.Count > 0).OrderBy(x => x.SiraNo).ToList();
             for (int i = 0; i < kategoriler.Count; i++)
@@ -61,8 +61,8 @@ namespace CafeCore.Forms
             //btnKategori.BackColor = defaultColor; en son
             _seciliKategori = btnKategori.Tag as Kategori;
 
-            int urunButonYukseklik = 120;
-            int urunButonGenislik = 120;
+            int urunButonYukseklik = 100;
+            int urunButonGenislik = 100;
 
             var urunler = _dbContext.Urunler.Where(x => x.KategoriId == _seciliKategori.Id).ToList();
 
@@ -117,8 +117,11 @@ namespace CafeCore.Forms
             lstSepet.View = View.Details;
             lstSepet.FullRowSelect = true;
             lstSepet.Columns.Add("Adet");
+            lstSepet.Columns[0].Width = 60;
             lstSepet.Columns.Add("Ürün");
+            lstSepet.Columns[1].Width = 280;
             lstSepet.Columns.Add("Ara Toplam");
+            lstSepet.Columns[2].Width = 147;
 
             foreach (var item in _sepet)
             {
@@ -129,8 +132,17 @@ namespace CafeCore.Forms
                 lstSepet.Items.Add(viewItem);
             }
 
-            lstSepet.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            //lstSepet.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
-
+        private FrmMasalar _frmMasalar;
+        private void btnGeri_Click(object sender, EventArgs e)
+        {
+            if (_frmMasalar == null || _frmMasalar.IsDisposed)
+            {
+                _frmMasalar = new FrmMasalar();
+            }
+            _frmMasalar.Show();
+            this.Hide();
+        }
     }
 }

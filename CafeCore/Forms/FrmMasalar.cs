@@ -26,8 +26,8 @@ namespace CafeCore.Forms
         private void KatDoldur()
         {
             flpKatlar.Controls.Clear();
-            int katButonYukseklik = 120;
-            int katButonGenislik = 120;
+            int katButonYukseklik = 100;
+            int katButonGenislik = 100;
 
             var katlar = _dbContext.Katlar.Include(x => x.Masalar).Where(x => x.Masalar.Count > 0).OrderBy(x => x.SiraNo).ToList();
             for (int i = 0; i < katlar.Count; i++)
@@ -66,8 +66,8 @@ namespace CafeCore.Forms
             _seciliKat = (Kat)(btnKat.Tag);
 
             flpMasalar.Controls.Clear();
-            int masaButonYukseklik = 120;
-            int masaButonGenislik = 120;
+            int masaButonYukseklik = 100;
+            int masaButonGenislik = 100;
 
             var masalar = _dbContext.Masalar.Where(x => x.KatId == _seciliKat.Id).ToList();
             for (int i = 0; i < _seciliKat.MasaSayisi; i++)
@@ -105,10 +105,9 @@ namespace CafeCore.Forms
             }
             
             _frmSiparisler._seciliMasa = btnMasa.Tag as Masa;
-
-
             _frmSiparisler.ShowDialog();
-            this.Hide();
+            this.Close();
+            this.Dispose(); 
         }
     }
 }
