@@ -18,7 +18,7 @@ namespace CafeCore
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmKategoriUrunEkle());
+            Application.Run(new FrmRaporlar());
         }
     }
 }
