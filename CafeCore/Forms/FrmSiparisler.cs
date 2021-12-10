@@ -25,6 +25,7 @@ namespace CafeCore.Forms
         Color defaultColor = Color.LightGray;
         private void FrmSiparisler_Load(object sender, EventArgs e)
         {
+            txtMasaIsmi.Text = $"{_seciliMasa.No.ToString()}";
             KategoriDoldur();
             //SepetiDoldur();
         }

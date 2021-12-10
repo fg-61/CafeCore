@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace CafeCore.Forms
 {
-    public partial class KategoriUrunEkle : Form
+    public partial class FrmKategoriUrunEkle : Form
     {
-        public KategoriUrunEkle()
+        public FrmKategoriUrunEkle()
         {
             InitializeComponent();
         }
