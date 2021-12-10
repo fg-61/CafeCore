@@ -66,37 +66,36 @@
             this.tableLayoutPanel2.Controls.Add(this.flpMasalar, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1114, 723);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(975, 542);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.flpKatlar, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(11, 13);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(11, 13, 11, 7);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(10, 10);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(10, 10, 10, 5);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1092, 160);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(955, 130);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(984, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(860, 0);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(108, 160);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(95, 130);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // flpKatlar
@@ -105,27 +104,28 @@
             this.flpKatlar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpKatlar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpKatlar.Location = new System.Drawing.Point(0, 0);
-            this.flpKatlar.Margin = new System.Windows.Forms.Padding(0, 0, 11, 0);
+            this.flpKatlar.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.flpKatlar.Name = "flpKatlar";
-            this.flpKatlar.Size = new System.Drawing.Size(967, 160);
+            this.flpKatlar.Size = new System.Drawing.Size(845, 130);
             this.flpKatlar.TabIndex = 2;
             // 
             // flpMasalar
             // 
             this.flpMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpMasalar.Location = new System.Drawing.Point(11, 187);
-            this.flpMasalar.Margin = new System.Windows.Forms.Padding(11, 7, 11, 13);
+            this.flpMasalar.Location = new System.Drawing.Point(10, 150);
+            this.flpMasalar.Margin = new System.Windows.Forms.Padding(10, 5, 10, 10);
             this.flpMasalar.Name = "flpMasalar";
-            this.flpMasalar.Size = new System.Drawing.Size(1092, 523);
+            this.flpMasalar.Size = new System.Drawing.Size(955, 382);
             this.flpMasalar.TabIndex = 1;
             // 
             // FrmMasalar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 723);
+            this.ClientSize = new System.Drawing.Size(975, 542);
             this.Controls.Add(this.tableLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmMasalar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Masalar";

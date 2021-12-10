@@ -77,7 +77,7 @@ namespace CafeCore.Forms
 
                 for (int i = 0; i < yeniKat.MasaSayisi; i++)
                 {
-                    var yeniMasa = new Masa
+                    var yeniMasa = new Masa()
                     {
                         Durum = false,
                         No = i + 1,

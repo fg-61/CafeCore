@@ -25,7 +25,7 @@ namespace CafeCore.Forms
         Color defaultColor = Color.LightGray;
         private void FrmSiparisler_Load(object sender, EventArgs e)
         {
-            txtMasaIsmi.Text = $"{_seciliMasa.No.ToString()}";
+            txtMasaIsmi.Text = $"{_seciliMasa.Ad}";
             KategoriDoldur();
             //SepetiDoldur();
         }
@@ -61,8 +61,8 @@ namespace CafeCore.Forms
             //btnKategori.BackColor = defaultColor; en son
             _seciliKategori = btnKategori.Tag as Kategori;
 
-            int urunButonYukseklik = 100;
-            int urunButonGenislik = 100;
+            int urunButonYukseklik = 120;
+            int urunButonGenislik = 120;
 
             var urunler = _dbContext.Urunler.Where(x => x.KategoriId == _seciliKategori.Id).ToList();
 

@@ -57,8 +57,6 @@ namespace CafeCore.Forms
                     button.BackColor = seciliKatColor;
                 }
             }
-
-
         }
 
         private Kat _seciliKat;
