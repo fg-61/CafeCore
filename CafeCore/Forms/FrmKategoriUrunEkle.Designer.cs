@@ -30,6 +30,7 @@
         {
             this.tcKategoriEkle = new System.Windows.Forms.TabControl();
             this.tpKategoriEkle = new System.Windows.Forms.TabPage();
+            this.btnMenuEkleGeri = new System.Windows.Forms.Button();
             this.lstKategori = new System.Windows.Forms.ListView();
             this.btnKategoriSil = new System.Windows.Forms.Button();
             this.btnKategoriGuncelle = new System.Windows.Forms.Button();
@@ -70,6 +71,7 @@
             // tpKategoriEkle
             // 
             this.tpKategoriEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.tpKategoriEkle.Controls.Add(this.btnMenuEkleGeri);
             this.tpKategoriEkle.Controls.Add(this.lstKategori);
             this.tpKategoriEkle.Controls.Add(this.btnKategoriSil);
             this.tpKategoriEkle.Controls.Add(this.btnKategoriGuncelle);
@@ -86,6 +88,16 @@
             this.tpKategoriEkle.TabIndex = 0;
             this.tpKategoriEkle.Text = "Kategori Ekle";
             // 
+            // btnMenuEkleGeri
+            // 
+            this.btnMenuEkleGeri.Location = new System.Drawing.Point(783, 8);
+            this.btnMenuEkleGeri.Name = "btnMenuEkleGeri";
+            this.btnMenuEkleGeri.Size = new System.Drawing.Size(86, 50);
+            this.btnMenuEkleGeri.TabIndex = 24;
+            this.btnMenuEkleGeri.Text = "Geri";
+            this.btnMenuEkleGeri.UseVisualStyleBackColor = true;
+            this.btnMenuEkleGeri.Click += new System.EventHandler(this.btnMenuEkleGeri_Click);
+            // 
             // lstKategori
             // 
             this.lstKategori.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -93,7 +105,7 @@
             this.lstKategori.HideSelection = false;
             this.lstKategori.Location = new System.Drawing.Point(413, 8);
             this.lstKategori.Name = "lstKategori";
-            this.lstKategori.Size = new System.Drawing.Size(437, 344);
+            this.lstKategori.Size = new System.Drawing.Size(364, 344);
             this.lstKategori.TabIndex = 23;
             this.lstKategori.UseCompatibleStateImageBehavior = false;
             this.lstKategori.SelectedIndexChanged += new System.EventHandler(this.lstKategori_SelectedIndexChanged);
@@ -194,12 +206,14 @@
             this.tpUrunEkle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpUrunEkle.Name = "tpUrunEkle";
             this.tpUrunEkle.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpUrunEkle.Size = new System.Drawing.Size(869, 354);
+            this.tpUrunEkle.Size = new System.Drawing.Size(872, 354);
             this.tpUrunEkle.TabIndex = 1;
             this.tpUrunEkle.Text = "Ürün Ekle";
             // 
             // cmbKategoriAdi
             // 
+            this.cmbKategoriAdi.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbKategoriAdi.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbKategoriAdi.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbKategoriAdi.FormattingEnabled = true;
             this.cmbKategoriAdi.Location = new System.Drawing.Point(24, 46);
@@ -353,5 +367,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbKategoriAdi;
         private System.Windows.Forms.ListView lstKategori;
+        private System.Windows.Forms.Button btnMenuEkleGeri;
     }
 }

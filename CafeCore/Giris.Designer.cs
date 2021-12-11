@@ -29,20 +29,60 @@ namespace CafeCore
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnfrmKatEkle = new System.Windows.Forms.Button();
+            this.btnfrmMasaEkle = new System.Windows.Forms.Button();
+            this.btnfrmMenuEkle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Form1
+            // btnfrmKatEkle
+            // 
+            this.btnfrmKatEkle.Location = new System.Drawing.Point(200, 103);
+            this.btnfrmKatEkle.Name = "btnfrmKatEkle";
+            this.btnfrmKatEkle.Size = new System.Drawing.Size(82, 60);
+            this.btnfrmKatEkle.TabIndex = 0;
+            this.btnfrmKatEkle.Text = "Kat Ekle";
+            this.btnfrmKatEkle.UseVisualStyleBackColor = true;
+            this.btnfrmKatEkle.Click += new System.EventHandler(this.btnfrmKatEkle_Click);
+            // 
+            // btnfrmMasaEkle
+            // 
+            this.btnfrmMasaEkle.Location = new System.Drawing.Point(299, 103);
+            this.btnfrmMasaEkle.Name = "btnfrmMasaEkle";
+            this.btnfrmMasaEkle.Size = new System.Drawing.Size(82, 60);
+            this.btnfrmMasaEkle.TabIndex = 1;
+            this.btnfrmMasaEkle.Text = "Masa Ekle";
+            this.btnfrmMasaEkle.UseVisualStyleBackColor = true;
+            this.btnfrmMasaEkle.Click += new System.EventHandler(this.btnfrmMasaEkle_Click);
+            // 
+            // btnfrmMenuEkle
+            // 
+            this.btnfrmMenuEkle.Location = new System.Drawing.Point(200, 169);
+            this.btnfrmMenuEkle.Name = "btnfrmMenuEkle";
+            this.btnfrmMenuEkle.Size = new System.Drawing.Size(181, 60);
+            this.btnfrmMenuEkle.TabIndex = 2;
+            this.btnfrmMenuEkle.Text = "Menu Ekle";
+            this.btnfrmMenuEkle.UseVisualStyleBackColor = true;
+            this.btnfrmMenuEkle.Click += new System.EventHandler(this.btnfrmMenuEkle_Click);
+            // 
+            // Giris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 340);
-            this.Name = "Form1";
+            this.Controls.Add(this.btnfrmMenuEkle);
+            this.Controls.Add(this.btnfrmMasaEkle);
+            this.Controls.Add(this.btnfrmKatEkle);
+            this.Name = "Giris";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnfrmKatEkle;
+        private System.Windows.Forms.Button btnfrmMasaEkle;
+        private System.Windows.Forms.Button btnfrmMenuEkle;
     }
 }
 

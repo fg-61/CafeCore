@@ -326,7 +326,6 @@
             this.btnHesapYazdir.TabIndex = 0;
             this.btnHesapYazdir.Text = "Hesap Yazdır";
             this.btnHesapYazdir.UseVisualStyleBackColor = true;
-            this.btnHesapYazdir.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnHesapIptal
             // 

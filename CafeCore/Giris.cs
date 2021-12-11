@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CafeCore.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,5 +18,25 @@ namespace CafeCore
             InitializeComponent();
         }
 
+        private void btnfrmKatEkle_Click(object sender, EventArgs e)
+        {
+            FrmKatEkle frmKatEkle = new FrmKatEkle();
+            this.Hide();
+            frmKatEkle.Show();
+        }
+
+        private void btnfrmMenuEkle_Click(object sender, EventArgs e)
+        {
+            FrmKategoriUrunEkle frmKategoriUrunEkle = new FrmKategoriUrunEkle();
+            this.Hide();
+            frmKategoriUrunEkle.Show();
+        }
+
+        private void btnfrmMasaEkle_Click(object sender, EventArgs e)
+        {
+            FrmMasalar frmMasalar = new FrmMasalar();
+            this.Hide();
+            frmMasalar.Show();
+        }
     }
 }
