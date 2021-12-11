@@ -39,10 +39,12 @@ namespace CafeCore.Forms
             this.rbGunluk = new System.Windows.Forms.RadioButton();
             this.RbAylik = new System.Windows.Forms.RadioButton();
             this.btnYazdir = new System.Windows.Forms.Button();
-            this.btnDisaAktar = new System.Windows.Forms.Button();
             this.DgRaporlar = new System.Windows.Forms.DataGridView();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.rbTarihSec = new System.Windows.Forms.RadioButton();
+            this.dtpBaslangic = new System.Windows.Forms.DateTimePicker();
+            this.dtpBitis = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.DgRaporlar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,9 +64,8 @@ namespace CafeCore.Forms
             this.lblToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblToplamTutar.Location = new System.Drawing.Point(548, 350);
             this.lblToplamTutar.Name = "lblToplamTutar";
-            this.lblToplamTutar.Size = new System.Drawing.Size(54, 21);
+            this.lblToplamTutar.Size = new System.Drawing.Size(0, 21);
             this.lblToplamTutar.TabIndex = 2;
-            this.lblToplamTutar.Text = "label2";
             // 
             // btnOnceki
             // 
@@ -105,12 +106,10 @@ namespace CafeCore.Forms
             // rbGunluk
             // 
             this.rbGunluk.AutoSize = true;
-            this.rbGunluk.Checked = true;
             this.rbGunluk.Location = new System.Drawing.Point(462, 38);
             this.rbGunluk.Name = "rbGunluk";
             this.rbGunluk.Size = new System.Drawing.Size(131, 19);
             this.rbGunluk.TabIndex = 4;
-            this.rbGunluk.TabStop = true;
             this.rbGunluk.Text = "Günlük Satış Raporu";
             this.rbGunluk.UseVisualStyleBackColor = true;
             this.rbGunluk.CheckedChanged += new System.EventHandler(this.rbGunluk_CheckedChanged);
@@ -128,27 +127,20 @@ namespace CafeCore.Forms
             // 
             // btnYazdir
             // 
-            this.btnYazdir.Location = new System.Drawing.Point(462, 131);
+            this.btnYazdir.Location = new System.Drawing.Point(430, 249);
             this.btnYazdir.Name = "btnYazdir";
-            this.btnYazdir.Size = new System.Drawing.Size(75, 62);
+            this.btnYazdir.Size = new System.Drawing.Size(228, 81);
             this.btnYazdir.TabIndex = 5;
             this.btnYazdir.Text = "Yazdır";
             this.btnYazdir.UseVisualStyleBackColor = true;
             this.btnYazdir.Click += new System.EventHandler(this.btnYazdir_Click);
             // 
-            // btnDisaAktar
-            // 
-            this.btnDisaAktar.Location = new System.Drawing.Point(582, 131);
-            this.btnDisaAktar.Name = "btnDisaAktar";
-            this.btnDisaAktar.Size = new System.Drawing.Size(75, 62);
-            this.btnDisaAktar.TabIndex = 5;
-            this.btnDisaAktar.Text = "Dışa Aktar";
-            this.btnDisaAktar.UseVisualStyleBackColor = true;
-            // 
             // DgRaporlar
             // 
-            this.DgRaporlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            this.DgRaporlar.AllowUserToDeleteRows = false;
+            this.DgRaporlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgRaporlar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.DgRaporlar.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.DgRaporlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgRaporlar.Enabled = false;
             this.DgRaporlar.Location = new System.Drawing.Point(12, 12);
@@ -172,15 +164,44 @@ namespace CafeCore.Forms
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // rbTarihSec
+            // 
+            this.rbTarihSec.AutoSize = true;
+            this.rbTarihSec.Location = new System.Drawing.Point(462, 112);
+            this.rbTarihSec.Name = "rbTarihSec";
+            this.rbTarihSec.Size = new System.Drawing.Size(108, 19);
+            this.rbTarihSec.TabIndex = 4;
+            this.rbTarihSec.Text = "Tarih Aralığı Seç";
+            this.rbTarihSec.UseVisualStyleBackColor = true;
+            this.rbTarihSec.CheckedChanged += new System.EventHandler(this.rbTarihSec_CheckedChanged);
+            // 
+            // dtpBaslangic
+            // 
+            this.dtpBaslangic.Location = new System.Drawing.Point(430, 146);
+            this.dtpBaslangic.Name = "dtpBaslangic";
+            this.dtpBaslangic.Size = new System.Drawing.Size(200, 23);
+            this.dtpBaslangic.TabIndex = 7;
+            this.dtpBaslangic.Visible = false;
+            // 
+            // dtpBitis
+            // 
+            this.dtpBitis.Location = new System.Drawing.Point(430, 194);
+            this.dtpBitis.Name = "dtpBitis";
+            this.dtpBitis.Size = new System.Drawing.Size(200, 23);
+            this.dtpBitis.TabIndex = 7;
+            this.dtpBitis.Visible = false;
+            // 
             // FrmRaporlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.ClientSize = new System.Drawing.Size(670, 450);
+            this.ClientSize = new System.Drawing.Size(669, 450);
+            this.Controls.Add(this.dtpBitis);
+            this.Controls.Add(this.dtpBaslangic);
             this.Controls.Add(this.DgRaporlar);
-            this.Controls.Add(this.btnDisaAktar);
             this.Controls.Add(this.btnYazdir);
+            this.Controls.Add(this.rbTarihSec);
             this.Controls.Add(this.RbAylik);
             this.Controls.Add(this.rbGunluk);
             this.Controls.Add(this.btnSonraki);
@@ -207,9 +228,11 @@ namespace CafeCore.Forms
         private System.Windows.Forms.RadioButton rbGunluk;
         private System.Windows.Forms.RadioButton RbAylik;
         private System.Windows.Forms.Button btnYazdir;
-        private System.Windows.Forms.Button btnDisaAktar;
         private System.Windows.Forms.DataGridView DgRaporlar;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.RadioButton rbTarihSec;
+        private System.Windows.Forms.DateTimePicker dtpBaslangic;
+        private System.Windows.Forms.DateTimePicker dtpBitis;
     }
 }
