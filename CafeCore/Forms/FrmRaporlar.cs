@@ -19,23 +19,24 @@ namespace CafeCore.Forms
         }
         CafeContext _dbContext = new CafeContext();
         string rapor = "";
-        bool gunlukMu = true;
+        int secim = 0;
         private void rbGunluk_CheckedChanged(object sender, EventArgs e)
         {
             if (rbGunluk.Checked == true)
             {
-                rapor = "Günlük Rapor";
-                gunlukMu = true;
+                rapor = "Günlük";
+                secim = 1;
                 DgRaporlarDoldur();
+                DgRaporlar.Columns[0].HeaderText = "Sipariş Tarihi";
             }
         }
 
         private void RbAylik_CheckedChanged(object sender, EventArgs e)
         {
-            if (RbAylik.Checked==true)
+            if (RbAylik.Checked == true)
             {
-                rapor = "Aylik Rapor";
-                gunlukMu = false;
+                rapor = "Aylik";
+                secim = 2;
                 DgRaporlarDoldur();
                 DgRaporlar.Columns[0].HeaderText = "Sipariş Tarihi";
             }
@@ -43,32 +44,52 @@ namespace CafeCore.Forms
 
         private void DgRaporlarDoldur()
         {
-                       
-            if (gunlukMu)
-            {
-               var query = _dbContext.Siparisler.Select(x => new
-                {
-                    x.CreatedDate,
-                    x.Urun.Ad,
-                    x.Adet,
-                    x.Urun.Fiyat,
-                    x.AraToplam
-                }).Where(x=>x.CreatedDate.Date.Day >DateTime.Today.AddDays(-1).Day).OrderBy(x => x.CreatedDate).ToList();
-                DgRaporlar.DataSource = query;
-            }
-            else
-            {
-                var query = _dbContext.Siparisler.Select(x => new
-                {
-                    x.CreatedDate,
-                    x.Urun.Ad,
-                    x.Adet,
-                    x.Urun.Fiyat,
-                    x.AraToplam
-                }).Where(x => x.CreatedDate.Date.Month > DateTime.Now.AddMonths(-1).Month) .OrderBy(x => x.CreatedDate).ToList();
-                DgRaporlar.DataSource = query;
-            }
 
+            switch (secim)
+            {
+                case 1:
+                    {
+                        var query = _dbContext.Siparisler.Select(x => new
+                        {
+                            x.CreatedDate,
+                            x.Urun.Ad,
+                            x.Adet,
+                            x.Urun.Fiyat,
+                            x.AraToplam
+                        }).Where(x => x.CreatedDate.Date.Day > DateTime.Today.AddDays(-1).Day && x.CreatedDate > DateTime.Now.AddDays(-1)).OrderBy(x => x.CreatedDate).ToList();
+                        DgRaporlar.DataSource = query;
+                    }
+                    break;
+                case 2:
+                    {
+                        var query = _dbContext.Siparisler.Select(x => new
+                        {
+                            x.CreatedDate,
+                            x.Urun.Ad,
+                            x.Adet,
+                            x.Urun.Fiyat,
+                            x.AraToplam
+                        }).Where(x => x.CreatedDate.Date.Month > DateTime.Now.AddMonths(-1).Month).OrderBy(x => x.CreatedDate).ToList();
+                        DgRaporlar.DataSource = query;
+                    }
+                    break;
+                case 3:
+                    {
+                        var query = _dbContext.Siparisler.Select(x => new
+                        {
+                            x.CreatedDate,
+                            x.Urun.Ad,
+                            x.Adet,
+                            x.Urun.Fiyat,
+                            x.AraToplam
+                        }).Where(x => x.CreatedDate >= dtpBaslangic.Value && x.CreatedDate <= dtpBitis.Value).OrderBy(x => x.CreatedDate).ToList();
+                        DgRaporlar.DataSource = query;
+                    }
+                    break;
+                default:
+                    break;
+
+            }
             var total = DgRaporlar.Rows.Cast<DataGridViewRow>().Sum(row => Convert.ToDecimal(row.Cells[4].Value)).ToString();
             lblToplamTutar.Text = $"{total}₺";
         }
@@ -87,18 +108,17 @@ namespace CafeCore.Forms
                 Pen kalem = new Pen(Color.Black);
                 e.Graphics.DrawString($"{DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss")}", font, firca, 50, 25);
                 font = new Font("Arial", 20, FontStyle.Bold);
-                e.Graphics.DrawString("Satış Raporu", font, firca, 320, 75);
-                //e.Graphics.DrawString("**************************", font, firca, 320, 115);
+                e.Graphics.DrawString($"{rapor} Satış Raporu", font, firca, 290, 75);
                 e.Graphics.DrawLine(kalem, 50, 70, 780, 70);
                 e.Graphics.DrawLine(kalem, 50, 110, 780, 110);
                 e.Graphics.DrawLine(kalem, 50, 70, 50, 110);
                 e.Graphics.DrawLine(kalem, 780, 70, 780, 110);
 
-                font = new Font("Arial", 14,FontStyle.Bold);
+                font = new Font("Arial", 14, FontStyle.Bold);
 
-                e.Graphics.DrawString("Sipariş Tarihi", font, firca, 60, 140); 
-                e.Graphics.DrawString("Ürün Adi", font, firca, 280, 140); 
-                e.Graphics.DrawString("Birim Fiyatı", font, firca, 420, 140); 
+                e.Graphics.DrawString("Sipariş Tarihi", font, firca, 60, 140);
+                e.Graphics.DrawString("Ürün Adi", font, firca, 280, 140);
+                e.Graphics.DrawString("Birim Fiyatı", font, firca, 420, 140);
                 e.Graphics.DrawString("Adeti", font, firca, 550, 140);
                 e.Graphics.DrawString("Tutarı", font, firca, 680, 140);
 
@@ -115,7 +135,7 @@ namespace CafeCore.Forms
                     y = y + 40;
                     i = i + 1;
                 }
-                e.Graphics.DrawString($"Toplam Tutar: {DgRaporlar.Rows.Cast<DataGridViewRow>().Sum(row => Convert.ToDecimal(row.Cells[4].Value)):c2}".ToString(), font, firca, 550, y+40);
+                e.Graphics.DrawString($"Toplam Tutar: {DgRaporlar.Rows.Cast<DataGridViewRow>().Sum(row => Convert.ToDecimal(row.Cells[4].Value)):c2}".ToString(), font, firca, 550, y + 40);
             }
             catch (Exception)
             {
@@ -130,12 +150,45 @@ namespace CafeCore.Forms
             {
                 dtpBaslangic.Visible = true;
                 dtpBitis.Visible = true;
+                lblBaslangic.Visible = true;
+                lblBitis.Visible = true;
+
+                rapor = "";
+                secim = 3;
+
             }
             else
             {
                 dtpBitis.Visible = false;
                 dtpBaslangic.Visible = false;
+                lblBitis.Visible = false;
+                lblBaslangic.Visible = false;
+                dtpBaslangic.Value = DateTime.Now;
+                dtpBitis.Value = DateTime.Now;
             }
+        }
+
+        private void dtpBaslangic_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpBaslangic.Value > dtpBitis.Value)
+            {
+                MessageBox.Show("Başlangıç tarihi bitiş tarihinden sonraki bir tarih olamaz!");
+                return;
+            }
+            DgRaporlarDoldur();
+            DgRaporlar.Columns[0].HeaderText = "Sipariş Tarihi";
+        }
+
+        private void dtpBitis_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpBaslangic.Value > dtpBitis.Value)
+            {
+                MessageBox.Show("Bitiş tarihi başlangıç tarihinden önceki bir tarih olamaz!");
+                return;
+            }
+            DgRaporlarDoldur();
+            DgRaporlar.Columns[0].HeaderText = "Sipariş Tarihi";
+
         }
     }
 }

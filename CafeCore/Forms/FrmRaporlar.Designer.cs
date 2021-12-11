@@ -32,10 +32,6 @@ namespace CafeCore.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRaporlar));
             this.label1 = new System.Windows.Forms.Label();
             this.lblToplamTutar = new System.Windows.Forms.Label();
-            this.btnOnceki = new System.Windows.Forms.Button();
-            this.BtnIlk = new System.Windows.Forms.Button();
-            this.btnSon = new System.Windows.Forms.Button();
-            this.btnSonraki = new System.Windows.Forms.Button();
             this.rbGunluk = new System.Windows.Forms.RadioButton();
             this.RbAylik = new System.Windows.Forms.RadioButton();
             this.btnYazdir = new System.Windows.Forms.Button();
@@ -45,6 +41,8 @@ namespace CafeCore.Forms
             this.rbTarihSec = new System.Windows.Forms.RadioButton();
             this.dtpBaslangic = new System.Windows.Forms.DateTimePicker();
             this.dtpBitis = new System.Windows.Forms.DateTimePicker();
+            this.lblBaslangic = new System.Windows.Forms.Label();
+            this.lblBitis = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgRaporlar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,61 +50,26 @@ namespace CafeCore.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(418, 350);
+            this.label1.Location = new System.Drawing.Point(243, 389);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 21);
+            this.label1.Size = new System.Drawing.Size(109, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Toplam Tutar";
+            this.label1.Text = "Toplam Tutar:";
+            this.label1.Visible = false;
             // 
             // lblToplamTutar
             // 
             this.lblToplamTutar.AutoSize = true;
             this.lblToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblToplamTutar.Location = new System.Drawing.Point(548, 350);
+            this.lblToplamTutar.Location = new System.Drawing.Point(353, 389);
             this.lblToplamTutar.Name = "lblToplamTutar";
             this.lblToplamTutar.Size = new System.Drawing.Size(0, 21);
             this.lblToplamTutar.TabIndex = 2;
             // 
-            // btnOnceki
-            // 
-            this.btnOnceki.Location = new System.Drawing.Point(91, 377);
-            this.btnOnceki.Name = "btnOnceki";
-            this.btnOnceki.Size = new System.Drawing.Size(73, 56);
-            this.btnOnceki.TabIndex = 3;
-            this.btnOnceki.Text = "Önceki";
-            this.btnOnceki.UseVisualStyleBackColor = true;
-            // 
-            // BtnIlk
-            // 
-            this.BtnIlk.Location = new System.Drawing.Point(12, 376);
-            this.BtnIlk.Name = "BtnIlk";
-            this.BtnIlk.Size = new System.Drawing.Size(73, 56);
-            this.BtnIlk.TabIndex = 3;
-            this.BtnIlk.Text = "İlk";
-            this.BtnIlk.UseVisualStyleBackColor = true;
-            // 
-            // btnSon
-            // 
-            this.btnSon.Location = new System.Drawing.Point(339, 376);
-            this.btnSon.Name = "btnSon";
-            this.btnSon.Size = new System.Drawing.Size(73, 56);
-            this.btnSon.TabIndex = 3;
-            this.btnSon.Text = "Son";
-            this.btnSon.UseVisualStyleBackColor = true;
-            // 
-            // btnSonraki
-            // 
-            this.btnSonraki.Location = new System.Drawing.Point(260, 376);
-            this.btnSonraki.Name = "btnSonraki";
-            this.btnSonraki.Size = new System.Drawing.Size(73, 56);
-            this.btnSonraki.TabIndex = 3;
-            this.btnSonraki.Text = "Sonraki";
-            this.btnSonraki.UseVisualStyleBackColor = true;
-            // 
             // rbGunluk
             // 
             this.rbGunluk.AutoSize = true;
-            this.rbGunluk.Location = new System.Drawing.Point(462, 38);
+            this.rbGunluk.Location = new System.Drawing.Point(430, 36);
             this.rbGunluk.Name = "rbGunluk";
             this.rbGunluk.Size = new System.Drawing.Size(131, 19);
             this.rbGunluk.TabIndex = 4;
@@ -117,7 +80,7 @@ namespace CafeCore.Forms
             // RbAylik
             // 
             this.RbAylik.AutoSize = true;
-            this.RbAylik.Location = new System.Drawing.Point(462, 77);
+            this.RbAylik.Location = new System.Drawing.Point(430, 74);
             this.RbAylik.Name = "RbAylik";
             this.RbAylik.Size = new System.Drawing.Size(119, 19);
             this.RbAylik.TabIndex = 4;
@@ -127,9 +90,9 @@ namespace CafeCore.Forms
             // 
             // btnYazdir
             // 
-            this.btnYazdir.Location = new System.Drawing.Point(430, 249);
+            this.btnYazdir.Location = new System.Drawing.Point(430, 239);
             this.btnYazdir.Name = "btnYazdir";
-            this.btnYazdir.Size = new System.Drawing.Size(228, 81);
+            this.btnYazdir.Size = new System.Drawing.Size(174, 132);
             this.btnYazdir.TabIndex = 5;
             this.btnYazdir.Text = "Yazdır";
             this.btnYazdir.UseVisualStyleBackColor = true;
@@ -167,7 +130,7 @@ namespace CafeCore.Forms
             // rbTarihSec
             // 
             this.rbTarihSec.AutoSize = true;
-            this.rbTarihSec.Location = new System.Drawing.Point(462, 112);
+            this.rbTarihSec.Location = new System.Drawing.Point(430, 112);
             this.rbTarihSec.Name = "rbTarihSec";
             this.rbTarihSec.Size = new System.Drawing.Size(108, 19);
             this.rbTarihSec.TabIndex = 4;
@@ -177,26 +140,50 @@ namespace CafeCore.Forms
             // 
             // dtpBaslangic
             // 
-            this.dtpBaslangic.Location = new System.Drawing.Point(430, 146);
+            this.dtpBaslangic.Location = new System.Drawing.Point(496, 150);
             this.dtpBaslangic.Name = "dtpBaslangic";
-            this.dtpBaslangic.Size = new System.Drawing.Size(200, 23);
+            this.dtpBaslangic.Size = new System.Drawing.Size(108, 23);
             this.dtpBaslangic.TabIndex = 7;
             this.dtpBaslangic.Visible = false;
+            this.dtpBaslangic.ValueChanged += new System.EventHandler(this.dtpBaslangic_ValueChanged);
             // 
             // dtpBitis
             // 
-            this.dtpBitis.Location = new System.Drawing.Point(430, 194);
+            this.dtpBitis.Location = new System.Drawing.Point(496, 192);
             this.dtpBitis.Name = "dtpBitis";
-            this.dtpBitis.Size = new System.Drawing.Size(200, 23);
+            this.dtpBitis.Size = new System.Drawing.Size(108, 23);
             this.dtpBitis.TabIndex = 7;
             this.dtpBitis.Visible = false;
+            this.dtpBitis.ValueChanged += new System.EventHandler(this.dtpBitis_ValueChanged);
+            // 
+            // lblBaslangic
+            // 
+            this.lblBaslangic.AutoSize = true;
+            this.lblBaslangic.Location = new System.Drawing.Point(430, 156);
+            this.lblBaslangic.Name = "lblBaslangic";
+            this.lblBaslangic.Size = new System.Drawing.Size(57, 15);
+            this.lblBaslangic.TabIndex = 8;
+            this.lblBaslangic.Text = "Başlangıç";
+            this.lblBaslangic.Visible = false;
+            // 
+            // lblBitis
+            // 
+            this.lblBitis.AutoSize = true;
+            this.lblBitis.Location = new System.Drawing.Point(446, 198);
+            this.lblBitis.Name = "lblBitis";
+            this.lblBitis.Size = new System.Drawing.Size(29, 15);
+            this.lblBitis.TabIndex = 8;
+            this.lblBitis.Text = "Bitiş";
+            this.lblBitis.Visible = false;
             // 
             // FrmRaporlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.ClientSize = new System.Drawing.Size(669, 450);
+            this.ClientSize = new System.Drawing.Size(616, 422);
+            this.Controls.Add(this.lblBitis);
+            this.Controls.Add(this.lblBaslangic);
             this.Controls.Add(this.dtpBitis);
             this.Controls.Add(this.dtpBaslangic);
             this.Controls.Add(this.DgRaporlar);
@@ -204,10 +191,6 @@ namespace CafeCore.Forms
             this.Controls.Add(this.rbTarihSec);
             this.Controls.Add(this.RbAylik);
             this.Controls.Add(this.rbGunluk);
-            this.Controls.Add(this.btnSonraki);
-            this.Controls.Add(this.btnSon);
-            this.Controls.Add(this.BtnIlk);
-            this.Controls.Add(this.btnOnceki);
             this.Controls.Add(this.lblToplamTutar);
             this.Controls.Add(this.label1);
             this.Name = "FrmRaporlar";
@@ -221,10 +204,6 @@ namespace CafeCore.Forms
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblToplamTutar;
-        private System.Windows.Forms.Button btnOnceki;
-        private System.Windows.Forms.Button BtnIlk;
-        private System.Windows.Forms.Button btnSon;
-        private System.Windows.Forms.Button btnSonraki;
         private System.Windows.Forms.RadioButton rbGunluk;
         private System.Windows.Forms.RadioButton RbAylik;
         private System.Windows.Forms.Button btnYazdir;
@@ -234,5 +213,7 @@ namespace CafeCore.Forms
         private System.Windows.Forms.RadioButton rbTarihSec;
         private System.Windows.Forms.DateTimePicker dtpBaslangic;
         private System.Windows.Forms.DateTimePicker dtpBitis;
+        private System.Windows.Forms.Label lblBaslangic;
+        private System.Windows.Forms.Label lblBitis;
     }
 }
