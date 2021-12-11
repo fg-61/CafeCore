@@ -114,7 +114,6 @@ namespace CafeCore.Forms
 
         private void BtnUrun_Click(object sender, EventArgs e)
         {
-            _seciliMasa.Durum = true;
             Button btnUrun = sender as Button;
             _seciliUrun = btnUrun.Tag as Urun;
 
@@ -130,6 +129,7 @@ namespace CafeCore.Forms
                     UrunId = _seciliUrun.Id,
                     MasaId = _seciliMasa.Id,
                 };
+                _dbContext.Masalar.FirstOrDefault(x => x.Id == yeni.MasaId).Durum = true;                
                 _dbContext.Siparisler.Add(yeni);
             }
             else
@@ -165,7 +165,7 @@ namespace CafeCore.Forms
                     _dbContext.Siparisler.Remove(sepetSiparis);
                     lstSepet.Items.Remove(lstSepet.Items[i]);
                 }
-                _seciliMasa.Durum = false;
+                _dbContext.Masalar.FirstOrDefault(x => x.Id == _seciliMasa.Id).Durum = false;
                 _dbContext.SaveChanges();
             }
             catch (Exception ex)
