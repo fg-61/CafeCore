@@ -57,7 +57,7 @@ namespace CafeCore.Forms
 
         private Kategori _seciliKategori;
         private Urun _seciliUrun;
-
+        private Siparis _seciliSiparis; // listedeki siparisi tutmak icin
 
         private void BtnKategori_Click(object sender, EventArgs e)
         {
@@ -89,7 +89,6 @@ namespace CafeCore.Forms
             var toplamFiyat = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id).Sum(x => x.AraToplam);
             txtToplam.Text = $"{toplamFiyat:c2}";
 
-
             lstSepet.Columns.Clear();
             lstSepet.Items.Clear();
             lstSepet.MultiSelect = false;
@@ -115,10 +114,11 @@ namespace CafeCore.Forms
 
         private void BtnUrun_Click(object sender, EventArgs e)
         {
+            _seciliMasa.Durum = true;
             Button btnUrun = sender as Button;
             _seciliUrun = btnUrun.Tag as Urun;
 
-            var sepetUrun = _dbContext.Siparisler.FirstOrDefault(x => x.Urun.Id == _seciliUrun.Id && x.MasaId == _seciliMasa.Id && x.IsDeleted != false);
+            var sepetUrun = _dbContext.Siparisler.FirstOrDefault(x => x.Urun.Id == _seciliUrun.Id && x.MasaId == _seciliMasa.Id && x.IsDeleted == false);
 
             if (sepetUrun == null)
             {
@@ -155,7 +155,24 @@ namespace CafeCore.Forms
 
         private void btnHesapIptal_Click(object sender, EventArgs e)
         {
-
+            if (lstSepet.Items.Count == 0) return;
+            try
+            {
+                int i = 0;
+                while (i < lstSepet.Items.Count)
+                {
+                    Siparis sepetSiparis = lstSepet.Items[i].Tag as Siparis;
+                    _dbContext.Siparisler.Remove(sepetSiparis);
+                    lstSepet.Items.Remove(lstSepet.Items[i]);
+                }
+                _seciliMasa.Durum = false;
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                _dbContext = new CafeContext();
+            }
         }
 
     }
