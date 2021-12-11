@@ -20,8 +20,12 @@ namespace CafeCore.Forms
         {
             InitializeComponent();
         }
+
         public Masa _seciliMasa;
         private CafeContext _dbContext = new CafeContext();
+        private SiparisRepo _siparisRepo = new SiparisRepo();
+
+
         Color defaultColor = Color.LightGray;
 
 
@@ -88,7 +92,7 @@ namespace CafeCore.Forms
         }
         private void SepetiDoldur()
         {
-            var toplamFiyat = _siparis.Sum(x => x.AraToplam);
+            var toplamFiyat = _siparisRepo.Get(x => x.MasaId == _seciliMasa.Id).Sum(x => x.AraToplam);
             txtToplam.Text = $"{toplamFiyat:c2}";
 
 
@@ -105,7 +109,7 @@ namespace CafeCore.Forms
             lstSepet.Columns[2].Width = 147;
 
             var siparisView = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id).ToList();
-            foreach (var item in _siparis)
+            foreach (var item in siparisView)
             {
                 ListViewItem viewItem = new ListViewItem(item.Adet.ToString());
                 viewItem.Tag = item;
@@ -115,62 +119,33 @@ namespace CafeCore.Forms
             }
         }
 
-
-        private List<Siparis> _siparis = new List<Siparis>();
         private void BtnUrun_Click(object sender, EventArgs e)
         {
             Button btnUrun = sender as Button;
             _seciliUrun = btnUrun.Tag as Urun;
 
-            var sepetUrun = _siparis.FirstOrDefault(x => x.Urun.Id == _seciliUrun.Id);
+            var sepetUrun = _siparisRepo.Get().FirstOrDefault(x => x.Urun.Id == _seciliUrun.Id && x.MasaId == _seciliMasa.Id);
 
             if (sepetUrun == null)
             {
                 var yeni = new Siparis()
                 {
                     Adet = 1,
-                    Urun = _seciliUrun,
-                    Masa = _seciliMasa,
-                    MasaId = _seciliMasa.Id
+                    Fiyat = _seciliUrun.Fiyat,
+                    UrunId = _seciliUrun.Id,
+                    MasaId = _seciliMasa.Id,
                 };
-                _siparis.Add(yeni);
-                _dbContext.Siparisler.Add(yeni);
+                _siparisRepo.Add(yeni);
             }
             else
             {
                 sepetUrun.Adet++;
-                _dbContext = new CafeContext();
+                _siparisRepo.Update(sepetUrun);
             }
 
-            _dbContext.SaveChanges();
+            //_dbContext.SaveChanges();
             SepetiDoldur();
         }
-
-
-
-
-        private void SepetiKaydet()
-        {
-            if (!_siparis.Any()) return;
-            using (var tran = _dbContext.Database.BeginTransaction())
-            {
-                try
-                {
-
-                    tran.Commit();
-                    MessageBox.Show($"{_siparis.Sum(x => x.AraToplam):c2} tutarındaki siparişiniz {_seciliMasa.No} nolu masadaki siparişiniz başarıyla kaydedilmiştir");
-                    _siparis = new List<Siparis>();
-                    SepetiDoldur();
-                }
-                catch (Exception ex)
-                {
-                    tran.Rollback();
-                    MessageBox.Show("Sipariş işleminizde bir hata oluştu " + ex.Message);
-                    _dbContext = new();
-                }
-            }
-        }
-
 
         private FrmMasalar _frmMasalar;
         private void btnGeri_Click(object sender, EventArgs e)

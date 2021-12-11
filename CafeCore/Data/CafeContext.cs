@@ -65,6 +65,9 @@ namespace CafeCore.Data
             modelBuilder.Entity<Urun>()
                 .Property(x => x.Fiyat)
                 .HasPrecision(8, 2);
+            modelBuilder.Entity<Siparis>()
+                .Property(x => x.Fiyat)
+                .HasPrecision(8, 2);
         }
 
     }

@@ -12,8 +12,11 @@ namespace CafeCore.Model
 
         [Required]
         public int Adet { get; set; }
+        [Required]
+        public decimal Fiyat { get; set; }
+
         [NotMapped]
-        public decimal AraToplam { get => Adet * Urun.Fiyat;}
+        public decimal AraToplam { get => Adet * Fiyat;}
         [Required]
         public int MasaId { get; set; }
         [ForeignKey(nameof(MasaId))]
