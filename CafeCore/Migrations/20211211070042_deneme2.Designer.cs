@@ -4,14 +4,16 @@ using CafeCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CafeCore.Migrations
 {
     [DbContext(typeof(CafeContext))]
-    partial class CafeContextModelSnapshot : ModelSnapshot
+    [Migration("20211211070042_deneme2")]
+    partial class deneme2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,10 +134,6 @@ namespace CafeCore.Migrations
                     b.Property<int>("Adet")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("AraToplam")
-                        .HasPrecision(11, 2)
-                        .HasColumnType("decimal(11,2)");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -192,9 +190,14 @@ namespace CafeCore.Migrations
                     b.Property<int>("KategoriId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SiparisId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("KategoriId");
+
+                    b.HasIndex("SiparisId");
 
                     b.ToTable("Urunler");
                 });
@@ -237,6 +240,10 @@ namespace CafeCore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CafeCore.Model.Siparis", null)
+                        .WithMany("Urunler")
+                        .HasForeignKey("SiparisId");
+
                     b.Navigation("Kategori");
                 });
 
@@ -253,6 +260,11 @@ namespace CafeCore.Migrations
             modelBuilder.Entity("CafeCore.Model.Masa", b =>
                 {
                     b.Navigation("Siparisler");
+                });
+
+            modelBuilder.Entity("CafeCore.Model.Siparis", b =>
+                {
+                    b.Navigation("Urunler");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,15 +1,10 @@
 ﻿using CafeCore.Data;
 using CafeCore.Model;
-using CafeCore.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CafeCore.Forms
@@ -23,7 +18,6 @@ namespace CafeCore.Forms
 
         public Masa _seciliMasa;
         private CafeContext _dbContext = new CafeContext();
-        private SiparisRepo _siparisRepo = new SiparisRepo();
 
 
         Color defaultColor = Color.LightGray;
@@ -92,7 +86,7 @@ namespace CafeCore.Forms
         }
         private void SepetiDoldur()
         {
-            var toplamFiyat = _siparisRepo.Get(x => x.MasaId == _seciliMasa.Id).Sum(x => x.AraToplam);
+            var toplamFiyat = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id).Sum(x => x.AraToplam);
             txtToplam.Text = $"{toplamFiyat:c2}";
 
 
@@ -124,7 +118,7 @@ namespace CafeCore.Forms
             Button btnUrun = sender as Button;
             _seciliUrun = btnUrun.Tag as Urun;
 
-            var sepetUrun = _siparisRepo.Get().FirstOrDefault(x => x.Urun.Id == _seciliUrun.Id && x.MasaId == _seciliMasa.Id);
+            var sepetUrun = _dbContext.Siparisler.FirstOrDefault(x => x.Urun.Id == _seciliUrun.Id && x.MasaId == _seciliMasa.Id);
 
             if (sepetUrun == null)
             {
@@ -132,18 +126,19 @@ namespace CafeCore.Forms
                 {
                     Adet = 1,
                     Fiyat = _seciliUrun.Fiyat,
+                    AraToplam = _seciliUrun.Fiyat * 1,
                     UrunId = _seciliUrun.Id,
                     MasaId = _seciliMasa.Id,
                 };
-                _siparisRepo.Add(yeni);
+                _dbContext.Siparisler.Add(yeni);
             }
             else
             {
                 sepetUrun.Adet++;
-                _siparisRepo.Update(sepetUrun);
+                sepetUrun.AraToplam = sepetUrun.Adet * sepetUrun.Fiyat;
+                _dbContext.Siparisler.Update(sepetUrun);
             }
-
-            //_dbContext.SaveChanges();
+            _dbContext.SaveChanges();
             SepetiDoldur();
         }
 

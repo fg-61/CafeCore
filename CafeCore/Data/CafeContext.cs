@@ -68,6 +68,9 @@ namespace CafeCore.Data
             modelBuilder.Entity<Siparis>()
                 .Property(x => x.Fiyat)
                 .HasPrecision(8, 2);
+            modelBuilder.Entity<Siparis>()
+                .Property(x => x.AraToplam)
+                .HasPrecision(11, 2);
         }
 
     }
