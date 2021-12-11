@@ -118,7 +118,7 @@ namespace CafeCore.Forms
             Button btnUrun = sender as Button;
             _seciliUrun = btnUrun.Tag as Urun;
 
-            var sepetUrun = _dbContext.Siparisler.FirstOrDefault(x => x.Urun.Id == _seciliUrun.Id && x.MasaId == _seciliMasa.Id);
+            var sepetUrun = _dbContext.Siparisler.FirstOrDefault(x => x.Urun.Id == _seciliUrun.Id && x.MasaId == _seciliMasa.Id && x.IsDeleted != false);
 
             if (sepetUrun == null)
             {
@@ -152,5 +152,11 @@ namespace CafeCore.Forms
             _frmMasalar.Show();
             this.Hide();
         }
+
+        private void btnHesapIptal_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
