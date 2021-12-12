@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace CafeCore.Forms
 {
     public partial class FrmKategoriUrunEkle : Form
@@ -83,37 +84,19 @@ namespace CafeCore.Forms
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.';
         }
-        private void btnKategoriEkle_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var yeni = new Kategori
-                {
-                    Ad = txtKategoriAd.Text,
-                    SiraNo = int.Parse(txtKategoriSiraNo.Text)
-                };
 
-                _dbContext.Kategoriler.Add(yeni);
-                _dbContext.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
-            }
-            finally
-            {
-                ListeyiDoldur();
-            }
-        }
         private Kategori _seciliKategori;
         private void btnKategoriSil_Click(object sender, EventArgs e)
         {
+
+
+
+
             if (lstKategori.SelectedItems.Count == 0) return;
-            _seciliKategori = lstKategori.SelectedItems[0].Tag as Kategori;
+            _seciliKategori1 = lstKategori.SelectedItems[0].Tag as Kategori;
             try
             {
-                var Kategori = _dbContext.Kategoriler.Find(_seciliKategori.Id);
+                var Kategori = _dbContext.Kategoriler.Find(_seciliKategori1.Id);
                 _dbContext.Kategoriler.Remove(Kategori);
 
                 _dbContext.SaveChanges();
@@ -133,14 +116,14 @@ namespace CafeCore.Forms
         private void btnKategoriGuncelle_Click(object sender, EventArgs e)
         {
             if (lstKategori.SelectedItems.Count == 0) return;
-            _seciliKategori = lstKategori.SelectedItems[0].Tag as Kategori;
+            _seciliKategori1 = lstKategori.SelectedItems[0].Tag as Kategori;
 
             try
             {
-                _seciliKategori.Ad = txtKategoriAd.Text;
-                _seciliKategori.SiraNo = int.Parse(txtKategoriSiraNo.Text);
+                _seciliKategori1.Ad = txtKategoriAd.Text;
+                _seciliKategori1.SiraNo = int.Parse(txtKategoriSiraNo.Text);
 
-                _dbContext.Kategoriler.Update(_seciliKategori);
+                _dbContext.Kategoriler.Update(_seciliKategori1);
                 _dbContext.SaveChanges();
             }
 
@@ -157,30 +140,7 @@ namespace CafeCore.Forms
                 ListeyiDoldur();
             }
         }
-        private void btnUrunEkle_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var yeni = new Urun
-                {
-                    Kategori = (cmbKategoriAdi.SelectedItem as Kategori),
-                    Ad = txtUrunAdi.Text,
-                    Fiyat = Decimal.Parse(txtUrunFiyat.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture)
-                };
 
-                _dbContext.Urunler.Add(yeni);
-                _dbContext.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
-            }
-            finally
-            {
-                ListeyiDoldur();
-            }
-        }
         private Urun _seciliUrun;
         private void btnUrunSil_Click(object sender, EventArgs e)
         {
@@ -203,42 +163,15 @@ namespace CafeCore.Forms
                 ListeyiDoldur();
             }
         }
-        private void btnUrunGuncelle_Click(object sender, EventArgs e)
-        {
-            if (lstUrun.SelectedItems.Count == 0) return;
-            _seciliUrun = lstUrun.SelectedItems[0].Tag as Urun;
-
-            try
-            {
-                _seciliUrun.Kategori = (cmbKategoriAdi.SelectedItem as Kategori);
-                _seciliUrun.Ad = txtUrunAdi.Text;
-                _seciliUrun.Fiyat = Decimal.Parse(txtUrunFiyat.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
-
-                _dbContext.Urunler.Update(_seciliUrun);
-                _dbContext.SaveChanges();
-            }
-
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
-            }
-
-            finally
-            {
-                ListeyiDoldur();
-            }
-        }
+       
 
         private void lstKategori_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstKategori.SelectedItems.Count == 0) return;
-            _seciliKategori = lstKategori.SelectedItems[0].Tag as Kategori;
+            _seciliKategori1 = lstKategori.SelectedItems[0].Tag as Kategori;
 
-            txtKategoriAd.Text = _seciliKategori.Ad;
-            txtKategoriSiraNo.Text = _seciliKategori.SiraNo.ToString();
+            txtKategoriAd.Text = _seciliKategori1.Ad;
+            txtKategoriSiraNo.Text = _seciliKategori1.SiraNo.ToString();
 
         }
 
@@ -256,18 +189,11 @@ namespace CafeCore.Forms
         private void cmbKategoriAdi_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbKategoriAdi.SelectedItem != null) return;
-            _seciliKategori = cmbKategoriAdi.SelectedItem as Kategori;
+            _seciliKategori1 = cmbKategoriAdi.SelectedItem as Kategori;
 
         }
 
-        private void btnMenuEkleGeri_Click(object sender, EventArgs e)
-        {
-            Giris frmGirisMenu = new Giris();
-            frmGirisMenu.Show();
-            this.Hide();
 
-
-        }
 
         private string _eskiText;
         private void txtKategoriAd_TextChanged(object sender, EventArgs e)
@@ -291,7 +217,7 @@ namespace CafeCore.Forms
             }
             if (txtKategoriSiraNo.Text.Length == 5)
             {
-                txtKategoriSiraNo.Text = _eskiText; 
+                txtKategoriSiraNo.Text = _eskiText;
                 MessageBox.Show("En fazla 4 basamaklı sayı girişi yapılabilmektedir. Lütfen tekrar giriş yapınız.");
             }
         }
@@ -321,5 +247,179 @@ namespace CafeCore.Forms
                 MessageBox.Show("En fazla 6 basamaklı sayı girişi yapılabilmektedir. Lütfen tekrar giriş yapınız.");
             }
         }
+
+        private void btnKUAnaSayfa_Click(object sender, EventArgs e)
+        {
+            Giris frmGirisMenu = new Giris();
+            frmGirisMenu.Show();
+            this.Hide();
+        }
+
+        private void btnKategoriEkle1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(_dbContext.Kategoriler.Any(x=>x.Ad.ToLower() == txtKategoriAd.Text.ToLower()))
+                {
+                    throw new Exception("Farklı bir kategori ismi giriniz !!");
+                }
+                if(_dbContext.Kategoriler.Any(x=>x.SiraNo.ToString() == txtKategoriSiraNo.Text))
+                {
+                    throw new Exception("Farklı bir sıra no giriniz !!");
+                }
+
+                var yeni = new Kategori
+                {
+                    Ad = txtKategoriAd.Text,
+                    SiraNo = int.Parse(txtKategoriSiraNo.Text)
+                };
+
+                _dbContext.Kategoriler.Add(yeni);
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                _dbContext = new CafeContext();
+            }
+            finally
+            {
+                ListeyiDoldur();
+            }
+        }
+        private Kategori _seciliKategori1;
+        private void btnKategoriSil1_Click(object sender, EventArgs e)
+        {
+
+            if (lstKategori.SelectedItems.Count == 0) return;
+            _seciliKategori1 = lstKategori.SelectedItems[0].Tag as Kategori;
+            try
+            {
+                var Kategori = _dbContext.Kategoriler.Find(_seciliKategori1.Id);
+                _dbContext.Kategoriler.Remove(Kategori);
+
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                _dbContext = new CafeContext();
+            }
+            finally
+            {
+                ListeyiDoldur();
+            }
+        }
+
+        private void btnKategoriGuncelle1_Click(object sender, EventArgs e)
+        {
+            if (lstKategori.SelectedItems.Count == 0) return;
+            _seciliKategori1 = lstKategori.SelectedItems[0].Tag as Kategori;
+
+            try
+            {
+                _seciliKategori1.Ad = txtKategoriAd.Text;
+                _seciliKategori1.SiraNo = int.Parse(txtKategoriSiraNo.Text);
+
+                _dbContext.Kategoriler.Update(_seciliKategori1);
+                _dbContext.SaveChanges();
+            }
+
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                _dbContext = new CafeContext();
+            }
+
+            finally
+            {
+                ListeyiDoldur();
+            }
+        }
+
+        private void btnUrunEkle1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_dbContext.Urunler.Any(x => x.Ad.ToLower() == txtUrunAdi.Text.ToLower()))
+                {
+                    throw new Exception("Farklı bir ürün ismi giriniz !!");
+                }
+
+                var yeni = new Urun
+                {
+                    Kategori = (cmbKategoriAdi.SelectedItem as Kategori),
+                    Ad = txtUrunAdi.Text,
+                    Fiyat = Decimal.Parse(txtUrunFiyat.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture)
+                };
+
+                _dbContext.Urunler.Add(yeni);
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                _dbContext = new CafeContext();
+            }
+            finally
+            {
+                ListeyiDoldur();
+            }
+        }
+        private Urun _seciliUrun1;
+        private void btnUrunSil1_Click(object sender, EventArgs e)
+        {
+
+            if (lstUrun.SelectedItems.Count == 0) return;
+            _seciliUrun1 = lstUrun.SelectedItems[0].Tag as Urun;
+            try
+            {
+                var Urun = _dbContext.Urunler.Find(_seciliUrun1.Id);
+                _dbContext.Urunler.Remove(Urun);
+
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                _dbContext = new CafeContext();
+            }
+            finally
+            {
+                ListeyiDoldur();
+            }
+        }
+
+        private void btnUrunGuncelle1_Click(object sender, EventArgs e)
+        {
+            if (lstUrun.SelectedItems.Count == 0) return;
+            _seciliUrun1 = lstUrun.SelectedItems[0].Tag as Urun;
+
+            try
+            {
+                _seciliUrun1.Kategori = (cmbKategoriAdi.SelectedItem as Kategori);
+                _seciliUrun1.Ad = txtUrunAdi.Text;
+                _seciliUrun1.Fiyat = Decimal.Parse(txtUrunFiyat.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
+
+                _dbContext.Urunler.Update(_seciliUrun1);
+                _dbContext.SaveChanges();
+            }
+
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                _dbContext = new CafeContext();
+            }
+
+            finally
+            {
+                ListeyiDoldur();
+            }
+        }
     }
+
 }

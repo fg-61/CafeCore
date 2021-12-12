@@ -91,7 +91,8 @@ namespace CafeCore.Forms
 
         }
         private Giris _frmGiris = new Giris();
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void btnMasaAnaSayfa_Click(object sender, EventArgs e)
         {
             if (_frmGiris == null || _frmGiris.IsDisposed)
             {

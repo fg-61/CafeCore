@@ -56,17 +56,34 @@ namespace CafeCore.Forms
         private void lstKat_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstKat.SelectedItems.Count == 0) return;
-            _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
+            _seciliKat1 = lstKat.SelectedItems[0].Tag as Kat;
 
-            txtAd.Text = _seciliKat.Ad;
-            txtKod.Text = _seciliKat.Kodu;
-            txtSiraNo.Text = _seciliKat.SiraNo.ToString();
-            txtMasaSayisi.Text = _seciliKat.MasaSayisi.ToString();
+            txtAd.Text = _seciliKat1.Ad;
+            txtKod.Text = _seciliKat1.Kodu;
+            txtSiraNo.Text = _seciliKat1.SiraNo.ToString();
+            txtMasaSayisi.Text = _seciliKat1.MasaSayisi.ToString();
         }
-        private void btnEkle_Click(object sender, EventArgs e)
+
+
+        private void btnEkle1_Click(object sender, EventArgs e)
         {
             try
             {
+                if (_dbContext.Katlar.Any(x => x.Ad.ToLower() == txtAd.Text.ToLower()))
+                {
+                    throw new Exception("Farklı bir kat adı ismi giriniz !!");
+                }
+                if (_dbContext.Katlar.Any(x => x.Kodu == txtKod.Text.ToLower()))
+                {
+                    throw new Exception("Farklı bir kısaltma kodu giriniz !!");
+                }
+                if(_dbContext.Katlar.Any(x => x.SiraNo.ToString() == txtSiraNo.Text))
+                {
+                    throw new Exception("Farklı bir kat sıra numarası giriniz !!");
+                }
+
+
+
                 var yeniKat = new Kat
                 {
                     Ad = txtAd.Text,
@@ -99,14 +116,15 @@ namespace CafeCore.Forms
                 ListeyiDoldur();
             }
         }
-        private Kat _seciliKat;
-        private void btnSil_Click(object sender, EventArgs e)
+        private Kat _seciliKat1;
+        private void btnSil1_Click(object sender, EventArgs e)
+
         {
             if (lstKat.SelectedItems.Count == 0) return;
-            _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
+            _seciliKat1 = lstKat.SelectedItems[0].Tag as Kat;
             try
             {
-                var Kat = _dbContext.Katlar.Find(_seciliKat.Id);
+                var Kat = _dbContext.Katlar.Find(_seciliKat1.Id);
                 _dbContext.Katlar.Remove(Kat);
 
                 _dbContext.SaveChanges();
@@ -124,19 +142,20 @@ namespace CafeCore.Forms
         }
 
 
-        private void btnGuncelle_Click(object sender, EventArgs e)
+        private void btnGuncelle1_Click(object sender, EventArgs e)
+
         {
             if (lstKat.SelectedItems.Count == 0) return;
-            _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
+            _seciliKat1 = lstKat.SelectedItems[0].Tag as Kat;
 
             try
             {
-                _seciliKat.Ad = txtAd.Text;
-                _seciliKat.Kodu = txtKod.Text;
-                _seciliKat.SiraNo = int.Parse(txtSiraNo.Text);
-                _seciliKat.MasaSayisi = int.Parse(txtMasaSayisi.Text);
+                _seciliKat1.Ad = txtAd.Text;
+                _seciliKat1.Kodu = txtKod.Text;
+                _seciliKat1.SiraNo = int.Parse(txtSiraNo.Text);
+                _seciliKat1.MasaSayisi = int.Parse(txtMasaSayisi.Text);
 
-                _dbContext.Katlar.Update(_seciliKat);
+                _dbContext.Katlar.Update(_seciliKat1);
                 _dbContext.SaveChanges();
             }
 
@@ -154,12 +173,6 @@ namespace CafeCore.Forms
             }
         }
 
-        private void btnKatGeri_Click(object sender, EventArgs e)
-        {
-            Giris frmGiris = new Giris();
-            frmGiris.Show();
-            this.Hide();
-        }
         private string _eskiText = "";
         private void txtAd_TextChanged(object sender, EventArgs e)
         {
@@ -213,5 +226,13 @@ namespace CafeCore.Forms
                 MessageBox.Show("En fazla 6 basamaklı sayı girişi yapılabilmektedir. Lütfen tekrar giriş yapınız.");
             }
         }
+
+        private void btnKattGeri_Click(object sender, EventArgs e)
+        {
+            Giris frmGiris = new Giris();
+            frmGiris.Show();
+            this.Hide();
+        }
+        
     }
 }

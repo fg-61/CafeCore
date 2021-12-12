@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMasalar));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flpKatlar = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMasaAnaSayfa = new ShapedButton.YuvarlakButon();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.flpMasalar = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -69,9 +72,9 @@
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 187F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1114, 723);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(975, 542);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -81,16 +84,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
             this.tableLayoutPanel3.Controls.Add(this.flpKatlar, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button1, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(20, 20);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(20);
+            this.tableLayoutPanel3.Controls.Add(this.btnMasaAnaSayfa, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(18, 15);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1074, 147);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(939, 110);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // flpKatlar
@@ -101,40 +104,46 @@
             this.flpKatlar.Location = new System.Drawing.Point(0, 0);
             this.flpKatlar.Margin = new System.Windows.Forms.Padding(0);
             this.flpKatlar.Name = "flpKatlar";
-            this.flpKatlar.Size = new System.Drawing.Size(878, 147);
+            this.flpKatlar.Size = new System.Drawing.Size(768, 110);
             this.flpKatlar.TabIndex = 2;
             // 
-            // button1
+            // btnMasaAnaSayfa
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.Teal;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(900, 25);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 96);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Ana Menü";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnMasaAnaSayfa.FlatAppearance.BorderSize = 0;
+            this.btnMasaAnaSayfa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMasaAnaSayfa.ImageIndex = 0;
+            this.btnMasaAnaSayfa.ImageList = this.ımageList1;
+            this.btnMasaAnaSayfa.Location = new System.Drawing.Point(771, 3);
+            this.btnMasaAnaSayfa.Name = "btnMasaAnaSayfa";
+            this.btnMasaAnaSayfa.Size = new System.Drawing.Size(154, 104);
+            this.btnMasaAnaSayfa.TabIndex = 0;
+            this.btnMasaAnaSayfa.UseVisualStyleBackColor = true;
+            this.btnMasaAnaSayfa.Click += new System.EventHandler(this.btnMasaAnaSayfa_Click);
+            // 
+            // ımageList1
+            // 
+            this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth16Bit;
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "ana.jpg");
             // 
             // flpMasalar
             // 
             this.flpMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpMasalar.Location = new System.Drawing.Point(11, 194);
-            this.flpMasalar.Margin = new System.Windows.Forms.Padding(11, 7, 11, 13);
+            this.flpMasalar.Location = new System.Drawing.Point(10, 145);
+            this.flpMasalar.Margin = new System.Windows.Forms.Padding(10, 5, 10, 10);
             this.flpMasalar.Name = "flpMasalar";
-            this.flpMasalar.Size = new System.Drawing.Size(1092, 516);
+            this.flpMasalar.Size = new System.Drawing.Size(955, 387);
             this.flpMasalar.TabIndex = 1;
             // 
             // FrmMasalar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 723);
+            this.ClientSize = new System.Drawing.Size(975, 542);
             this.Controls.Add(this.tableLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmMasalar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Masalar";
@@ -153,6 +162,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flpMasalar;
         private System.Windows.Forms.FlowLayoutPanel flpKatlar;
-        private System.Windows.Forms.Button button1;
+        private ShapedButton.YuvarlakButon btnMasaAnaSayfa;
+        private System.Windows.Forms.ImageList ımageList1;
     }
 }
