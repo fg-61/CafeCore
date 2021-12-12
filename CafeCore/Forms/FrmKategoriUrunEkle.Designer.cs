@@ -64,7 +64,7 @@
             this.tcKategoriEkle.Location = new System.Drawing.Point(0, 0);
             this.tcKategoriEkle.Name = "tcKategoriEkle";
             this.tcKategoriEkle.SelectedIndex = 0;
-            this.tcKategoriEkle.Size = new System.Drawing.Size(1006, 539);
+            this.tcKategoriEkle.Size = new System.Drawing.Size(1313, 640);
             this.tcKategoriEkle.TabIndex = 25;
             // 
             // tpKategoriEkle
@@ -82,13 +82,13 @@
             this.tpKategoriEkle.Location = new System.Drawing.Point(4, 54);
             this.tpKategoriEkle.Name = "tpKategoriEkle";
             this.tpKategoriEkle.Padding = new System.Windows.Forms.Padding(3);
-            this.tpKategoriEkle.Size = new System.Drawing.Size(998, 481);
+            this.tpKategoriEkle.Size = new System.Drawing.Size(1305, 582);
             this.tpKategoriEkle.TabIndex = 0;
             this.tpKategoriEkle.Text = "Kategori Ekle";
             // 
             // btnMenuEkleGeri
             // 
-            this.btnMenuEkleGeri.Location = new System.Drawing.Point(895, 11);
+            this.btnMenuEkleGeri.Location = new System.Drawing.Point(1171, -29);
             this.btnMenuEkleGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMenuEkleGeri.Name = "btnMenuEkleGeri";
             this.btnMenuEkleGeri.Size = new System.Drawing.Size(98, 67);
@@ -99,13 +99,14 @@
             // 
             // lstKategori
             // 
+            this.lstKategori.BackColor = System.Drawing.SystemColors.Control;
             this.lstKategori.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstKategori.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstKategori.HideSelection = false;
             this.lstKategori.Location = new System.Drawing.Point(472, 11);
             this.lstKategori.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstKategori.Name = "lstKategori";
-            this.lstKategori.Size = new System.Drawing.Size(416, 459);
+            this.lstKategori.Size = new System.Drawing.Size(609, 515);
             this.lstKategori.TabIndex = 23;
             this.lstKategori.UseCompatibleStateImageBehavior = false;
             this.lstKategori.SelectedIndexChanged += new System.EventHandler(this.lstKategori_SelectedIndexChanged);
@@ -212,7 +213,7 @@
             this.tpUrunEkle.Location = new System.Drawing.Point(4, 54);
             this.tpUrunEkle.Name = "tpUrunEkle";
             this.tpUrunEkle.Padding = new System.Windows.Forms.Padding(3);
-            this.tpUrunEkle.Size = new System.Drawing.Size(998, 481);
+            this.tpUrunEkle.Size = new System.Drawing.Size(1305, 582);
             this.tpUrunEkle.TabIndex = 1;
             this.tpUrunEkle.Text = "Ürün Ekle";
             // 
@@ -341,7 +342,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 539);
+            this.ClientSize = new System.Drawing.Size(1313, 640);
             this.Controls.Add(this.tcKategoriEkle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmKategoriUrunEkle";
