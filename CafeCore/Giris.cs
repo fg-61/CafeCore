@@ -38,5 +38,12 @@ namespace CafeCore
             this.Hide();
             frmMasalar.Show();
         }
+
+        private void btnFrmRaporEkle_Click(object sender, EventArgs e)
+        {
+            FrmRaporlar frmRaporEkle = new FrmRaporlar();
+            this.Hide();
+            frmRaporEkle.Show();
+        }
     }
 }

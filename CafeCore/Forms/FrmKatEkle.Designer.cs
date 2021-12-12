@@ -159,7 +159,6 @@ namespace CafeCore.Forms
             this.txtSiraNo.Size = new System.Drawing.Size(207, 25);
             this.txtSiraNo.TabIndex = 3;
             this.txtSiraNo.TextChanged += new System.EventHandler(this.txtSiraNo_TextChanged);
-            this.txtSiraNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSiraNo_KeyPress);
             // 
             // txtMasaSayisi
             // 
@@ -169,7 +168,6 @@ namespace CafeCore.Forms
             this.txtMasaSayisi.Size = new System.Drawing.Size(207, 25);
             this.txtMasaSayisi.TabIndex = 4;
             this.txtMasaSayisi.TextChanged += new System.EventHandler(this.txtMasaSayisi_TextChanged);
-            this.txtMasaSayisi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMasaSayisi_KeyPress);
             // 
             // lstKat
             // 
@@ -204,6 +202,8 @@ namespace CafeCore.Forms
             this.ımageList1.Images.SetKeyName(1, "ekle.jpg");
             this.ımageList1.Images.SetKeyName(2, "sil.jpg");
             this.ımageList1.Images.SetKeyName(3, "update.png");
+            this.ımageList1.Images.SetKeyName(4, "WhatsApp Image 2021-12-12 at 16.53.10.jpeg");
+            this.ımageList1.Images.SetKeyName(5, "efso.jpg");
             // 
             // pictureBox1
             // 
@@ -219,7 +219,7 @@ namespace CafeCore.Forms
             // 
             this.btnGuncelle1.FlatAppearance.BorderSize = 0;
             this.btnGuncelle1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuncelle1.ImageIndex = 3;
+            this.btnGuncelle1.ImageIndex = 5;
             this.btnGuncelle1.ImageList = this.ımageList1;
             this.btnGuncelle1.Location = new System.Drawing.Point(307, 302);
             this.btnGuncelle1.Name = "btnGuncelle1";
@@ -258,6 +258,7 @@ namespace CafeCore.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(880, 404);
             this.Controls.Add(this.btnGuncelle1);
             this.Controls.Add(this.btnSil1);

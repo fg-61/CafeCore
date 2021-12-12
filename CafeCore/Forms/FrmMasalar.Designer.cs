@@ -63,6 +63,7 @@
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
@@ -84,7 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
             this.tableLayoutPanel3.Controls.Add(this.flpKatlar, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnMasaAnaSayfa, 1, 0);
@@ -99,25 +100,27 @@
             // flpKatlar
             // 
             this.flpKatlar.AutoScroll = true;
+            this.flpKatlar.BackColor = System.Drawing.Color.White;
             this.flpKatlar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpKatlar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpKatlar.Location = new System.Drawing.Point(0, 0);
             this.flpKatlar.Margin = new System.Windows.Forms.Padding(0);
             this.flpKatlar.Name = "flpKatlar";
-            this.flpKatlar.Size = new System.Drawing.Size(768, 110);
+            this.flpKatlar.Size = new System.Drawing.Size(818, 110);
             this.flpKatlar.TabIndex = 2;
             // 
             // btnMasaAnaSayfa
             // 
+            this.btnMasaAnaSayfa.BackColor = System.Drawing.Color.White;
             this.btnMasaAnaSayfa.FlatAppearance.BorderSize = 0;
             this.btnMasaAnaSayfa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMasaAnaSayfa.ImageIndex = 0;
             this.btnMasaAnaSayfa.ImageList = this.ımageList1;
-            this.btnMasaAnaSayfa.Location = new System.Drawing.Point(771, 3);
+            this.btnMasaAnaSayfa.Location = new System.Drawing.Point(821, 3);
             this.btnMasaAnaSayfa.Name = "btnMasaAnaSayfa";
-            this.btnMasaAnaSayfa.Size = new System.Drawing.Size(154, 104);
+            this.btnMasaAnaSayfa.Size = new System.Drawing.Size(104, 104);
             this.btnMasaAnaSayfa.TabIndex = 0;
-            this.btnMasaAnaSayfa.UseVisualStyleBackColor = true;
+            this.btnMasaAnaSayfa.UseVisualStyleBackColor = false;
             this.btnMasaAnaSayfa.Click += new System.EventHandler(this.btnMasaAnaSayfa_Click);
             // 
             // ımageList1
@@ -129,6 +132,7 @@
             // 
             // flpMasalar
             // 
+            this.flpMasalar.BackColor = System.Drawing.Color.White;
             this.flpMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpMasalar.Location = new System.Drawing.Point(10, 145);
             this.flpMasalar.Margin = new System.Windows.Forms.Padding(10, 5, 10, 10);

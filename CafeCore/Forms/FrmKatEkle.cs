@@ -112,15 +112,15 @@ namespace CafeCore.Forms
                 ListeyiDoldur();
             }
         }
-        private Kat _seciliKat1;
+        private Kat _seciliKat;
         private void btnSil1_Click(object sender, EventArgs e)
 
         {
             if (lstKat.SelectedItems.Count == 0) return;
-            _seciliKat1 = lstKat.SelectedItems[0].Tag as Kat;
+            _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
             try
             {
-                var Kat = _dbContext.Katlar.Find(_seciliKat1.Id);
+                var Kat = _dbContext.Katlar.Find(_seciliKat.Id);
                 _dbContext.Katlar.Remove(Kat);
 
                 _dbContext.SaveChanges();
@@ -141,16 +141,16 @@ namespace CafeCore.Forms
 
         {
             if (lstKat.SelectedItems.Count == 0) return;
-            _seciliKat1 = lstKat.SelectedItems[0].Tag as Kat;
+            _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
 
             try
             {
-                _seciliKat1.Ad = txtAd.Text;
-                _seciliKat1.Kodu = txtKod.Text;
-                _seciliKat1.SiraNo = int.Parse(txtSiraNo.Text);
-                _seciliKat1.MasaSayisi = int.Parse(txtMasaSayisi.Text);
+                _seciliKat.Ad = txtAd.Text;
+                _seciliKat.Kodu = txtKod.Text;
+                _seciliKat.SiraNo = int.Parse(txtSiraNo.Text);
+                _seciliKat.MasaSayisi = int.Parse(txtMasaSayisi.Text);
 
-                _dbContext.Katlar.Update(_seciliKat1);
+                _dbContext.Katlar.Update(_seciliKat);
                 _dbContext.SaveChanges();
             }
             catch (Exception ex)

@@ -21,7 +21,7 @@ namespace CafeCore.Forms
             ListeyiDoldur();
         }
         private void KategoriListeDoldur()
-        {4
+        {
             lstKategori.Columns.Clear();
             lstKategori.Items.Clear();
             lstKategori.MultiSelect = false;

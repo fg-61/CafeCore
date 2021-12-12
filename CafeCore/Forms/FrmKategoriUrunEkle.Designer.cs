@@ -75,7 +75,7 @@
             // 
             // tpKategoriEkle
             // 
-            this.tpKategoriEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.tpKategoriEkle.BackColor = System.Drawing.Color.White;
             this.tpKategoriEkle.Controls.Add(this.btnKategoriGuncelle1);
             this.tpKategoriEkle.Controls.Add(this.btnKategoriSil1);
             this.tpKategoriEkle.Controls.Add(this.btnKategoriEkle1);
@@ -88,7 +88,7 @@
             this.tpKategoriEkle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpKategoriEkle.Name = "tpKategoriEkle";
             this.tpKategoriEkle.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpKategoriEkle.Size = new System.Drawing.Size(872, 285);
+            this.tpKategoriEkle.Size = new System.Drawing.Size(872, 287);
             this.tpKategoriEkle.TabIndex = 0;
             this.tpKategoriEkle.Text = "Kategori Ekle";
             // 
@@ -96,7 +96,7 @@
             // 
             this.btnKategoriGuncelle1.FlatAppearance.BorderSize = 0;
             this.btnKategoriGuncelle1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKategoriGuncelle1.ImageIndex = 3;
+            this.btnKategoriGuncelle1.ImageIndex = 4;
             this.btnKategoriGuncelle1.ImageList = this.ımageList1;
             this.btnKategoriGuncelle1.Location = new System.Drawing.Point(298, 195);
             this.btnKategoriGuncelle1.Name = "btnKategoriGuncelle1";
@@ -114,6 +114,7 @@
             this.ımageList1.Images.SetKeyName(1, "ekle.jpg");
             this.ımageList1.Images.SetKeyName(2, "sil.jpg");
             this.ımageList1.Images.SetKeyName(3, "update.png");
+            this.ımageList1.Images.SetKeyName(4, "efso.jpg");
             // 
             // btnKategoriSil1
             // 
@@ -143,7 +144,7 @@
             // 
             // lstKategori
             // 
-            this.lstKategori.BackColor = System.Drawing.SystemColors.Control;
+            this.lstKategori.BackColor = System.Drawing.Color.White;
             this.lstKategori.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstKategori.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstKategori.HideSelection = false;
@@ -195,7 +196,7 @@
             // 
             // tpUrunEkle
             // 
-            this.tpUrunEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.tpUrunEkle.BackColor = System.Drawing.Color.White;
             this.tpUrunEkle.Controls.Add(this.btnUrunGuncelle1);
             this.tpUrunEkle.Controls.Add(this.btnUrunSil1);
             this.tpUrunEkle.Controls.Add(this.btnUrunEkle1);
@@ -218,7 +219,7 @@
             // 
             this.btnUrunGuncelle1.FlatAppearance.BorderSize = 0;
             this.btnUrunGuncelle1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUrunGuncelle1.ImageIndex = 3;
+            this.btnUrunGuncelle1.ImageIndex = 4;
             this.btnUrunGuncelle1.ImageList = this.ımageList1;
             this.btnUrunGuncelle1.Location = new System.Drawing.Point(298, 195);
             this.btnUrunGuncelle1.Name = "btnUrunGuncelle1";
@@ -355,6 +356,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(880, 404);
             this.Controls.Add(this.btnKUAnaSayfa);
             this.Controls.Add(this.pictureBox1);
