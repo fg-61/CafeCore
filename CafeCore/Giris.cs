@@ -18,32 +18,50 @@ namespace CafeCore
             InitializeComponent();
         }
 
+        
+        private FrmKatEkle _frmKatEkle;
+
         private void btnfrmKatEkle_Click(object sender, EventArgs e)
         {
-            FrmKatEkle frmKatEkle = new FrmKatEkle();
+            if (_frmKatEkle == null)
+            {
+                _frmKatEkle = new FrmKatEkle();
+            }
+            _frmKatEkle.Show();
             this.Hide();
-            frmKatEkle.Show();
         }
 
+        private FrmKategoriUrunEkle _frmKategoriUrunEkle;
         private void btnfrmMenuEkle_Click(object sender, EventArgs e)
         {
-            FrmKategoriUrunEkle frmKategoriUrunEkle = new FrmKategoriUrunEkle();
+            if (_frmKategoriUrunEkle == null)
+            {
+                _frmKategoriUrunEkle = new FrmKategoriUrunEkle();
+            }
+            _frmKategoriUrunEkle.Show();
             this.Hide();
-            frmKategoriUrunEkle.Show();
         }
 
+        private FrmMasalar _frmMasalar;
         private void btnfrmMasaEkle_Click(object sender, EventArgs e)
         {
-            FrmMasalar frmMasalar = new FrmMasalar();
+            if (_frmMasalar == null)
+            {
+                _frmMasalar = new FrmMasalar();
+            }
+            _frmMasalar.Show();
             this.Hide();
-            frmMasalar.Show();
         }
 
+        private FrmRaporlar _frmRaporlar;
         private void btnFrmRaporEkle_Click(object sender, EventArgs e)
         {
-            FrmRaporlar frmRaporEkle = new FrmRaporlar();
+            if (_frmRaporlar == null)
+            {
+                _frmRaporlar = new FrmRaporlar();
+            }
+            _frmRaporlar.Show();
             this.Hide();
-            frmRaporEkle.Show();
         }
     }
 }

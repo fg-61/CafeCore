@@ -91,8 +91,8 @@ namespace CafeCore.Forms
 
         }
         private Giris _frmGiris = new Giris();
-        
-        private void btnMasaAnaSayfa_Click(object sender, EventArgs e)
+
+        private void btnAnaSayfa_Click(object sender, EventArgs e)
         {
             if (_frmGiris == null || _frmGiris.IsDisposed)
             {
@@ -111,9 +111,8 @@ namespace CafeCore.Forms
             {
                 _frmSiparisler = new FrmSiparisler();
             }
-
             _frmSiparisler._seciliMasa = btnMasa.Tag as Masa;
-            _frmSiparisler.ShowDialog();
+            _frmSiparisler.Show();
             this.Hide();
         }
     }

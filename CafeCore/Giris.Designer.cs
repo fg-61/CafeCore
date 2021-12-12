@@ -36,10 +36,13 @@ namespace CafeCore
             this.btnfrmMasaEkle = new System.Windows.Forms.Button();
             this.btnfrmMenuEkle = new System.Windows.Forms.Button();
             this.btnFrmRaporEkle = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnfrmKatEkle
             // 
+            this.btnfrmKatEkle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnfrmKatEkle.FlatAppearance.BorderSize = 0;
             this.btnfrmKatEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfrmKatEkle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -47,9 +50,10 @@ namespace CafeCore
             this.btnfrmKatEkle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnfrmKatEkle.ImageIndex = 3;
             this.btnfrmKatEkle.ImageList = this.ımageList1;
-            this.btnfrmKatEkle.Location = new System.Drawing.Point(33, 9);
+            this.btnfrmKatEkle.Location = new System.Drawing.Point(3, 13);
+            this.btnfrmKatEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnfrmKatEkle.Name = "btnfrmKatEkle";
-            this.btnfrmKatEkle.Size = new System.Drawing.Size(159, 141);
+            this.btnfrmKatEkle.Size = new System.Drawing.Size(270, 188);
             this.btnfrmKatEkle.TabIndex = 0;
             this.btnfrmKatEkle.Text = "Kat Ekle";
             this.btnfrmKatEkle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -68,6 +72,7 @@ namespace CafeCore
             // 
             // btnfrmMasaEkle
             // 
+            this.btnfrmMasaEkle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnfrmMasaEkle.BackColor = System.Drawing.Color.White;
             this.btnfrmMasaEkle.FlatAppearance.BorderSize = 0;
             this.btnfrmMasaEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -76,9 +81,10 @@ namespace CafeCore
             this.btnfrmMasaEkle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnfrmMasaEkle.ImageIndex = 2;
             this.btnfrmMasaEkle.ImageList = this.ımageList1;
-            this.btnfrmMasaEkle.Location = new System.Drawing.Point(279, 9);
+            this.btnfrmMasaEkle.Location = new System.Drawing.Point(279, 13);
+            this.btnfrmMasaEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnfrmMasaEkle.Name = "btnfrmMasaEkle";
-            this.btnfrmMasaEkle.Size = new System.Drawing.Size(156, 141);
+            this.btnfrmMasaEkle.Size = new System.Drawing.Size(271, 188);
             this.btnfrmMasaEkle.TabIndex = 1;
             this.btnfrmMasaEkle.Text = "Sipariş Al";
             this.btnfrmMasaEkle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -87,6 +93,7 @@ namespace CafeCore
             // 
             // btnfrmMenuEkle
             // 
+            this.btnfrmMenuEkle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnfrmMenuEkle.BackColor = System.Drawing.Color.White;
             this.btnfrmMenuEkle.FlatAppearance.BorderSize = 0;
             this.btnfrmMenuEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -95,9 +102,10 @@ namespace CafeCore
             this.btnfrmMenuEkle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnfrmMenuEkle.ImageIndex = 1;
             this.btnfrmMenuEkle.ImageList = this.ımageList1;
-            this.btnfrmMenuEkle.Location = new System.Drawing.Point(34, 209);
+            this.btnfrmMenuEkle.Location = new System.Drawing.Point(3, 209);
+            this.btnfrmMenuEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnfrmMenuEkle.Name = "btnfrmMenuEkle";
-            this.btnfrmMenuEkle.Size = new System.Drawing.Size(158, 141);
+            this.btnfrmMenuEkle.Size = new System.Drawing.Size(270, 188);
             this.btnfrmMenuEkle.TabIndex = 2;
             this.btnfrmMenuEkle.Text = "Menu Ekle";
             this.btnfrmMenuEkle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -106,6 +114,7 @@ namespace CafeCore
             // 
             // btnFrmRaporEkle
             // 
+            this.btnFrmRaporEkle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnFrmRaporEkle.BackColor = System.Drawing.Color.White;
             this.btnFrmRaporEkle.FlatAppearance.BorderSize = 0;
             this.btnFrmRaporEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -114,28 +123,48 @@ namespace CafeCore
             this.btnFrmRaporEkle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFrmRaporEkle.ImageIndex = 0;
             this.btnFrmRaporEkle.ImageList = this.ımageList1;
-            this.btnFrmRaporEkle.Location = new System.Drawing.Point(290, 209);
+            this.btnFrmRaporEkle.Location = new System.Drawing.Point(279, 209);
+            this.btnFrmRaporEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFrmRaporEkle.Name = "btnFrmRaporEkle";
-            this.btnFrmRaporEkle.Size = new System.Drawing.Size(127, 141);
+            this.btnFrmRaporEkle.Size = new System.Drawing.Size(271, 188);
             this.btnFrmRaporEkle.TabIndex = 3;
             this.btnFrmRaporEkle.Text = "Rapor";
             this.btnFrmRaporEkle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFrmRaporEkle.UseVisualStyleBackColor = false;
             this.btnFrmRaporEkle.Click += new System.EventHandler(this.btnFrmRaporEkle_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btnfrmKatEkle, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnfrmMenuEkle, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnfrmMasaEkle, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnFrmRaporEkle, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(553, 410);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
             // Giris
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(484, 389);
-            this.Controls.Add(this.btnFrmRaporEkle);
-            this.Controls.Add(this.btnfrmMenuEkle);
-            this.Controls.Add(this.btnfrmMasaEkle);
-            this.Controls.Add(this.btnfrmKatEkle);
+            this.ClientSize = new System.Drawing.Size(553, 410);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Giris";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Kafe Core";
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -147,6 +176,7 @@ namespace CafeCore
         private System.Windows.Forms.Button btnfrmMenuEkle;
         private System.Windows.Forms.ImageList ımageList1;
         private System.Windows.Forms.Button btnFrmRaporEkle;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 
