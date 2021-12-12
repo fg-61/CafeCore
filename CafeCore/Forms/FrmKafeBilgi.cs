@@ -29,5 +29,13 @@ namespace CafeCore.Forms
                 throw;
             }
         }
+
+        private void yuvarlakButon1_Click(object sender, EventArgs e)
+        {
+            FrmKatEkle frmKatEkle = new FrmKatEkle();
+            frmKatEkle.Show();
+            this.Hide();
+        }
     }
-}
+    }
+

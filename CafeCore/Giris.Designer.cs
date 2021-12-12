@@ -44,6 +44,7 @@ namespace CafeCore
             // 
             this.btnfrmKatEkle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnfrmKatEkle.FlatAppearance.BorderSize = 0;
+            this.btnfrmKatEkle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnfrmKatEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfrmKatEkle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnfrmKatEkle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -54,7 +55,7 @@ namespace CafeCore
             this.btnfrmKatEkle.Name = "btnfrmKatEkle";
             this.btnfrmKatEkle.Size = new System.Drawing.Size(236, 141);
             this.btnfrmKatEkle.TabIndex = 0;
-            this.btnfrmKatEkle.Text = "Kat Ekle";
+            this.btnfrmKatEkle.Text = "Ayarlar";
             this.btnfrmKatEkle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnfrmKatEkle.UseVisualStyleBackColor = true;
             this.btnfrmKatEkle.Click += new System.EventHandler(this.btnfrmKatEkle_Click);
@@ -74,6 +75,7 @@ namespace CafeCore
             this.btnfrmMasaEkle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnfrmMasaEkle.BackColor = System.Drawing.Color.White;
             this.btnfrmMasaEkle.FlatAppearance.BorderSize = 0;
+            this.btnfrmMasaEkle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnfrmMasaEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfrmMasaEkle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnfrmMasaEkle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -94,6 +96,7 @@ namespace CafeCore
             this.btnfrmMenuEkle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnfrmMenuEkle.BackColor = System.Drawing.Color.White;
             this.btnfrmMenuEkle.FlatAppearance.BorderSize = 0;
+            this.btnfrmMenuEkle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnfrmMenuEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfrmMenuEkle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnfrmMenuEkle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -114,6 +117,7 @@ namespace CafeCore
             this.btnFrmRaporEkle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnFrmRaporEkle.BackColor = System.Drawing.Color.White;
             this.btnFrmRaporEkle.FlatAppearance.BorderSize = 0;
+            this.btnFrmRaporEkle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnFrmRaporEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFrmRaporEkle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnFrmRaporEkle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));

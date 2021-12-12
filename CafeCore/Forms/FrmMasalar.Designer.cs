@@ -34,9 +34,9 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flpKatlar = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAnaSayfa = new ShapedButton.YuvarlakButon();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.flpMasalar = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAnaSayfa = new ShapedButton.YuvarlakButon();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -73,9 +73,9 @@
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 187F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1114, 723);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(975, 542);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -85,16 +85,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
             this.tableLayoutPanel3.Controls.Add(this.flpKatlar, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnAnaSayfa, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(21, 20);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(21, 20, 21, 20);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(18, 15);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(18, 15, 18, 15);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1072, 147);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(939, 110);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // flpKatlar
@@ -106,8 +106,24 @@
             this.flpKatlar.Location = new System.Drawing.Point(0, 0);
             this.flpKatlar.Margin = new System.Windows.Forms.Padding(0);
             this.flpKatlar.Name = "flpKatlar";
-            this.flpKatlar.Size = new System.Drawing.Size(933, 147);
+            this.flpKatlar.Size = new System.Drawing.Size(818, 110);
             this.flpKatlar.TabIndex = 2;
+            // 
+            // btnAnaSayfa
+            // 
+            this.btnAnaSayfa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAnaSayfa.BackColor = System.Drawing.Color.White;
+            this.btnAnaSayfa.FlatAppearance.BorderSize = 0;
+            this.btnAnaSayfa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAnaSayfa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnaSayfa.ImageIndex = 0;
+            this.btnAnaSayfa.ImageList = this.ımageList1;
+            this.btnAnaSayfa.Location = new System.Drawing.Point(821, 3);
+            this.btnAnaSayfa.Name = "btnAnaSayfa";
+            this.btnAnaSayfa.Size = new System.Drawing.Size(104, 104);
+            this.btnAnaSayfa.TabIndex = 0;
+            this.btnAnaSayfa.UseVisualStyleBackColor = false;
+            this.btnAnaSayfa.Click += new System.EventHandler(this.btnAnaSayfa_Click);
             // 
             // ımageList1
             // 
@@ -120,35 +136,20 @@
             // 
             this.flpMasalar.BackColor = System.Drawing.Color.White;
             this.flpMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpMasalar.Location = new System.Drawing.Point(11, 194);
-            this.flpMasalar.Margin = new System.Windows.Forms.Padding(11, 7, 11, 13);
+            this.flpMasalar.Location = new System.Drawing.Point(10, 145);
+            this.flpMasalar.Margin = new System.Windows.Forms.Padding(10, 5, 10, 10);
             this.flpMasalar.Name = "flpMasalar";
-            this.flpMasalar.Size = new System.Drawing.Size(1092, 516);
+            this.flpMasalar.Size = new System.Drawing.Size(955, 387);
             this.flpMasalar.TabIndex = 1;
-            // 
-            // btnAnaSayfa
-            // 
-            this.btnAnaSayfa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAnaSayfa.BackColor = System.Drawing.Color.White;
-            this.btnAnaSayfa.FlatAppearance.BorderSize = 0;
-            this.btnAnaSayfa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnaSayfa.ImageIndex = 0;
-            this.btnAnaSayfa.ImageList = this.ımageList1;
-            this.btnAnaSayfa.Location = new System.Drawing.Point(936, 4);
-            this.btnAnaSayfa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAnaSayfa.Name = "btnAnaSayfa";
-            this.btnAnaSayfa.Size = new System.Drawing.Size(119, 139);
-            this.btnAnaSayfa.TabIndex = 0;
-            this.btnAnaSayfa.UseVisualStyleBackColor = false;
-            this.btnAnaSayfa.Click += new System.EventHandler(this.btnAnaSayfa_Click);
             // 
             // FrmMasalar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 723);
+            this.ClientSize = new System.Drawing.Size(975, 542);
             this.Controls.Add(this.tableLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmMasalar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Masalar";
