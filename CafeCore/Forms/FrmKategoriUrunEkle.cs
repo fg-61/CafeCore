@@ -21,16 +21,18 @@ namespace CafeCore.Forms
             ListeyiDoldur();
         }
         private void KategoriListeDoldur()
-        {
+        {4
             lstKategori.Columns.Clear();
             lstKategori.Items.Clear();
             lstKategori.MultiSelect = false;
             lstKategori.View = View.Details;
             lstKategori.FullRowSelect = true;
             lstKategori.Columns.Add("Kategori Adı");
-            lstKategori.Columns.Add("Kategori Sıra No");
+            lstKategori.Columns[0].Width = 359;
+            lstKategori.Columns.Add("Sıra No");
+            lstKategori.Columns[1].Width = 110;
             lstKategori.Columns.Add("Ürün Sayısı");
-
+            lstKategori.Columns[2].Width = 140;
             var kategoriView = _dbContext.Kategoriler.Include(x => x.Urunler).OrderBy(x => x.SiraNo).ToList();
             foreach (var item in kategoriView)
             {
@@ -40,7 +42,6 @@ namespace CafeCore.Forms
                 viewItem.Tag = item;
                 lstKategori.Items.Add(viewItem);
             }
-            lstKategori.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
         private void UrunListeDoldur()
         {

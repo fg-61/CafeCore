@@ -29,7 +29,7 @@ namespace CafeCore.Forms
             int katButonYukseklik = 100;
             int katButonGenislik = 100;
 
-            var katlar = _dbContext.Katlar.Include(x => x.Masalar).Where(x => x.Masalar.Count > 0).OrderBy(x => x.SiraNo).ToList();
+            var katlar = _dbContext.Katlar.Include(x => x.Masalar).Where(x => x.Masalar.Count > 0 && x.IsDeleted == false).OrderBy(x => x.SiraNo).ToList();
             for (int i = 0; i < katlar.Count; i++)
             {
                 Kat yeni = katlar[i];

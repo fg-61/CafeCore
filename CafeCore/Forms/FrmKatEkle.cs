@@ -1,5 +1,7 @@
 ﻿using CafeCore.Data;
 using CafeCore.Model;
+using CafeCore.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Data;
 using System.Linq;
@@ -14,11 +16,14 @@ namespace CafeCore.Forms
             InitializeComponent();
         }
 
-        CafeContext _dbContext = new CafeContext();
+        private CafeContext _dbContext = new CafeContext();
+        private KatRepo _katRepo = new KatRepo();
         private void KatEkle_Load(object sender, EventArgs e)
         {
             ListeyiDoldur();
         }
+
+        #region Tablo Doldurma
         private void ListeyiDoldur()
         {
             lstKat.Columns.Clear();
@@ -31,7 +36,7 @@ namespace CafeCore.Forms
             lstKat.Columns.Add("Kat Sıra No");
             lstKat.Columns.Add("Masa Sayısı");
 
-            var query = _dbContext.Katlar.OrderBy(x => x.SiraNo).ToList();
+            var query = _katRepo.Get(x => x.IsDeleted == false).OrderBy(x => x.SiraNo).ToList();
             foreach (var item in query)
             {
                 ListViewItem viewItem = new ListViewItem(item.Ad);
@@ -43,25 +48,18 @@ namespace CafeCore.Forms
             }
             lstKat.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
+        #endregion
 
-        private void txtMasaSayisi_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void txtSiraNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
+        #region Liste index degisimi
         private void lstKat_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstKat.SelectedItems.Count == 0) return;
-            _seciliKat1 = lstKat.SelectedItems[0].Tag as Kat;
+            _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
 
-            txtAd.Text = _seciliKat1.Ad;
-            txtKod.Text = _seciliKat1.Kodu;
-            txtSiraNo.Text = _seciliKat1.SiraNo.ToString();
-            txtMasaSayisi.Text = _seciliKat1.MasaSayisi.ToString();
+            txtAd.Text = _seciliKat.Ad;
+            txtKod.Text = _seciliKat.Kodu;
+            txtSiraNo.Text = _seciliKat.SiraNo.ToString();
+            txtMasaSayisi.Text = _seciliKat.MasaSayisi.ToString();
         }
 
 
@@ -98,13 +96,11 @@ namespace CafeCore.Forms
                     {
                         Durum = false,
                         No = i + 1,
-                        Ad = $"{ yeniKat.Kodu }/ Masa { i + 1 }"
+                        Ad = $"{ yeniKat.Kodu } - Masa { i + 1 }"
                     };
                     yeniKat.Masalar.Add(yeniMasa);
                 }
-
-                _dbContext.Katlar.Add(yeniKat);
-                _dbContext.SaveChanges();
+                _katRepo.Add(yeniKat);
             }
             catch (Exception ex)
             {
@@ -138,7 +134,6 @@ namespace CafeCore.Forms
             {
                 ListeyiDoldur();
             }
-
         }
 
 
@@ -158,20 +153,17 @@ namespace CafeCore.Forms
                 _dbContext.Katlar.Update(_seciliKat1);
                 _dbContext.SaveChanges();
             }
-
-
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
                 _dbContext = new CafeContext();
             }
-
             finally
             {
                 ListeyiDoldur();
             }
         }
+        #endregion
 
         private string _eskiText = "";
         private void txtAd_TextChanged(object sender, EventArgs e)
@@ -187,7 +179,6 @@ namespace CafeCore.Forms
             }
                
         }
-
         private void txtKod_TextChanged(object sender, EventArgs e)
         {
             if (txtKod.Text.Length == 5)
@@ -200,7 +191,6 @@ namespace CafeCore.Forms
                 MessageBox.Show("En fazla 5 karakter girişi yapılabilmektedir.Lütfen tekrar giriş yapınız.");
             }
         }
-
         private void txtSiraNo_TextChanged(object sender, EventArgs e)
         {
             if (txtSiraNo.Text.Length == 4)
@@ -213,7 +203,6 @@ namespace CafeCore.Forms
                 MessageBox.Show("En fazla 4 basamaklı sayı girişi yapılabilmektedir. Lütfen tekrar giriş yapınız.");
             }
         }
-
         private void txtMasaSayisi_TextChanged(object sender, EventArgs e)
         {
             if (txtMasaSayisi.Text.Length == 6)

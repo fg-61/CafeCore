@@ -143,6 +143,7 @@
             // 
             // lstKategori
             // 
+            this.lstKategori.BackColor = System.Drawing.SystemColors.Control;
             this.lstKategori.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstKategori.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstKategori.HideSelection = false;
