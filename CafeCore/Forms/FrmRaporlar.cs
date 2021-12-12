@@ -190,5 +190,12 @@ namespace CafeCore.Forms
             DgRaporlar.Columns[0].HeaderText = "Sipariş Tarihi";
 
         }
+
+        private void yuvarlakButon1_Click(object sender, EventArgs e)
+        {
+            Giris frmGirisRapor = new Giris();
+            frmGirisRapor.Show();
+            this.Hide();
+        }
     }
 }

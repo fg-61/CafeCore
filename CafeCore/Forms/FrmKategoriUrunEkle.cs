@@ -38,11 +38,11 @@ namespace CafeCore.Forms
             lstKategori.View = View.Details;
             lstKategori.FullRowSelect = true;
             lstKategori.Columns.Add("Kategori Adı");
-            lstKategori.Columns[0].Width = 359;
+            lstKategori.Columns[0].Width = 150;
             lstKategori.Columns.Add("Sıra No");
-            lstKategori.Columns[1].Width = 110;
+            lstKategori.Columns[1].Width = 150;
             lstKategori.Columns.Add("Ürün Sayısı");
-            lstKategori.Columns[2].Width = 140;
+            lstKategori.Columns[2].Width = 100;
             var kategoriView = _dbContext.Kategoriler
                 .Where(x => x.IsDeleted == false)
                 .Include(x => x.Urunler.Where(x => x.IsDeleted == false))
@@ -209,8 +209,15 @@ namespace CafeCore.Forms
             lstUrun.View = View.Details;
             lstUrun.FullRowSelect = true;
             lstUrun.Columns.Add("Kategori");
+            lstUrun.Columns[0].Width = 150;
             lstUrun.Columns.Add("Ürün Adı");
+            lstUrun.Columns[1].Width = 150;
             lstUrun.Columns.Add("Fiyat");
+            lstUrun.Columns[2].Width = 100;
+
+
+
+   
 
             var urunView = _dbContext.Urunler
                 .Where(x => x.IsDeleted == false)

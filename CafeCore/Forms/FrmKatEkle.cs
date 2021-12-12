@@ -30,9 +30,15 @@ namespace CafeCore.Forms
             lstKat.View = View.Details;
             lstKat.FullRowSelect = true;
             lstKat.Columns.Add("Kat Adı");
+            lstKat.Columns[0].Width = 100;
             lstKat.Columns.Add("Kısaltma Kodu");
+            lstKat.Columns[1].Width = 100;
             lstKat.Columns.Add("Kat Sıra No");
+            lstKat.Columns[2].Width = 100;
             lstKat.Columns.Add("Masa Sayısı");
+            lstKat.Columns[3].Width = 100;
+
+          
 
             var query = _katRepo.Get(x => x.IsDeleted == false).OrderBy(x => x.SiraNo).ToList();
             foreach (var item in query)
@@ -44,7 +50,7 @@ namespace CafeCore.Forms
                 viewItem.Tag = item;
                 lstKat.Items.Add(viewItem);
             }
-            lstKat.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            //lstKat.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
         #endregion
 

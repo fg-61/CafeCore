@@ -50,10 +50,9 @@ namespace CafeCore
             this.btnfrmKatEkle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnfrmKatEkle.ImageIndex = 3;
             this.btnfrmKatEkle.ImageList = this.ımageList1;
-            this.btnfrmKatEkle.Location = new System.Drawing.Point(3, 13);
-            this.btnfrmKatEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnfrmKatEkle.Location = new System.Drawing.Point(3, 10);
             this.btnfrmKatEkle.Name = "btnfrmKatEkle";
-            this.btnfrmKatEkle.Size = new System.Drawing.Size(270, 188);
+            this.btnfrmKatEkle.Size = new System.Drawing.Size(236, 141);
             this.btnfrmKatEkle.TabIndex = 0;
             this.btnfrmKatEkle.Text = "Kat Ekle";
             this.btnfrmKatEkle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -64,7 +63,7 @@ namespace CafeCore
             // 
             this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth16Bit;
             this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
-            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.TransparentColor = System.Drawing.Color.White;
             this.ımageList1.Images.SetKeyName(0, "rapor.jpg");
             this.ımageList1.Images.SetKeyName(1, "aaa.PNG");
             this.ımageList1.Images.SetKeyName(2, "mas.jpg");
@@ -81,10 +80,9 @@ namespace CafeCore
             this.btnfrmMasaEkle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnfrmMasaEkle.ImageIndex = 2;
             this.btnfrmMasaEkle.ImageList = this.ımageList1;
-            this.btnfrmMasaEkle.Location = new System.Drawing.Point(279, 13);
-            this.btnfrmMasaEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnfrmMasaEkle.Location = new System.Drawing.Point(245, 10);
             this.btnfrmMasaEkle.Name = "btnfrmMasaEkle";
-            this.btnfrmMasaEkle.Size = new System.Drawing.Size(271, 188);
+            this.btnfrmMasaEkle.Size = new System.Drawing.Size(236, 141);
             this.btnfrmMasaEkle.TabIndex = 1;
             this.btnfrmMasaEkle.Text = "Sipariş Al";
             this.btnfrmMasaEkle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -102,10 +100,9 @@ namespace CafeCore
             this.btnfrmMenuEkle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnfrmMenuEkle.ImageIndex = 1;
             this.btnfrmMenuEkle.ImageList = this.ımageList1;
-            this.btnfrmMenuEkle.Location = new System.Drawing.Point(3, 209);
-            this.btnfrmMenuEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnfrmMenuEkle.Location = new System.Drawing.Point(3, 157);
             this.btnfrmMenuEkle.Name = "btnfrmMenuEkle";
-            this.btnfrmMenuEkle.Size = new System.Drawing.Size(270, 188);
+            this.btnfrmMenuEkle.Size = new System.Drawing.Size(236, 141);
             this.btnfrmMenuEkle.TabIndex = 2;
             this.btnfrmMenuEkle.Text = "Menu Ekle";
             this.btnfrmMenuEkle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -123,10 +120,9 @@ namespace CafeCore
             this.btnFrmRaporEkle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFrmRaporEkle.ImageIndex = 0;
             this.btnFrmRaporEkle.ImageList = this.ımageList1;
-            this.btnFrmRaporEkle.Location = new System.Drawing.Point(279, 209);
-            this.btnFrmRaporEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFrmRaporEkle.Location = new System.Drawing.Point(245, 157);
             this.btnFrmRaporEkle.Name = "btnFrmRaporEkle";
-            this.btnFrmRaporEkle.Size = new System.Drawing.Size(271, 188);
+            this.btnFrmRaporEkle.Size = new System.Drawing.Size(236, 141);
             this.btnFrmRaporEkle.TabIndex = 3;
             this.btnFrmRaporEkle.Text = "Rapor";
             this.btnFrmRaporEkle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -144,22 +140,22 @@ namespace CafeCore
             this.tableLayoutPanel1.Controls.Add(this.btnFrmRaporEkle, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(553, 410);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(484, 308);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // Giris
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(553, 410);
+            this.ClientSize = new System.Drawing.Size(484, 308);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Giris";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
