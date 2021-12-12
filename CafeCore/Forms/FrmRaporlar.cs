@@ -55,9 +55,12 @@ namespace CafeCore.Forms
                             x.Urun.Ad,
                             x.Adet,
                             x.Urun.Fiyat,
-                            x.AraToplam
-                        }).Where(x => x.CreatedDate.Date.Day > DateTime.Today.AddDays(-1).Day && x.CreatedDate > DateTime.Now.AddDays(-1)).OrderBy(x => x.CreatedDate).ToList();
+                            x.AraToplam,
+                            x.IsDeleted
+                        }).Where(x => (x.CreatedDate.Date.Day > DateTime.Today.AddDays(-1).Day && x.CreatedDate > DateTime.Now.AddDays(-1)) && x.IsDeleted == true).OrderBy(x => x.CreatedDate).ToList();
                         DgRaporlar.DataSource = query;
+                        DgRaporlar.Columns["IsDeleted"].Visible = false;
+
                     }
                     break;
                 case 2:
@@ -68,9 +71,11 @@ namespace CafeCore.Forms
                             x.Urun.Ad,
                             x.Adet,
                             x.Urun.Fiyat,
-                            x.AraToplam
-                        }).Where(x => x.CreatedDate.Date.Month > DateTime.Now.AddMonths(-1).Month).OrderBy(x => x.CreatedDate).ToList();
+                            x.AraToplam,
+                            x.IsDeleted
+                        }).Where(x => (x.CreatedDate.Date.Month > DateTime.Now.AddMonths(-1).Month) && x.IsDeleted == true).OrderBy(x => x.CreatedDate).ToList();
                         DgRaporlar.DataSource = query;
+                        DgRaporlar.Columns["IsDeleted"].Visible = false;
                     }
                     break;
                 case 3:
@@ -81,9 +86,11 @@ namespace CafeCore.Forms
                             x.Urun.Ad,
                             x.Adet,
                             x.Urun.Fiyat,
-                            x.AraToplam
-                        }).Where(x => x.CreatedDate >= dtpBaslangic.Value && x.CreatedDate <= dtpBitis.Value).OrderBy(x => x.CreatedDate).ToList();
+                            x.AraToplam,
+                            x.IsDeleted
+                        }).Where(x => (x.CreatedDate >= dtpBaslangic.Value && x.CreatedDate <= dtpBitis.Value) && x.IsDeleted == true).OrderBy(x => x.CreatedDate).ToList();
                         DgRaporlar.DataSource = query;
+                        DgRaporlar.Columns["IsDeleted"].Visible = false;
                     }
                     break;
                 default:
