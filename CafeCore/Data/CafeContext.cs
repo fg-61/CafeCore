@@ -16,38 +16,37 @@ namespace CafeCore.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if(!optionsBuilder.IsConfigured)
+            if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CafeDb;Integrated Security=True;");
             }
         }
         //public override int SaveChanges()
         //{
-        //    var entiries = ChangeTracker.Entries()
-        //        .Where(x => x.Entity is BaseEntity && x.State == EntityState.Added);
+        //var entiries = ChangeTracker.Entries()
+        //    .Where(x => x.Entity is BaseEntity && x.State == EntityState.Added);
 
-        //    foreach (var item in entiries)
-        //    {
-        //        ((BaseEntity)item.Entity).CreatedDate = DateTime.Now;
-        //    }
+        //foreach (var item in entiries)
+        //{
+        //    ((BaseEntity)item.Entity).CreatedDate = DateTime.Now;
+        //}
 
-            //entiries = ChangeTracker.Entries()
-            //    .Where(x => x.Entity is BaseEntity && x.State == EntityState.Modified);
+        //entiries = ChangeTracker.Entries()
+        //    .Where(x => x.Entity is BaseEntity && x.State == EntityState.Modified);
 
-            //foreach (var item in entiries)
-            //{
-            //    ((BaseEntity)item.Entity).UpdatedDate = DateTime.Now;
-            //}
+        //foreach (var item in entiries)
+        //{
+        //    ((BaseEntity)item.Entity).UpdatedDate = DateTime.Now;
+        //}
 
 
-            // Deleted eklenecek 
         //    entiries = ChangeTracker.Entries()
         //        .Where(x => x.Entity is BaseEntity && x.State == EntityState.Deleted);
 
         //    foreach (var item in entiries)
         //    {
         //        ((BaseEntity)item.Entity).DeletedDate = DateTime.Now;
-        //        ((BaseEntity)item.Entity).IsDeleted = true;
+        //        ((BaseEntity)item.Entity).IsDeleted = false;
         //        item.State = EntityState.Modified;
         //    }
 

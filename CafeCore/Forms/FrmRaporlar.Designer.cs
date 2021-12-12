@@ -50,9 +50,9 @@ namespace CafeCore.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(243, 389);
+            this.label1.Location = new System.Drawing.Point(278, 519);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 21);
+            this.label1.Size = new System.Drawing.Size(135, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Toplam Tutar:";
             this.label1.Visible = false;
@@ -61,17 +61,18 @@ namespace CafeCore.Forms
             // 
             this.lblToplamTutar.AutoSize = true;
             this.lblToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblToplamTutar.Location = new System.Drawing.Point(353, 389);
+            this.lblToplamTutar.Location = new System.Drawing.Point(403, 519);
             this.lblToplamTutar.Name = "lblToplamTutar";
-            this.lblToplamTutar.Size = new System.Drawing.Size(0, 21);
+            this.lblToplamTutar.Size = new System.Drawing.Size(0, 28);
             this.lblToplamTutar.TabIndex = 2;
             // 
             // rbGunluk
             // 
             this.rbGunluk.AutoSize = true;
-            this.rbGunluk.Location = new System.Drawing.Point(430, 36);
+            this.rbGunluk.Location = new System.Drawing.Point(491, 48);
+            this.rbGunluk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbGunluk.Name = "rbGunluk";
-            this.rbGunluk.Size = new System.Drawing.Size(131, 19);
+            this.rbGunluk.Size = new System.Drawing.Size(162, 24);
             this.rbGunluk.TabIndex = 4;
             this.rbGunluk.Text = "Günlük Satış Raporu";
             this.rbGunluk.UseVisualStyleBackColor = true;
@@ -80,9 +81,10 @@ namespace CafeCore.Forms
             // RbAylik
             // 
             this.RbAylik.AutoSize = true;
-            this.RbAylik.Location = new System.Drawing.Point(430, 74);
+            this.RbAylik.Location = new System.Drawing.Point(491, 99);
+            this.RbAylik.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RbAylik.Name = "RbAylik";
-            this.RbAylik.Size = new System.Drawing.Size(119, 19);
+            this.RbAylik.Size = new System.Drawing.Size(149, 24);
             this.RbAylik.TabIndex = 4;
             this.RbAylik.Text = "Aylık Satış Raporu";
             this.RbAylik.UseVisualStyleBackColor = true;
@@ -90,9 +92,10 @@ namespace CafeCore.Forms
             // 
             // btnYazdir
             // 
-            this.btnYazdir.Location = new System.Drawing.Point(430, 239);
+            this.btnYazdir.Location = new System.Drawing.Point(491, 319);
+            this.btnYazdir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnYazdir.Name = "btnYazdir";
-            this.btnYazdir.Size = new System.Drawing.Size(174, 132);
+            this.btnYazdir.Size = new System.Drawing.Size(199, 176);
             this.btnYazdir.TabIndex = 5;
             this.btnYazdir.Text = "Yazdır";
             this.btnYazdir.UseVisualStyleBackColor = true;
@@ -106,10 +109,12 @@ namespace CafeCore.Forms
             this.DgRaporlar.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.DgRaporlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgRaporlar.Enabled = false;
-            this.DgRaporlar.Location = new System.Drawing.Point(12, 12);
+            this.DgRaporlar.Location = new System.Drawing.Point(14, 16);
+            this.DgRaporlar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DgRaporlar.Name = "DgRaporlar";
+            this.DgRaporlar.RowHeadersWidth = 51;
             this.DgRaporlar.RowTemplate.Height = 25;
-            this.DgRaporlar.Size = new System.Drawing.Size(400, 359);
+            this.DgRaporlar.Size = new System.Drawing.Size(457, 479);
             this.DgRaporlar.TabIndex = 6;
             // 
             // printDocument1
@@ -130,9 +135,10 @@ namespace CafeCore.Forms
             // rbTarihSec
             // 
             this.rbTarihSec.AutoSize = true;
-            this.rbTarihSec.Location = new System.Drawing.Point(430, 112);
+            this.rbTarihSec.Location = new System.Drawing.Point(491, 149);
+            this.rbTarihSec.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbTarihSec.Name = "rbTarihSec";
-            this.rbTarihSec.Size = new System.Drawing.Size(108, 19);
+            this.rbTarihSec.Size = new System.Drawing.Size(136, 24);
             this.rbTarihSec.TabIndex = 4;
             this.rbTarihSec.Text = "Tarih Aralığı Seç";
             this.rbTarihSec.UseVisualStyleBackColor = true;
@@ -140,18 +146,20 @@ namespace CafeCore.Forms
             // 
             // dtpBaslangic
             // 
-            this.dtpBaslangic.Location = new System.Drawing.Point(496, 150);
+            this.dtpBaslangic.Location = new System.Drawing.Point(567, 200);
+            this.dtpBaslangic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpBaslangic.Name = "dtpBaslangic";
-            this.dtpBaslangic.Size = new System.Drawing.Size(108, 23);
+            this.dtpBaslangic.Size = new System.Drawing.Size(123, 27);
             this.dtpBaslangic.TabIndex = 7;
             this.dtpBaslangic.Visible = false;
             this.dtpBaslangic.ValueChanged += new System.EventHandler(this.dtpBaslangic_ValueChanged);
             // 
             // dtpBitis
             // 
-            this.dtpBitis.Location = new System.Drawing.Point(496, 192);
+            this.dtpBitis.Location = new System.Drawing.Point(567, 256);
+            this.dtpBitis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpBitis.Name = "dtpBitis";
-            this.dtpBitis.Size = new System.Drawing.Size(108, 23);
+            this.dtpBitis.Size = new System.Drawing.Size(123, 27);
             this.dtpBitis.TabIndex = 7;
             this.dtpBitis.Visible = false;
             this.dtpBitis.ValueChanged += new System.EventHandler(this.dtpBitis_ValueChanged);
@@ -159,9 +167,9 @@ namespace CafeCore.Forms
             // lblBaslangic
             // 
             this.lblBaslangic.AutoSize = true;
-            this.lblBaslangic.Location = new System.Drawing.Point(430, 156);
+            this.lblBaslangic.Location = new System.Drawing.Point(491, 208);
             this.lblBaslangic.Name = "lblBaslangic";
-            this.lblBaslangic.Size = new System.Drawing.Size(57, 15);
+            this.lblBaslangic.Size = new System.Drawing.Size(72, 20);
             this.lblBaslangic.TabIndex = 8;
             this.lblBaslangic.Text = "Başlangıç";
             this.lblBaslangic.Visible = false;
@@ -169,19 +177,19 @@ namespace CafeCore.Forms
             // lblBitis
             // 
             this.lblBitis.AutoSize = true;
-            this.lblBitis.Location = new System.Drawing.Point(446, 198);
+            this.lblBitis.Location = new System.Drawing.Point(510, 264);
             this.lblBitis.Name = "lblBitis";
-            this.lblBitis.Size = new System.Drawing.Size(29, 15);
+            this.lblBitis.Size = new System.Drawing.Size(37, 20);
             this.lblBitis.TabIndex = 8;
             this.lblBitis.Text = "Bitiş";
             this.lblBitis.Visible = false;
             // 
             // FrmRaporlar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.ClientSize = new System.Drawing.Size(616, 422);
+            this.ClientSize = new System.Drawing.Size(704, 563);
             this.Controls.Add(this.lblBitis);
             this.Controls.Add(this.lblBaslangic);
             this.Controls.Add(this.dtpBitis);
@@ -193,7 +201,9 @@ namespace CafeCore.Forms
             this.Controls.Add(this.rbGunluk);
             this.Controls.Add(this.lblToplamTutar);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmRaporlar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Raporlar";
             ((System.ComponentModel.ISupportInitialize)(this.DgRaporlar)).EndInit();
             this.ResumeLayout(false);

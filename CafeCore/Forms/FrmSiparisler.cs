@@ -84,10 +84,11 @@ namespace CafeCore.Forms
                 flpUrunler.Controls.Add(btnUrun);
             }
         }
+        private decimal _toplamFiyat;
         private void SepetiDoldur()
         {
-            var toplamFiyat = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id).Sum(x => x.AraToplam);
-            txtToplam.Text = $"{toplamFiyat:c2}";
+            _toplamFiyat = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id && x.IsDeleted == false).Sum(x => x.AraToplam);
+            txtToplam.Text = $"{_toplamFiyat:c2}";
 
             lstSepet.Columns.Clear();
             lstSepet.Items.Clear();
@@ -95,13 +96,13 @@ namespace CafeCore.Forms
             lstSepet.View = View.Details;
             lstSepet.FullRowSelect = true;
             lstSepet.Columns.Add("Adet");
-            lstSepet.Columns[0].Width = 60;
+            lstSepet.Columns[0].Width = 70;
             lstSepet.Columns.Add("Ürün");
-            lstSepet.Columns[1].Width = 280;
+            lstSepet.Columns[1].Width = 307;
             lstSepet.Columns.Add("Ara Toplam");
-            lstSepet.Columns[2].Width = 147;
+            lstSepet.Columns[2].Width = 178;
 
-            var siparisView = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id).ToList();
+            var siparisView = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id && x.IsDeleted == false).ToList();
             foreach (var item in siparisView)
             {
                 ListViewItem viewItem = new ListViewItem(item.Adet.ToString());
@@ -156,24 +157,75 @@ namespace CafeCore.Forms
         private void btnHesapIptal_Click(object sender, EventArgs e)
         {
             if (lstSepet.Items.Count == 0) return;
-            try
+            using (var tran = _dbContext.Database.BeginTransaction())
             {
-                int i = 0;
-                while (i < lstSepet.Items.Count)
+                try
                 {
-                    Siparis sepetSiparis = lstSepet.Items[i].Tag as Siparis;
-                    _dbContext.Siparisler.Remove(sepetSiparis);
-                    lstSepet.Items.Remove(lstSepet.Items[i]);
+                    int i = 0;
+                    while (i < lstSepet.Items.Count)
+                    {
+                        Siparis sepetSiparis = lstSepet.Items[i].Tag as Siparis;
+                        _dbContext.Siparisler.Remove(sepetSiparis);
+                        lstSepet.Items.Remove(lstSepet.Items[i]);
+                    }
+                    _dbContext.Masalar.FirstOrDefault(x => x.Id == _seciliMasa.Id).Durum = false;
+                    _dbContext.SaveChanges();
+                    
+                    tran.Commit();
+                    MessageBox.Show($"Masa {_seciliMasa.No} iptal edilmiştir. Ücret tahsil edilmeyecektir.");
+
+                    if (_frmMasalar == null || _frmMasalar.IsDisposed)
+                    {
+                        _frmMasalar = new FrmMasalar();
+                    }
+                    _frmMasalar.Show();
+                    this.Hide();
                 }
-                _dbContext.Masalar.FirstOrDefault(x => x.Id == _seciliMasa.Id).Durum = false;
-                _dbContext.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    MessageBox.Show("Sipariş iptal işleminizde bir hata oluştu " + ex.Message);
+                    _dbContext = new();
+                }
             }
         }
 
+        private void btnHesapYazdir_Click(object sender, EventArgs e)
+        {
+            if (lstSepet.Items.Count == 0) return;
+            using (var tran = _dbContext.Database.BeginTransaction())
+            {
+                try
+                {
+                    int i = 0;
+                    while (i < lstSepet.Items.Count)
+                    {
+                        Siparis sepetSiparis = lstSepet.Items[i].Tag as Siparis;
+                        sepetSiparis.IsDeleted = true;
+                        _dbContext.Siparisler.Update(sepetSiparis);
+                        lstSepet.Items.Remove(lstSepet.Items[i]);
+                        i++;
+                    }
+                    _dbContext.Masalar.FirstOrDefault(x => x.Id == _seciliMasa.Id).Durum = false;
+                    _dbContext.SaveChanges();
+
+                    tran.Commit();
+                    MessageBox.Show($"{_toplamFiyat} tutarındaki siparişiniz başarıyla oluşturulmuştur");
+
+                    if (_frmMasalar == null || _frmMasalar.IsDisposed)
+                    {
+                        _frmMasalar = new FrmMasalar();
+                    }
+                    _frmMasalar.Show();
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    MessageBox.Show("Sipariş iptal işleminizde bir hata oluştu " + ex.Message);
+                    _dbContext = new();
+                }
+            }
+        }
     }
 }

@@ -55,7 +55,7 @@ namespace CafeCore.Forms
             int masaButonYukseklik = 100;
             int masaButonGenislik = 100;
 
-            var masalar = _dbContext.Masalar.Where(x => x.KatId == _seciliKat.Id).ToList();
+            var masalar = _dbContext.Masalar.Where(x => x.KatId == _seciliKat.Id).OrderBy(x => x.No).ToList();
             for (int i = 0; i < _seciliKat.MasaSayisi; i++)
             {
                 Masa yeni = masalar[i];
@@ -88,22 +88,32 @@ namespace CafeCore.Forms
             {
                 seciliButon.BackColor = seciliMasaColor;
             }
-            
+
         }
-
-    private FrmSiparisler _frmSiparisler;
-    private void BtnMasa_Click(object sender, EventArgs e)
-    {
-        Button btnMasa = sender as Button;
-
-        if (_frmSiparisler == null || _frmSiparisler.IsDisposed)
+        private Giris _frmGiris = new Giris();
+        private void button1_Click(object sender, EventArgs e)
         {
-            _frmSiparisler = new FrmSiparisler();
+            if (_frmGiris == null || _frmGiris.IsDisposed)
+            {
+                _frmGiris = new Giris();
+            }
+            _frmGiris.Show();
+            this.Hide();
         }
 
-        _frmSiparisler._seciliMasa = btnMasa.Tag as Masa;
-        _frmSiparisler.ShowDialog();
-        this.Hide();
+        private FrmSiparisler _frmSiparisler;
+        private void BtnMasa_Click(object sender, EventArgs e)
+        {
+            Button btnMasa = sender as Button;
+
+            if (_frmSiparisler == null || _frmSiparisler.IsDisposed)
+            {
+                _frmSiparisler = new FrmSiparisler();
+            }
+
+            _frmSiparisler._seciliMasa = btnMasa.Tag as Masa;
+            _frmSiparisler.ShowDialog();
+            this.Hide();
+        }
     }
-}
 }

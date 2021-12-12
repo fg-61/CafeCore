@@ -36,9 +36,10 @@ namespace CafeCore
             // 
             // btnfrmKatEkle
             // 
-            this.btnfrmKatEkle.Location = new System.Drawing.Point(200, 103);
+            this.btnfrmKatEkle.Location = new System.Drawing.Point(229, 137);
+            this.btnfrmKatEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnfrmKatEkle.Name = "btnfrmKatEkle";
-            this.btnfrmKatEkle.Size = new System.Drawing.Size(82, 60);
+            this.btnfrmKatEkle.Size = new System.Drawing.Size(94, 80);
             this.btnfrmKatEkle.TabIndex = 0;
             this.btnfrmKatEkle.Text = "Kat Ekle";
             this.btnfrmKatEkle.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@ namespace CafeCore
             // 
             // btnfrmMasaEkle
             // 
-            this.btnfrmMasaEkle.Location = new System.Drawing.Point(299, 103);
+            this.btnfrmMasaEkle.Location = new System.Drawing.Point(342, 137);
+            this.btnfrmMasaEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnfrmMasaEkle.Name = "btnfrmMasaEkle";
-            this.btnfrmMasaEkle.Size = new System.Drawing.Size(82, 60);
+            this.btnfrmMasaEkle.Size = new System.Drawing.Size(94, 80);
             this.btnfrmMasaEkle.TabIndex = 1;
             this.btnfrmMasaEkle.Text = "Masa Ekle";
             this.btnfrmMasaEkle.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@ namespace CafeCore
             // 
             // btnfrmMenuEkle
             // 
-            this.btnfrmMenuEkle.Location = new System.Drawing.Point(200, 169);
+            this.btnfrmMenuEkle.Location = new System.Drawing.Point(229, 225);
+            this.btnfrmMenuEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnfrmMenuEkle.Name = "btnfrmMenuEkle";
-            this.btnfrmMenuEkle.Size = new System.Drawing.Size(181, 60);
+            this.btnfrmMenuEkle.Size = new System.Drawing.Size(207, 80);
             this.btnfrmMenuEkle.TabIndex = 2;
             this.btnfrmMenuEkle.Text = "Menu Ekle";
             this.btnfrmMenuEkle.UseVisualStyleBackColor = true;
@@ -66,13 +69,15 @@ namespace CafeCore
             // 
             // Giris
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 340);
+            this.ClientSize = new System.Drawing.Size(673, 453);
             this.Controls.Add(this.btnfrmMenuEkle);
             this.Controls.Add(this.btnfrmMasaEkle);
             this.Controls.Add(this.btnfrmKatEkle);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Giris";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
 
