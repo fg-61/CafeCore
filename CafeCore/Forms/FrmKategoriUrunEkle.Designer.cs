@@ -81,7 +81,7 @@
             this.tpKategoriEkle.Controls.Add(this.label1);
             this.tpKategoriEkle.Location = new System.Drawing.Point(4, 54);
             this.tpKategoriEkle.Name = "tpKategoriEkle";
-            this.tpKategoriEkle.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpKategoriEkle.Padding = new System.Windows.Forms.Padding(3);
             this.tpKategoriEkle.Size = new System.Drawing.Size(998, 481);
             this.tpKategoriEkle.TabIndex = 0;
             this.tpKategoriEkle.Text = "Kategori Ekle";
@@ -163,6 +163,7 @@
             this.txtKategoriSiraNo.Name = "txtKategoriSiraNo";
             this.txtKategoriSiraNo.Size = new System.Drawing.Size(236, 30);
             this.txtKategoriSiraNo.TabIndex = 2;
+            this.txtKategoriSiraNo.TextChanged += new System.EventHandler(this.txtKategoriSiraNo_TextChanged);
             this.txtKategoriSiraNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKategoriSiraNo_KeyPress);
             // 
             // txtKategoriAd
@@ -173,6 +174,7 @@
             this.txtKategoriAd.Name = "txtKategoriAd";
             this.txtKategoriAd.Size = new System.Drawing.Size(236, 30);
             this.txtKategoriAd.TabIndex = 1;
+            this.txtKategoriAd.TextChanged += new System.EventHandler(this.txtKategoriAd_TextChanged);
             // 
             // label2
             // 
@@ -209,7 +211,7 @@
             this.tpUrunEkle.Controls.Add(this.label10);
             this.tpUrunEkle.Location = new System.Drawing.Point(4, 54);
             this.tpUrunEkle.Name = "tpUrunEkle";
-            this.tpUrunEkle.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpUrunEkle.Padding = new System.Windows.Forms.Padding(3);
             this.tpUrunEkle.Size = new System.Drawing.Size(998, 481);
             this.tpUrunEkle.TabIndex = 1;
             this.tpUrunEkle.Text = "Ürün Ekle";
@@ -292,6 +294,7 @@
             this.txtUrunFiyat.Name = "txtUrunFiyat";
             this.txtUrunFiyat.Size = new System.Drawing.Size(236, 30);
             this.txtUrunFiyat.TabIndex = 3;
+            this.txtUrunFiyat.TextChanged += new System.EventHandler(this.txtUrunFiyat_TextChanged);
             this.txtUrunFiyat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUrunFiyat_KeyPress);
             // 
             // txtUrunAdi
@@ -302,6 +305,7 @@
             this.txtUrunAdi.Name = "txtUrunAdi";
             this.txtUrunAdi.Size = new System.Drawing.Size(236, 30);
             this.txtUrunAdi.TabIndex = 2;
+            this.txtUrunAdi.TextChanged += new System.EventHandler(this.txtUrunAdi_TextChanged);
             // 
             // label3
             // 

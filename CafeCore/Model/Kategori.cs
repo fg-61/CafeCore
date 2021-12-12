@@ -11,7 +11,7 @@ namespace CafeCore.Model
         [Key]
         public int Id { get; set; }
 
-        [Required, StringLength(50, ErrorMessage = "Ad alanı en fazla 50 karakter olmalı")]
+        [Required, StringLength(30, ErrorMessage = "Ad alanı en fazla 30 karakter olmalı")]
         public string Ad { get; set; }
 
         [Required]

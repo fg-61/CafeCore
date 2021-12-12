@@ -85,7 +85,7 @@ namespace CafeCore.Forms
                     };
                     yeniKat.Masalar.Add(yeniMasa);
                 }
-                
+
                 _dbContext.Katlar.Add(yeniKat);
                 _dbContext.SaveChanges();
             }
@@ -152,8 +152,6 @@ namespace CafeCore.Forms
             {
                 ListeyiDoldur();
             }
-
-
         }
 
         private void btnKatGeri_Click(object sender, EventArgs e)
@@ -161,6 +159,59 @@ namespace CafeCore.Forms
             Giris frmGiris = new Giris();
             frmGiris.Show();
             this.Hide();
+        }
+        private string _eskiText = "";
+        private void txtAd_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAd.Text.Length == 30)
+            {
+                _eskiText = txtAd.Text;
+            }
+            if (txtAd.Text.Length == 31)
+            {
+                txtAd.Text = _eskiText;
+                MessageBox.Show("En fazla 30 karakter girişi yapılabilmektedir.Lütfen tekrar giriş yapınız.");
+            }
+               
+        }
+
+        private void txtKod_TextChanged(object sender, EventArgs e)
+        {
+            if (txtKod.Text.Length == 5)
+            {
+                _eskiText = txtKod.Text;
+            }
+            if (txtKod.Text.Length == 6)
+            {
+                txtKod.Text = _eskiText;
+                MessageBox.Show("En fazla 5 karakter girişi yapılabilmektedir.Lütfen tekrar giriş yapınız.");
+            }
+        }
+
+        private void txtSiraNo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSiraNo.Text.Length == 4)
+            {
+                _eskiText = txtSiraNo.Text;
+            }
+            if (txtSiraNo.Text.Length == 5)
+            {
+                txtSiraNo.Text = _eskiText;
+                MessageBox.Show("En fazla 4 basamaklı sayı girişi yapılabilmektedir. Lütfen tekrar giriş yapınız.");
+            }
+        }
+
+        private void txtMasaSayisi_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMasaSayisi.Text.Length == 6)
+            {
+                _eskiText = txtMasaSayisi.Text;
+            }
+            if (txtMasaSayisi.Text.Length == 7)
+            {
+                txtMasaSayisi.Text = _eskiText;
+                MessageBox.Show("En fazla 6 basamaklı sayı girişi yapılabilmektedir. Lütfen tekrar giriş yapınız.");
+            }
         }
     }
 }

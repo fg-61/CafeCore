@@ -83,7 +83,6 @@ namespace CafeCore.Forms
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.';
         }
-        // KATEGORİ KISMI //
         private void btnKategoriEkle_Click(object sender, EventArgs e)
         {
             try
@@ -108,7 +107,6 @@ namespace CafeCore.Forms
             }
         }
         private Kategori _seciliKategori;
-        // Sil kısında altındaki ürünlere ne olacak ?
         private void btnKategoriSil_Click(object sender, EventArgs e)
         {
             if (lstKategori.SelectedItems.Count == 0) return;
@@ -159,10 +157,6 @@ namespace CafeCore.Forms
                 ListeyiDoldur();
             }
         }
-        // KATEGORİ KISMI BİTTİ //
-
-
-        // ÜRÜN KISMI //
         private void btnUrunEkle_Click(object sender, EventArgs e)
         {
             try
@@ -189,7 +183,7 @@ namespace CafeCore.Forms
         }
         private Urun _seciliUrun;
         private void btnUrunSil_Click(object sender, EventArgs e)
-        {// bağlantılı ürünler ne olacak ??
+        {
             if (lstUrun.SelectedItems.Count == 0) return;
             _seciliUrun = lstUrun.SelectedItems[0].Tag as Urun;
             try
@@ -275,8 +269,57 @@ namespace CafeCore.Forms
 
         }
 
+        private string _eskiText;
+        private void txtKategoriAd_TextChanged(object sender, EventArgs e)
+        {
+            if (txtKategoriAd.Text.Length == 30)
+            {
+                _eskiText = txtKategoriAd.Text;
+            }
+            if (txtKategoriAd.Text.Length == 31)
+            {
+                txtKategoriAd.Text = _eskiText;
+                MessageBox.Show("En fazla 30 karakter girişi yapılabilmektedir.Lütfen tekrar giriş yapınız.");
+            }
+        }
 
-        // ÜRÜN KISMI BİTTİ //
+        private void txtKategoriSiraNo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtKategoriSiraNo.Text.Length == 4)
+            {
+                _eskiText = txtKategoriSiraNo.Text;
+            }
+            if (txtKategoriSiraNo.Text.Length == 5)
+            {
+                txtKategoriSiraNo.Text = _eskiText; 
+                MessageBox.Show("En fazla 4 basamaklı sayı girişi yapılabilmektedir. Lütfen tekrar giriş yapınız.");
+            }
+        }
+
+        private void txtUrunAdi_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUrunAdi.Text.Length == 50)
+            {
+                _eskiText = txtUrunAdi.Text;
+            }
+            if (txtUrunAdi.Text.Length == 51)
+            {
+                txtUrunAdi.Text = _eskiText;
+                MessageBox.Show("En fazla 50 karakter girişi yapılabilmektedir.Lütfen tekrar giriş yapınız.");
+            }
+        }
+
+        private void txtUrunFiyat_TextChanged(object sender, EventArgs e)
+        {
+            if (txtKategoriSiraNo.Text.Length == 6)
+            {
+                _eskiText = txtKategoriSiraNo.Text;
+            }
+            if (txtKategoriSiraNo.Text.Length == 7)
+            {
+                txtKategoriSiraNo.Text = _eskiText;
+                MessageBox.Show("En fazla 6 basamaklı sayı girişi yapılabilmektedir. Lütfen tekrar giriş yapınız.");
+            }
+        }
     }
 }
-//string moneyFormat = money.ToString("#,##0.00");
