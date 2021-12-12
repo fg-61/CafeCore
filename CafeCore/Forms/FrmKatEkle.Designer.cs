@@ -197,6 +197,7 @@ namespace CafeCore.Forms
             this.btnKatGeri.Size = new System.Drawing.Size(86, 101);
             this.btnKatGeri.TabIndex = 27;
             this.btnKatGeri.UseVisualStyleBackColor = true;
+            this.btnKatGeri.Click += new System.EventHandler(this.btnKatGeri_Click);
             // 
             // ımageList1
             // 

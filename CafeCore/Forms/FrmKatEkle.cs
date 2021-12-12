@@ -69,17 +69,31 @@ namespace CafeCore.Forms
             if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Ad.ToLower() == txtAd.Text.ToLower()))
             {
                 txtAd.Text = "";
-                MessageBox.Show("Farklı bir kat adı ismi giriniz !!");
-            }
-            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Kodu == txtKod.Text.ToLower()))
-            {
                 txtKod.Text = "";
+                txtSiraNo.Text = "";
+                txtMasaSayisi.Text = "";
+                MessageBox.Show("Farklı bir kat adı giriniz !!");
+                return;
+            }
+            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Kodu.ToLower() == txtKod.Text.ToLower()))
+            {
+                txtAd.Text = "";
+                txtKod.Text = "";
+                txtSiraNo.Text = "";
+                txtMasaSayisi.Text = "";
+
                 MessageBox.Show("Farklı bir kısaltma kodu giriniz !!");
+                return;
             }
             if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.SiraNo.ToString() == txtSiraNo.Text))
             {
+                txtAd.Text = "";
+                txtKod.Text = "";
                 txtSiraNo.Text = "";
-                MessageBox.Show("Farklı bir kat sıra numarası giriniz !!");
+                txtMasaSayisi.Text = "";
+
+                MessageBox.Show("Farklı bir sıra numarası giriniz !!");
+                return;
             }
             try
             {
@@ -138,13 +152,12 @@ namespace CafeCore.Forms
         {
             if (lstKat.SelectedItems.Count == 0) return;
             _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
-
             if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Ad.ToLower() == txtAd.Text.ToLower()))
             {
                 txtAd.Text = "";
-                MessageBox.Show("Farklı bir kat adı ismi giriniz !!");
+                MessageBox.Show("Farklı bir kat adı giriniz !!");
             }
-            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Kodu == txtKod.Text.ToLower()))
+            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Kodu.ToLower() == txtKod.Text.ToLower()))
             {
                 txtKod.Text = "";
                 MessageBox.Show("Farklı bir kısaltma kodu giriniz !!");
@@ -152,8 +165,9 @@ namespace CafeCore.Forms
             if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.SiraNo.ToString() == txtSiraNo.Text))
             {
                 txtSiraNo.Text = "";
-                MessageBox.Show("Farklı bir kat sıra numarası giriniz !!");
+                MessageBox.Show("Farklı bir sıra numarası giriniz !!");
             }
+
             try
             {
                 _seciliKat.Ad = txtAd.Text;
@@ -173,7 +187,6 @@ namespace CafeCore.Forms
                 ListeyiDoldur();
             }
         }
-
         #endregion
 
         #region Karakter girilen karakter duzenleme
@@ -241,6 +254,15 @@ namespace CafeCore.Forms
         }
         #endregion
 
-
+        private Giris _frmGiris;
+        private void btnKatGeri_Click(object sender, EventArgs e)
+        {
+            if (_frmGiris == null)
+            {
+                _frmGiris = new Giris();
+            }
+            _frmGiris.Show();
+            this.Hide();
+        }
     }
 }

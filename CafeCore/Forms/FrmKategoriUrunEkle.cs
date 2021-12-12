@@ -62,6 +62,20 @@ namespace CafeCore.Forms
         private Kategori _seciliKategori;
         private void btnKategoriEkle_Click(object sender, EventArgs e)
         {
+            if (_dbContext.Kategoriler.Where(x => x.IsDeleted == false).Any(x => x.Ad.ToLower() == txtKategoriAd.Text.ToLower()))
+            {
+                txtKategoriAd.Text = "";
+                txtKategoriSiraNo.Text = "";
+                MessageBox.Show("Farklı bir kategori adı giriniz !!");
+                return;
+            }
+            if (_dbContext.Kategoriler.Where(x => x.IsDeleted == false).Any(x => x.SiraNo.ToString() == txtKategoriSiraNo.Text))
+            {
+                txtKategoriAd.Text = "";
+                txtKategoriSiraNo.Text = "";
+                MessageBox.Show("Farklı bir sıra numarası giriniz !!");
+                return;
+            }
             try
             {
                 var yeni = new Kategori
@@ -217,6 +231,13 @@ namespace CafeCore.Forms
         #region Urun Ekle,Sil,Guncelle
         private void btnUrunEkle_Click(object sender, EventArgs e)
         {
+            if (_dbContext.Urunler.Where(x => x.IsDeleted == false).Any(x => x.Ad.ToLower() == txtUrunAdi.Text.ToLower()))
+            {
+                txtUrunAdi.Text = "";
+                txtUrunFiyat.Text = "";
+                MessageBox.Show("Farklı bir kategori adı giriniz !!");
+                return;
+            }
             try
             {
                 var yeni = new Urun

@@ -15,9 +15,11 @@ namespace CafeCore.Forms
         {
             InitializeComponent();
         }
-        CafeContext _dbContext = new CafeContext();
-        Color defaultKatColor = Color.LightGray, seciliKatColor = Color.RoyalBlue, seciliMasaColor = Color.OrangeRed;
+ 
+        private Giris _frmGiris = new Giris();
 
+        CafeContext _dbContext = new CafeContext();
+        Color defaultKatColor = Color.LightGray, seciliKatColor = Color.RoyalBlue, seciliMasaColor = Color.RoyalBlue;
         private void Masalar_Load(object sender, EventArgs e)
         {
             KatDoldur();
@@ -90,17 +92,6 @@ namespace CafeCore.Forms
             }
 
         }
-        private Giris _frmGiris = new Giris();
-
-        private void btnAnaSayfa_Click(object sender, EventArgs e)
-        {
-            if (_frmGiris == null || _frmGiris.IsDisposed)
-            {
-                _frmGiris = new Giris();
-            }
-            _frmGiris.Show();
-            this.Hide();
-        }
 
         private FrmSiparisler _frmSiparisler;
         private void BtnMasa_Click(object sender, EventArgs e)
@@ -111,9 +102,20 @@ namespace CafeCore.Forms
             {
                 _frmSiparisler = new FrmSiparisler();
             }
+
             _frmSiparisler._seciliMasa = btnMasa.Tag as Masa;
-            _frmSiparisler.Show();
+            _frmSiparisler.ShowDialog();
             this.Hide();
         }
+        private void btnAnaSayfa_Click(object sender, EventArgs e)
+        {
+            if (_frmGiris == null || _frmGiris.IsDisposed)
+            {
+                _frmGiris = new Giris();
+            }
+            _frmGiris.Show();
+            this.Hide();
+        }
+
     }
 }
