@@ -46,6 +46,7 @@ namespace CafeCore.Forms
             this.lblBaslangic = new System.Windows.Forms.Label();
             this.lblBitis = new System.Windows.Forms.Label();
             this.yuvarlakButon1 = new ShapedButton.YuvarlakButon();
+            this.lblToplamTutar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgRaporlar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@ namespace CafeCore.Forms
             // 
             this.lblToplam.AutoSize = true;
             this.lblToplam.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblToplam.Location = new System.Drawing.Point(473, 290);
+            this.lblToplam.Location = new System.Drawing.Point(443, 289);
             this.lblToplam.Name = "lblToplam";
             this.lblToplam.Size = new System.Drawing.Size(112, 21);
             this.lblToplam.TabIndex = 1;
@@ -62,13 +63,10 @@ namespace CafeCore.Forms
             // 
             // txtToplamTutar
             // 
-            this.lblToplamTutar.AutoSize = true;
-            this.lblToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblToplamTutar.Location = new System.Drawing.Point(544, 310);
-            this.lblToplamTutar.Name = "lblToplamTutar";
-            this.lblToplamTutar.Size = new System.Drawing.Size(62, 21);
-            this.lblToplamTutar.TabIndex = 2;
-            this.lblToplamTutar.Text = "toplam";
+            this.txtToplamTutar.Location = new System.Drawing.Point(0, 0);
+            this.txtToplamTutar.Name = "txtToplamTutar";
+            this.txtToplamTutar.Size = new System.Drawing.Size(100, 23);
+            this.txtToplamTutar.TabIndex = 10;
             // 
             // rbGunluk
             // 
@@ -211,12 +209,23 @@ namespace CafeCore.Forms
             this.yuvarlakButon1.UseVisualStyleBackColor = true;
             this.yuvarlakButon1.Click += new System.EventHandler(this.yuvarlakButon1_Click);
             // 
+            // lblToplamTutar
+            // 
+            this.lblToplamTutar.AutoSize = true;
+            this.lblToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblToplamTutar.Location = new System.Drawing.Point(552, 289);
+            this.lblToplamTutar.Name = "lblToplamTutar";
+            this.lblToplamTutar.Size = new System.Drawing.Size(63, 21);
+            this.lblToplamTutar.TabIndex = 1;
+            this.lblToplamTutar.Text = "Toplam";
+            this.lblToplamTutar.Visible = false;
+            // 
             // FrmRaporlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(880, 404);
+            this.ClientSize = new System.Drawing.Size(880, 485);
             this.Controls.Add(this.yuvarlakButon1);
             this.Controls.Add(this.lblBitis);
             this.Controls.Add(this.lblBaslangic);
@@ -228,6 +237,7 @@ namespace CafeCore.Forms
             this.Controls.Add(this.RbAylik);
             this.Controls.Add(this.rbGunluk);
             this.Controls.Add(this.txtToplamTutar);
+            this.Controls.Add(this.lblToplamTutar);
             this.Controls.Add(this.lblToplam);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRaporlar";
@@ -255,5 +265,6 @@ namespace CafeCore.Forms
         private System.Windows.Forms.Label lblBitis;
         private System.Windows.Forms.ImageList ımageList1;
         private ShapedButton.YuvarlakButon yuvarlakButon1;
+        private System.Windows.Forms.Label lblToplamTutar;
     }
 }
