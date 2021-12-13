@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CafeCore
 {
-    public partial class Giris : Form
+    public partial class Giris : Form 
     {
         public Giris()
         {
