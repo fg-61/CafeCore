@@ -62,14 +62,13 @@ namespace CafeCore.Forms
             // 
             // txtToplamTutar
             // 
-            this.txtToplamTutar.AutoSize = true;
-            this.txtToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtToplamTutar.Location = new System.Drawing.Point(588, 290);
-            this.txtToplamTutar.Name = "txtToplamTutar";
-            this.txtToplamTutar.Size = new System.Drawing.Size(104, 21);
-            this.txtToplamTutar.TabIndex = 2;
-            this.txtToplamTutar.Text = "Toplam Tutar";
-            this.txtToplamTutar.Visible = false;
+            this.lblToplamTutar.AutoSize = true;
+            this.lblToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblToplamTutar.Location = new System.Drawing.Point(544, 310);
+            this.lblToplamTutar.Name = "lblToplamTutar";
+            this.lblToplamTutar.Size = new System.Drawing.Size(62, 21);
+            this.lblToplamTutar.TabIndex = 2;
+            this.lblToplamTutar.Text = "toplam";
             // 
             // rbGunluk
             // 
