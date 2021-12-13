@@ -160,6 +160,7 @@ namespace CafeCore.Forms
             this.txtSiraNo.Size = new System.Drawing.Size(207, 25);
             this.txtSiraNo.TabIndex = 3;
             this.txtSiraNo.TextChanged += new System.EventHandler(this.txtSiraNo_TextChanged);
+            this.txtSiraNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSiraNo_KeyPress_1);
             // 
             // txtMasaSayisi
             // 

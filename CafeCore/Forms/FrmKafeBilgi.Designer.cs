@@ -54,7 +54,7 @@ namespace CafeCore.Forms
             this.txtAdres.Location = new System.Drawing.Point(85, 97);
             this.txtAdres.Name = "txtAdres";
             this.txtAdres.Size = new System.Drawing.Size(100, 96);
-            this.txtAdres.TabIndex = 1;
+            this.txtAdres.TabIndex = 2;
             this.txtAdres.Text = "";
             // 
             // txtTelefon
@@ -63,7 +63,7 @@ namespace CafeCore.Forms
             this.txtTelefon.Mask = "(999) 000-0000";
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(100, 23);
-            this.txtTelefon.TabIndex = 2;
+            this.txtTelefon.TabIndex = 1;
             // 
             // label1
             // 
@@ -112,8 +112,9 @@ namespace CafeCore.Forms
             this.btnKaydet.Location = new System.Drawing.Point(12, 242);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(69, 65);
-            this.btnKaydet.TabIndex = 4;
+            this.btnKaydet.TabIndex = 3;
             this.btnKaydet.UseVisualStyleBackColor = false;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click_1);
             // 
             // yuvarlakButon1
             // 
@@ -131,9 +132,11 @@ namespace CafeCore.Forms
             // 
             // FrmKafeBilgi
             // 
+            this.AcceptButton = this.btnKaydet;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.yuvarlakButon1;
             this.ClientSize = new System.Drawing.Size(223, 319);
             this.Controls.Add(this.yuvarlakButon1);
             this.Controls.Add(this.btnKaydet);
@@ -145,7 +148,9 @@ namespace CafeCore.Forms
             this.Controls.Add(this.txtKafeAdi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmKafeBilgi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kafe Bilgileri";
+            this.Load += new System.EventHandler(this.FrmKafeBilgi_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -103,7 +103,9 @@ namespace CafeCore.Forms
 
             }
             var total = DgRaporlar.Rows.Cast<DataGridViewRow>().Sum(row => Convert.ToDecimal(row.Cells[4].Value)).ToString();
-            txtToplamTutar.Text = $"{total}₺";
+            lblToplamTutar.Text = $"{total}₺";
+            lblToplamTutar.Visible = true;
+            lblToplam.Visible = true;
         }
 
         private void btnYazdir_Click(object sender, EventArgs e)
