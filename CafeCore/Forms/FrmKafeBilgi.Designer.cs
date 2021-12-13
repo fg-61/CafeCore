@@ -117,6 +117,7 @@ namespace CafeCore.Forms
             // 
             // yuvarlakButon1
             // 
+            this.yuvarlakButon1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.yuvarlakButon1.FlatAppearance.BorderSize = 0;
             this.yuvarlakButon1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.yuvarlakButon1.ImageIndex = 1;
