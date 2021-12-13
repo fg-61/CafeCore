@@ -165,7 +165,7 @@ namespace CafeCore
             this.Name = "Giris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kafe Core";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Giris_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Giris_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
