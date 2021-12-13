@@ -53,18 +53,18 @@ namespace CafeCore.Forms
             // 
             this.lblToplam.AutoSize = true;
             this.lblToplam.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblToplam.Location = new System.Drawing.Point(429, 310);
+            this.lblToplam.Location = new System.Drawing.Point(473, 290);
             this.lblToplam.Name = "lblToplam";
-            this.lblToplam.Size = new System.Drawing.Size(109, 21);
+            this.lblToplam.Size = new System.Drawing.Size(112, 21);
             this.lblToplam.TabIndex = 1;
-            this.lblToplam.Text = "Toplam Tutar:";
+            this.lblToplam.Text = "Toplam Tutar :";
             this.lblToplam.Visible = false;
             // 
             // txtToplamTutar
             // 
             this.txtToplamTutar.AutoSize = true;
             this.txtToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtToplamTutar.Location = new System.Drawing.Point(544, 310);
+            this.txtToplamTutar.Location = new System.Drawing.Point(588, 290);
             this.txtToplamTutar.Name = "txtToplamTutar";
             this.txtToplamTutar.Size = new System.Drawing.Size(104, 21);
             this.txtToplamTutar.TabIndex = 2;
@@ -74,7 +74,7 @@ namespace CafeCore.Forms
             // rbGunluk
             // 
             this.rbGunluk.AutoSize = true;
-            this.rbGunluk.Location = new System.Drawing.Point(473, 28);
+            this.rbGunluk.Location = new System.Drawing.Point(474, 28);
             this.rbGunluk.Name = "rbGunluk";
             this.rbGunluk.Size = new System.Drawing.Size(131, 19);
             this.rbGunluk.TabIndex = 4;
@@ -85,7 +85,7 @@ namespace CafeCore.Forms
             // RbAylik
             // 
             this.RbAylik.AutoSize = true;
-            this.RbAylik.Location = new System.Drawing.Point(473, 66);
+            this.RbAylik.Location = new System.Drawing.Point(474, 66);
             this.RbAylik.Name = "RbAylik";
             this.RbAylik.Size = new System.Drawing.Size(119, 19);
             this.RbAylik.TabIndex = 4;
@@ -130,7 +130,7 @@ namespace CafeCore.Forms
             this.DgRaporlar.Name = "DgRaporlar";
             this.DgRaporlar.RowHeadersWidth = 51;
             this.DgRaporlar.RowTemplate.Height = 25;
-            this.DgRaporlar.Size = new System.Drawing.Size(400, 359);
+            this.DgRaporlar.Size = new System.Drawing.Size(393, 359);
             this.DgRaporlar.TabIndex = 6;
             // 
             // printDocument1
@@ -151,7 +151,7 @@ namespace CafeCore.Forms
             // rbTarihSec
             // 
             this.rbTarihSec.AutoSize = true;
-            this.rbTarihSec.Location = new System.Drawing.Point(473, 104);
+            this.rbTarihSec.Location = new System.Drawing.Point(474, 104);
             this.rbTarihSec.Name = "rbTarihSec";
             this.rbTarihSec.Size = new System.Drawing.Size(108, 19);
             this.rbTarihSec.TabIndex = 4;
@@ -161,7 +161,7 @@ namespace CafeCore.Forms
             // 
             // dtpBaslangic
             // 
-            this.dtpBaslangic.Location = new System.Drawing.Point(496, 179);
+            this.dtpBaslangic.Location = new System.Drawing.Point(474, 177);
             this.dtpBaslangic.Name = "dtpBaslangic";
             this.dtpBaslangic.Size = new System.Drawing.Size(108, 23);
             this.dtpBaslangic.TabIndex = 7;
@@ -170,7 +170,7 @@ namespace CafeCore.Forms
             // 
             // dtpBitis
             // 
-            this.dtpBitis.Location = new System.Drawing.Point(496, 221);
+            this.dtpBitis.Location = new System.Drawing.Point(474, 219);
             this.dtpBitis.Name = "dtpBitis";
             this.dtpBitis.Size = new System.Drawing.Size(108, 23);
             this.dtpBitis.TabIndex = 7;
@@ -180,21 +180,21 @@ namespace CafeCore.Forms
             // lblBaslangic
             // 
             this.lblBaslangic.AutoSize = true;
-            this.lblBaslangic.Location = new System.Drawing.Point(430, 183);
+            this.lblBaslangic.Location = new System.Drawing.Point(404, 183);
             this.lblBaslangic.Name = "lblBaslangic";
-            this.lblBaslangic.Size = new System.Drawing.Size(57, 15);
+            this.lblBaslangic.Size = new System.Drawing.Size(63, 15);
             this.lblBaslangic.TabIndex = 8;
-            this.lblBaslangic.Text = "Başlangıç";
+            this.lblBaslangic.Text = "Başlangıç :";
             this.lblBaslangic.Visible = false;
             // 
             // lblBitis
             // 
             this.lblBitis.AutoSize = true;
-            this.lblBitis.Location = new System.Drawing.Point(446, 225);
+            this.lblBitis.Location = new System.Drawing.Point(432, 225);
             this.lblBitis.Name = "lblBitis";
-            this.lblBitis.Size = new System.Drawing.Size(29, 15);
+            this.lblBitis.Size = new System.Drawing.Size(35, 15);
             this.lblBitis.TabIndex = 8;
-            this.lblBitis.Text = "Bitiş";
+            this.lblBitis.Text = "Bitiş :";
             this.lblBitis.Visible = false;
             // 
             // yuvarlakButon1
