@@ -366,6 +366,7 @@ namespace CafeCore.Forms
         #endregion
 
         #endregion
+
         #region Menu Butonu
         private Giris _frmgiris;
         private void btnAnaSayfa_Click(object sender, EventArgs e)

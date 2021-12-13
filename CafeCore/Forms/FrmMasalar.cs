@@ -3,6 +3,7 @@ using CafeCore.Model;
 using CafeCore.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,11 +16,11 @@ namespace CafeCore.Forms
         {
             InitializeComponent();
         }
- 
+
         private Giris _frmGiris = new Giris();
 
         CafeContext _dbContext = new CafeContext();
-        Color defaultKatColor = Color.LightGray, seciliKatColor = Color.RoyalBlue, seciliMasaColor = Color.RoyalBlue;
+        Color defaultKatColor = Color.LightGray, seciliKatColor = Color.CornflowerBlue, bosMasaColor = Color.Silver, doluMasaColor = Color.IndianRed;
         private void Masalar_Load(object sender, EventArgs e)
         {
             KatDoldur();
@@ -57,7 +58,7 @@ namespace CafeCore.Forms
             int masaButonYukseklik = 100;
             int masaButonGenislik = 100;
 
-            var masalar = _dbContext.Masalar.Where(x => x.KatId == _seciliKat.Id).OrderBy(x => x.No).ToList();
+            var masalar = _dbContext.Masalar.Where(x => x.KatId == _seciliKat.Id).Include(x => x.Siparisler).ThenInclude(x => x.Urun).OrderBy(x => x.No).ToList();
             for (int i = 0; i < _seciliKat.MasaSayisi; i++)
             {
                 Masa yeni = masalar[i];
@@ -65,7 +66,7 @@ namespace CafeCore.Forms
                 {
                     Text = yeni.Ad,
                     Size = new Size(masaButonGenislik, masaButonYukseklik),
-                    BackColor = defaultKatColor,
+                    BackColor = bosMasaColor,
                     Tag = yeni
                 };
                 Renklendir(btnMasa);
@@ -88,7 +89,7 @@ namespace CafeCore.Forms
             var seciliMasa = (Masa)(seciliButon.Tag);
             if (seciliMasa.Durum == true)
             {
-                seciliButon.BackColor = seciliMasaColor;
+                seciliButon.BackColor = doluMasaColor;
             }
 
         }

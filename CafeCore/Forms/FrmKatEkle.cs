@@ -117,7 +117,7 @@ namespace CafeCore.Forms
                     {
                         Durum = false,
                         No = i + 1,
-                        Ad = $"{ yeniKat.Kodu } - Masa { i + 1 }"
+                        Ad = $"{ yeniKat.Kodu } M-{ i + 1 }"
                     };
                     yeniKat.Masalar.Add(yeniMasa);
                 }
