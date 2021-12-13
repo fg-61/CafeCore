@@ -105,9 +105,9 @@ namespace CafeCore.Forms
             lstSepet.Columns.Add("Adet");
             lstSepet.Columns[0].Width = 70;
             lstSepet.Columns.Add("Ürün");
-            lstSepet.Columns[1].Width = 307;
+            lstSepet.Columns[1].Width = 284;
             lstSepet.Columns.Add("Ara Toplam");
-            lstSepet.Columns[2].Width = 178;
+            lstSepet.Columns[2].Width = 120;
 
             var siparisView = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id && x.IsDeleted == false).ToList();
             foreach (var item in siparisView)
@@ -147,6 +147,24 @@ namespace CafeCore.Forms
                 _dbContext.Siparisler.Update(sepetUrun);
             }
             _dbContext.SaveChanges();
+            SepetiDoldur();
+        }
+        private void lstSepet_DoubleClick(object sender, EventArgs e)
+        {
+            if (lstSepet.SelectedItems.Count == 0) return;
+            var secili = lstSepet.SelectedItems[0].Tag as Siparis;
+            if (secili.Adet == 1)
+            {
+                _dbContext.Siparisler.Remove(secili);
+            }
+            else
+            {
+                secili.Adet--;
+                secili.AraToplam = secili.Adet * secili.Fiyat;
+                _dbContext.Siparisler.Update(secili);
+            }
+            _dbContext.SaveChanges();
+
             SepetiDoldur();
         }
 

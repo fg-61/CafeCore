@@ -31,8 +31,8 @@ namespace CafeCore.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRaporlar));
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblToplamTutar = new System.Windows.Forms.Label();
+            this.lblToplam = new System.Windows.Forms.Label();
+            this.txtToplamTutar = new System.Windows.Forms.Label();
             this.rbGunluk = new System.Windows.Forms.RadioButton();
             this.RbAylik = new System.Windows.Forms.RadioButton();
             this.btnYazdir = new System.Windows.Forms.Button();
@@ -49,30 +49,32 @@ namespace CafeCore.Forms
             ((System.ComponentModel.ISupportInitialize)(this.DgRaporlar)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblToplam
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(429, 310);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Toplam Tutar:";
-            this.label1.Visible = false;
+            this.lblToplam.AutoSize = true;
+            this.lblToplam.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblToplam.Location = new System.Drawing.Point(473, 290);
+            this.lblToplam.Name = "lblToplam";
+            this.lblToplam.Size = new System.Drawing.Size(112, 21);
+            this.lblToplam.TabIndex = 1;
+            this.lblToplam.Text = "Toplam Tutar :";
+            this.lblToplam.Visible = false;
             // 
-            // lblToplamTutar
+            // txtToplamTutar
             // 
-            this.lblToplamTutar.AutoSize = true;
-            this.lblToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblToplamTutar.Location = new System.Drawing.Point(353, 389);
-            this.lblToplamTutar.Name = "lblToplamTutar";
-            this.lblToplamTutar.Size = new System.Drawing.Size(0, 21);
-            this.lblToplamTutar.TabIndex = 2;
+            this.txtToplamTutar.AutoSize = true;
+            this.txtToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtToplamTutar.Location = new System.Drawing.Point(588, 290);
+            this.txtToplamTutar.Name = "txtToplamTutar";
+            this.txtToplamTutar.Size = new System.Drawing.Size(104, 21);
+            this.txtToplamTutar.TabIndex = 2;
+            this.txtToplamTutar.Text = "Toplam Tutar";
+            this.txtToplamTutar.Visible = false;
             // 
             // rbGunluk
             // 
             this.rbGunluk.AutoSize = true;
-            this.rbGunluk.Location = new System.Drawing.Point(473, 28);
+            this.rbGunluk.Location = new System.Drawing.Point(474, 28);
             this.rbGunluk.Name = "rbGunluk";
             this.rbGunluk.Size = new System.Drawing.Size(131, 19);
             this.rbGunluk.TabIndex = 4;
@@ -83,7 +85,7 @@ namespace CafeCore.Forms
             // RbAylik
             // 
             this.RbAylik.AutoSize = true;
-            this.RbAylik.Location = new System.Drawing.Point(473, 66);
+            this.RbAylik.Location = new System.Drawing.Point(474, 66);
             this.RbAylik.Name = "RbAylik";
             this.RbAylik.Size = new System.Drawing.Size(119, 19);
             this.RbAylik.TabIndex = 4;
@@ -128,7 +130,7 @@ namespace CafeCore.Forms
             this.DgRaporlar.Name = "DgRaporlar";
             this.DgRaporlar.RowHeadersWidth = 51;
             this.DgRaporlar.RowTemplate.Height = 25;
-            this.DgRaporlar.Size = new System.Drawing.Size(400, 359);
+            this.DgRaporlar.Size = new System.Drawing.Size(393, 359);
             this.DgRaporlar.TabIndex = 6;
             // 
             // printDocument1
@@ -149,7 +151,7 @@ namespace CafeCore.Forms
             // rbTarihSec
             // 
             this.rbTarihSec.AutoSize = true;
-            this.rbTarihSec.Location = new System.Drawing.Point(473, 104);
+            this.rbTarihSec.Location = new System.Drawing.Point(474, 104);
             this.rbTarihSec.Name = "rbTarihSec";
             this.rbTarihSec.Size = new System.Drawing.Size(108, 19);
             this.rbTarihSec.TabIndex = 4;
@@ -159,7 +161,7 @@ namespace CafeCore.Forms
             // 
             // dtpBaslangic
             // 
-            this.dtpBaslangic.Location = new System.Drawing.Point(496, 179);
+            this.dtpBaslangic.Location = new System.Drawing.Point(474, 177);
             this.dtpBaslangic.Name = "dtpBaslangic";
             this.dtpBaslangic.Size = new System.Drawing.Size(108, 23);
             this.dtpBaslangic.TabIndex = 7;
@@ -168,7 +170,7 @@ namespace CafeCore.Forms
             // 
             // dtpBitis
             // 
-            this.dtpBitis.Location = new System.Drawing.Point(496, 221);
+            this.dtpBitis.Location = new System.Drawing.Point(474, 219);
             this.dtpBitis.Name = "dtpBitis";
             this.dtpBitis.Size = new System.Drawing.Size(108, 23);
             this.dtpBitis.TabIndex = 7;
@@ -178,21 +180,21 @@ namespace CafeCore.Forms
             // lblBaslangic
             // 
             this.lblBaslangic.AutoSize = true;
-            this.lblBaslangic.Location = new System.Drawing.Point(430, 183);
+            this.lblBaslangic.Location = new System.Drawing.Point(404, 183);
             this.lblBaslangic.Name = "lblBaslangic";
-            this.lblBaslangic.Size = new System.Drawing.Size(57, 15);
+            this.lblBaslangic.Size = new System.Drawing.Size(63, 15);
             this.lblBaslangic.TabIndex = 8;
-            this.lblBaslangic.Text = "Başlangıç";
+            this.lblBaslangic.Text = "Başlangıç :";
             this.lblBaslangic.Visible = false;
             // 
             // lblBitis
             // 
             this.lblBitis.AutoSize = true;
-            this.lblBitis.Location = new System.Drawing.Point(446, 225);
+            this.lblBitis.Location = new System.Drawing.Point(432, 225);
             this.lblBitis.Name = "lblBitis";
-            this.lblBitis.Size = new System.Drawing.Size(29, 15);
+            this.lblBitis.Size = new System.Drawing.Size(35, 15);
             this.lblBitis.TabIndex = 8;
-            this.lblBitis.Text = "Bitiş";
+            this.lblBitis.Text = "Bitiş :";
             this.lblBitis.Visible = false;
             // 
             // yuvarlakButon1
@@ -226,8 +228,8 @@ namespace CafeCore.Forms
             this.Controls.Add(this.rbTarihSec);
             this.Controls.Add(this.RbAylik);
             this.Controls.Add(this.rbGunluk);
-            this.Controls.Add(this.lblToplamTutar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtToplamTutar);
+            this.Controls.Add(this.lblToplam);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRaporlar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -239,8 +241,8 @@ namespace CafeCore.Forms
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblToplamTutar;
+        private System.Windows.Forms.Label lblToplam;
+        private System.Windows.Forms.Label txtToplamTutar;
         private System.Windows.Forms.RadioButton rbGunluk;
         private System.Windows.Forms.RadioButton RbAylik;
         private System.Windows.Forms.Button btnYazdir;

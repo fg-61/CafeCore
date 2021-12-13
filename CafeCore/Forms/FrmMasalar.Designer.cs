@@ -101,14 +101,15 @@
             // 
             // flpKatlar
             // 
+            this.flpKatlar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flpKatlar.AutoScroll = true;
             this.flpKatlar.BackColor = System.Drawing.Color.White;
-            this.flpKatlar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpKatlar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpKatlar.Location = new System.Drawing.Point(20, 20);
             this.flpKatlar.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
             this.flpKatlar.Name = "flpKatlar";
-            this.flpKatlar.Size = new System.Drawing.Size(913, 127);
+            this.flpKatlar.Size = new System.Drawing.Size(798, 90);
             this.flpKatlar.TabIndex = 2;
             // 
             // btnAnaSayfa
@@ -119,10 +120,10 @@
             this.btnAnaSayfa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnaSayfa.ImageIndex = 0;
             this.btnAnaSayfa.ImageList = this.ımageList1;
-            this.btnAnaSayfa.Location = new System.Drawing.Point(936, 4);
+            this.btnAnaSayfa.Location = new System.Drawing.Point(821, 4);
             this.btnAnaSayfa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAnaSayfa.Name = "btnAnaSayfa";
-            this.btnAnaSayfa.Size = new System.Drawing.Size(119, 139);
+            this.btnAnaSayfa.Size = new System.Drawing.Size(104, 102);
             this.btnAnaSayfa.TabIndex = 0;
             this.btnAnaSayfa.UseVisualStyleBackColor = false;
             this.btnAnaSayfa.Click += new System.EventHandler(this.btnAnaSayfa_Click);
@@ -140,13 +141,13 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.flpMasalar, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 187);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 140);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1114, 536);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(975, 402);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // flpMasalar
@@ -159,7 +160,7 @@
             this.flpMasalar.Location = new System.Drawing.Point(41, 15);
             this.flpMasalar.Margin = new System.Windows.Forms.Padding(41, 15, 166, 0);
             this.flpMasalar.Name = "flpMasalar";
-            this.flpMasalar.Size = new System.Drawing.Size(907, 481);
+            this.flpMasalar.Size = new System.Drawing.Size(768, 347);
             this.flpMasalar.TabIndex = 2;
             // 
             // FrmMasalar
