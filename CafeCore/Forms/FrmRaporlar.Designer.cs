@@ -95,6 +95,7 @@ namespace CafeCore.Forms
             // 
             this.btnYazdir.BackColor = System.Drawing.Color.White;
             this.btnYazdir.FlatAppearance.BorderSize = 0;
+            this.btnYazdir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnYazdir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYazdir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnYazdir.ImageIndex = 1;
@@ -197,6 +198,7 @@ namespace CafeCore.Forms
             // yuvarlakButon1
             // 
             this.yuvarlakButon1.FlatAppearance.BorderSize = 0;
+            this.yuvarlakButon1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.yuvarlakButon1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.yuvarlakButon1.ForeColor = System.Drawing.Color.White;
             this.yuvarlakButon1.ImageIndex = 0;

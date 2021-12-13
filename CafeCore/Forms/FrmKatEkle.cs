@@ -270,5 +270,14 @@ namespace CafeCore.Forms
             _frmGiris.Show();
             this.Hide();
         }
+
+        private void yuvarlakButon1_Click(object sender, EventArgs e)
+        {
+            FrmKafeBilgi frmKafeBilgi = new FrmKafeBilgi();
+            frmKafeBilgi.Show();
+            this.Hide();
+           
+        }
     }
-}
+ }
+

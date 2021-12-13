@@ -29,13 +29,17 @@ namespace CafeCore.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKafeBilgi));
             this.txtKafeAdi = new System.Windows.Forms.TextBox();
             this.txtAdres = new System.Windows.Forms.RichTextBox();
             this.txtTelefon = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnKaydet = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnKaydet = new ShapedButton.YuvarlakButon();
+            this.yuvarlakButon1 = new ShapedButton.YuvarlakButon();
             this.SuspendLayout();
             // 
             // txtKafeAdi
@@ -88,21 +92,49 @@ namespace CafeCore.Forms
             this.label3.TabIndex = 3;
             this.label3.Text = "Adres";
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth16Bit;
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "sdfdsf.jpg");
+            this.ımageList1.Images.SetKeyName(1, "ana.jpg");
+            // 
             // btnKaydet
             // 
-            this.btnKaydet.Location = new System.Drawing.Point(19, 226);
+            this.btnKaydet.BackColor = System.Drawing.Color.White;
+            this.btnKaydet.FlatAppearance.BorderSize = 0;
+            this.btnKaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKaydet.ForeColor = System.Drawing.Color.White;
+            this.btnKaydet.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnKaydet.ImageIndex = 0;
+            this.btnKaydet.ImageList = this.ımageList1;
+            this.btnKaydet.Location = new System.Drawing.Point(12, 242);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(185, 84);
+            this.btnKaydet.Size = new System.Drawing.Size(69, 65);
             this.btnKaydet.TabIndex = 4;
-            this.btnKaydet.Text = "Kaydet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
-            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            this.btnKaydet.UseVisualStyleBackColor = false;
+            // 
+            // yuvarlakButon1
+            // 
+            this.yuvarlakButon1.FlatAppearance.BorderSize = 0;
+            this.yuvarlakButon1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.yuvarlakButon1.ImageIndex = 1;
+            this.yuvarlakButon1.ImageList = this.ımageList1;
+            this.yuvarlakButon1.Location = new System.Drawing.Point(133, 242);
+            this.yuvarlakButon1.Name = "yuvarlakButon1";
+            this.yuvarlakButon1.Size = new System.Drawing.Size(69, 65);
+            this.yuvarlakButon1.TabIndex = 5;
+            this.yuvarlakButon1.UseVisualStyleBackColor = true;
+            this.yuvarlakButon1.Click += new System.EventHandler(this.yuvarlakButon1_Click);
             // 
             // FrmKafeBilgi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(223, 319);
+            this.Controls.Add(this.yuvarlakButon1);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -110,6 +142,7 @@ namespace CafeCore.Forms
             this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.txtAdres);
             this.Controls.Add(this.txtKafeAdi);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmKafeBilgi";
             this.Text = "Kafe Bilgileri";
             this.ResumeLayout(false);
@@ -126,6 +159,8 @@ namespace CafeCore.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnKaydet;
+        private System.Windows.Forms.ImageList ımageList1;
+        private ShapedButton.YuvarlakButon btnKaydet;
+        private ShapedButton.YuvarlakButon yuvarlakButon1;
     }
 }
