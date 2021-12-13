@@ -31,8 +31,8 @@ namespace CafeCore.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRaporlar));
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblToplamTutar = new System.Windows.Forms.Label();
+            this.lblToplam = new System.Windows.Forms.Label();
+            this.txtToplamTutar = new System.Windows.Forms.Label();
             this.rbGunluk = new System.Windows.Forms.RadioButton();
             this.RbAylik = new System.Windows.Forms.RadioButton();
             this.btnYazdir = new System.Windows.Forms.Button();
@@ -49,25 +49,27 @@ namespace CafeCore.Forms
             ((System.ComponentModel.ISupportInitialize)(this.DgRaporlar)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblToplam
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(429, 310);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Toplam Tutar:";
-            this.label1.Visible = false;
+            this.lblToplam.AutoSize = true;
+            this.lblToplam.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblToplam.Location = new System.Drawing.Point(429, 310);
+            this.lblToplam.Name = "lblToplam";
+            this.lblToplam.Size = new System.Drawing.Size(109, 21);
+            this.lblToplam.TabIndex = 1;
+            this.lblToplam.Text = "Toplam Tutar:";
+            this.lblToplam.Visible = false;
             // 
-            // lblToplamTutar
+            // txtToplamTutar
             // 
-            this.lblToplamTutar.AutoSize = true;
-            this.lblToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblToplamTutar.Location = new System.Drawing.Point(353, 389);
-            this.lblToplamTutar.Name = "lblToplamTutar";
-            this.lblToplamTutar.Size = new System.Drawing.Size(0, 21);
-            this.lblToplamTutar.TabIndex = 2;
+            this.txtToplamTutar.AutoSize = true;
+            this.txtToplamTutar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtToplamTutar.Location = new System.Drawing.Point(544, 310);
+            this.txtToplamTutar.Name = "txtToplamTutar";
+            this.txtToplamTutar.Size = new System.Drawing.Size(104, 21);
+            this.txtToplamTutar.TabIndex = 2;
+            this.txtToplamTutar.Text = "Toplam Tutar";
+            this.txtToplamTutar.Visible = false;
             // 
             // rbGunluk
             // 
@@ -226,8 +228,8 @@ namespace CafeCore.Forms
             this.Controls.Add(this.rbTarihSec);
             this.Controls.Add(this.RbAylik);
             this.Controls.Add(this.rbGunluk);
-            this.Controls.Add(this.lblToplamTutar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtToplamTutar);
+            this.Controls.Add(this.lblToplam);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRaporlar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -239,8 +241,8 @@ namespace CafeCore.Forms
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblToplamTutar;
+        private System.Windows.Forms.Label lblToplam;
+        private System.Windows.Forms.Label txtToplamTutar;
         private System.Windows.Forms.RadioButton rbGunluk;
         private System.Windows.Forms.RadioButton RbAylik;
         private System.Windows.Forms.Button btnYazdir;

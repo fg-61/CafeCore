@@ -22,6 +22,8 @@ namespace CafeCore.Forms
         int secim = 0;
         private void rbGunluk_CheckedChanged(object sender, EventArgs e)
         {
+            lblToplam.Visible = true;
+            txtToplamTutar.Visible = true;
             if (rbGunluk.Checked == true)
             {
                 rapor = "Günlük";
@@ -33,6 +35,9 @@ namespace CafeCore.Forms
 
         private void RbAylik_CheckedChanged(object sender, EventArgs e)
         {
+
+            lblToplam.Visible = true;
+            txtToplamTutar.Visible = true;
             if (RbAylik.Checked == true)
             {
                 rapor = "Aylik";
@@ -98,7 +103,7 @@ namespace CafeCore.Forms
 
             }
             var total = DgRaporlar.Rows.Cast<DataGridViewRow>().Sum(row => Convert.ToDecimal(row.Cells[4].Value)).ToString();
-            lblToplamTutar.Text = $"{total}₺";
+            txtToplamTutar.Text = $"{total}₺";
         }
 
         private void btnYazdir_Click(object sender, EventArgs e)
@@ -153,6 +158,9 @@ namespace CafeCore.Forms
 
         private void rbTarihSec_CheckedChanged(object sender, EventArgs e)
         {
+
+            lblToplam.Visible = true;
+            txtToplamTutar.Visible = true;
             if (rbTarihSec.Checked == true)
             {
                 dtpBaslangic.Visible = true;

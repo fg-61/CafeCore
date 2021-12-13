@@ -29,7 +29,7 @@ namespace CafeCore.Forms
         private void KatDoldur()
         {
             flpKatlar.Controls.Clear();
-            int katButonYukseklik = 100;
+            int katButonYukseklik = 80;
             int katButonGenislik = 100;
 
             var katlar = _dbContext.Katlar.Include(x => x.Masalar).Where(x => x.Masalar.Count > 0 && x.IsDeleted == false).OrderBy(x => x.SiraNo).ToList();
