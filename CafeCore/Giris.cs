@@ -63,5 +63,10 @@ namespace CafeCore
             _frmRaporlar.Show();
             this.Hide();
         }
+
+        private void Giris_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
