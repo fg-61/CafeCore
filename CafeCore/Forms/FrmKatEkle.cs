@@ -156,22 +156,11 @@ namespace CafeCore.Forms
         }
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            if (lstKat.SelectedItems.Count == 0) return;
-            _seciliKat = lstKat.SelectedItems[0].Tag as Kat;
-            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Ad.ToLower() == txtAd.Text.ToLower()))
-            {
-                txtAd.Text = "";
-                MessageBox.Show("Farklı bir kat adı giriniz !!");
-            }
-            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Kodu.ToLower() == txtKod.Text.ToLower()))
-            {
-                txtKod.Text = "";
-                MessageBox.Show("Farklı bir kısaltma kodu giriniz !!");
-            }
             if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.SiraNo.ToString() == txtSiraNo.Text))
             {
                 txtSiraNo.Text = "";
                 MessageBox.Show("Farklı bir sıra numarası giriniz !!");
+                return;
             }
 
             try
@@ -277,6 +266,11 @@ namespace CafeCore.Forms
             frmKafeBilgi.Show();
             this.Hide();
            
+        }
+
+        private void txtSiraNo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
  }
