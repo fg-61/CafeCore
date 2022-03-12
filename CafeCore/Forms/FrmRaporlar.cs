@@ -132,19 +132,19 @@ namespace CafeCore.Forms
 
                 e.Graphics.DrawString("Sipariş Tarihi", font, firca, 60, 140);
                 e.Graphics.DrawString("Ürün Adi", font, firca, 280, 140);
-                e.Graphics.DrawString("Birim Fiyatı", font, firca, 420, 140);
-                e.Graphics.DrawString("Adeti", font, firca, 550, 140);
+                e.Graphics.DrawString("Adeti", font, firca, 420, 140);
+                e.Graphics.DrawString("Birim Fiyatı", font, firca, 550, 140);
                 e.Graphics.DrawString("Tutarı", font, firca, 680, 140);
 
                 int i = 0;
                 int y = 170;
                 font = new Font("Arial", 14);
-                while (i <= DgRaporlar.Rows.Count - 2)
+                while (i <= DgRaporlar.Rows.Count - 1)
                 {
                     e.Graphics.DrawString(DgRaporlar.Rows[i].Cells[0].Value.ToString(), font, firca, 60, y);
                     e.Graphics.DrawString(DgRaporlar.Rows[i].Cells[1].Value.ToString(), font, firca, 280, y);
-                    e.Graphics.DrawString($"{DgRaporlar.Rows[i].Cells[2].Value:c2}".ToString(), font, firca, 420, y);
-                    e.Graphics.DrawString(DgRaporlar.Rows[i].Cells[3].Value.ToString(), font, firca, 550, y);
+                    e.Graphics.DrawString(DgRaporlar.Rows[i].Cells[2].Value.ToString(), font, firca, 420, y);
+                    e.Graphics.DrawString($"{ DgRaporlar.Rows[i].Cells[3].Value:c2}".ToString(), font, firca, 550, y);
                     e.Graphics.DrawString($"{ DgRaporlar.Rows[i].Cells[4].Value:c2}".ToString(), font, firca, 680, y);
                     y = y + 40;
                     i = i + 1;
