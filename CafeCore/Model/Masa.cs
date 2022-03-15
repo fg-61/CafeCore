@@ -17,7 +17,7 @@ namespace CafeCore.Model
         public int No { get; set; } = 1;
 
         [Required]
-        public bool Durum { get; set; } = false;
+        public bool Durum { get; set; }
 
         [Required]
         public int KatId { get; set; }

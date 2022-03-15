@@ -15,6 +15,7 @@ namespace CafeCore.Forms
         {
             InitializeComponent();
         }
+        private CafeContext _dbContext = new CafeContext();
         private KategoriRepo _kategoriRepo = new KategoriRepo();
         private UrunRepo _urunRepo = new UrunRepo();
         private void KategoriUrunEkle_Load(object sender, EventArgs e)
@@ -235,11 +236,12 @@ namespace CafeCore.Forms
             {
                 var yeni = new Urun
                 {
-                    Kategori = (cmbKategoriAdi.SelectedItem as Kategori),
+                    KategoriId = (cmbKategoriAdi.SelectedItem as Kategori).Id,
                     Ad = txtUrunAdi.Text,
                     Fiyat = Decimal.Parse(txtUrunFiyat.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture)
                 };
                 _urunRepo.Add(yeni);
+
             }
             catch (Exception ex)
             {

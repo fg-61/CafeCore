@@ -113,9 +113,10 @@ namespace CafeCore.Forms
             var siparisView = _siparisRepo.Get(x => x.MasaId == _seciliMasa.Id && x.IsDeleted == false).ToList();
             foreach (var item in siparisView)
             {
+                var urun = _urunRepo.GetById(item.UrunId);
                 ListViewItem viewItem = new ListViewItem(item.Adet.ToString());
                 viewItem.Tag = item;
-                viewItem.SubItems.Add(item.Urun.Ad);
+                viewItem.SubItems.Add(urun.Ad);
                 viewItem.SubItems.Add($"{item.AraToplam:c2}");
                 lstSepet.Items.Add(viewItem);
             }
@@ -139,6 +140,7 @@ namespace CafeCore.Forms
                     MasaId = _seciliMasa.Id,
                 };
                 _masaRepo.GetById(yeni.MasaId).Durum = true;
+                _masaRepo.Save();
                 _siparisRepo.Add(yeni);
             }
             else
@@ -194,7 +196,7 @@ namespace CafeCore.Forms
                 }
                 var iptalMasa = _masaRepo.GetById(_seciliMasa.Id);
                 iptalMasa.Durum = false; // masa bos
-                _dbContext.SaveChanges();
+                _masaRepo.Save();
                 MessageBox.Show($"Masa {_seciliMasa.No} iptal edilmiştir. Ücret tahsil edilmeyecektir.");
 
                 if (_frmMasalar == null || _frmMasalar.IsDisposed)
@@ -226,7 +228,7 @@ namespace CafeCore.Forms
                 }
                 var iptalMasa = _masaRepo.GetById(_seciliMasa.Id);
                 iptalMasa.Durum = false;
-                _dbContext.SaveChanges();
+                _masaRepo.Save();
 
                 MessageBox.Show($"{_toplamFiyat} tutarındaki siparişiniz başarıyla oluşturulmuştur");
 
