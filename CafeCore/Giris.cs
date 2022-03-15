@@ -1,4 +1,5 @@
 ﻿using CafeCore.Forms;
+using CafeCore.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,14 +12,15 @@ using System.Windows.Forms;
 
 namespace CafeCore
 {
-    public partial class Giris : Form 
+    public partial class Giris : Form
     {
+        private KatRepo _katRepo = new KatRepo();
         public Giris()
         {
             InitializeComponent();
         }
 
-        
+
         private FrmKatEkle _frmKatEkle;
 
         private void btnfrmKatEkle_Click(object sender, EventArgs e)
@@ -43,14 +45,17 @@ namespace CafeCore
         }
 
         private FrmMasalar _frmMasalar;
+        private Giris _giris;
         private void btnfrmMasaEkle_Click(object sender, EventArgs e)
         {
+
             if (_frmMasalar == null)
             {
                 _frmMasalar = new FrmMasalar();
             }
             _frmMasalar.Show();
             this.Hide();
+
         }
 
         private FrmRaporlar _frmRaporlar;

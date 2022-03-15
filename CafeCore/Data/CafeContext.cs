@@ -71,6 +71,7 @@ namespace CafeCore.Data
             modelBuilder.Entity<Siparis>()
                 .Property(x => x.AraToplam)
                 .HasPrecision(11, 2);
+
         }
 
     }

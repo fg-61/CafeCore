@@ -1,9 +1,6 @@
-﻿using CafeCore.Data;
-using CafeCore.Model;
+﻿using CafeCore.Model;
 using CafeCore.Repository;
-using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -18,8 +15,8 @@ namespace CafeCore.Forms
         }
 
         private Giris _frmGiris = new Giris();
-
-        CafeContext _dbContext = new CafeContext();
+        private KatRepo _katRepo = new KatRepo();
+        private MasaRepo _masaRepo = new MasaRepo();
         Color defaultKatColor = Color.LightGray, seciliKatColor = Color.CornflowerBlue, bosMasaColor = Color.Silver, doluMasaColor = Color.IndianRed;
         private void Masalar_Load(object sender, EventArgs e)
         {
@@ -32,7 +29,8 @@ namespace CafeCore.Forms
             int katButonYukseklik = 80;
             int katButonGenislik = 100;
 
-            var katlar = _dbContext.Katlar.Include(x => x.Masalar).Where(x => x.Masalar.Count > 0 && x.IsDeleted == false).OrderBy(x => x.SiraNo).ToList();
+            var katlar = _katRepo.GetWithMasa().ToList();
+            
             for (int i = 0; i < katlar.Count; i++)
             {
                 Kat yeni = katlar[i];
@@ -58,7 +56,7 @@ namespace CafeCore.Forms
             int masaButonYukseklik = 100;
             int masaButonGenislik = 100;
 
-            var masalar = _dbContext.Masalar.Where(x => x.KatId == _seciliKat.Id).Include(x => x.Siparisler).ThenInclude(x => x.Urun).OrderBy(x => x.No).ToList();
+            var masalar = _masaRepo.GetWithKatId(_seciliKat.Id).ToList();
             for (int i = 0; i < _seciliKat.MasaSayisi; i++)
             {
                 Masa yeni = masalar[i];

@@ -14,7 +14,6 @@ namespace CafeCore.Forms
         {
             InitializeComponent();
         }
-        CafeContext _dbContext = new CafeContext();
         private KatRepo _katRepo = new KatRepo();
         private void KatEkle_Load(object sender, EventArgs e)
         {
@@ -72,7 +71,7 @@ namespace CafeCore.Forms
         private Kat _seciliKat;
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Ad.ToLower() == txtAd.Text.ToLower()))
+            if (_katRepo.IsKatAdInDatabase(txtAd.Text))
             {
                 txtAd.Text = "";
                 txtKod.Text = "";
@@ -81,7 +80,7 @@ namespace CafeCore.Forms
                 MessageBox.Show("Farklı bir kat adı giriniz !!");
                 return;
             }
-            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.Kodu.ToLower() == txtKod.Text.ToLower()))
+            if (_katRepo.IsKatKoduInDatabase(txtKod.Text))
             {
                 txtAd.Text = "";
                 txtKod.Text = "";
@@ -91,7 +90,7 @@ namespace CafeCore.Forms
                 MessageBox.Show("Farklı bir kısaltma kodu giriniz !!");
                 return;
             }
-            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.SiraNo.ToString() == txtSiraNo.Text))
+            if (_katRepo.IsKatSiraNoInDatabase(txtSiraNo.Text))
             {
                 txtAd.Text = "";
                 txtKod.Text = "";
@@ -126,7 +125,7 @@ namespace CafeCore.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                _katRepo = new KatRepo();
             }
             finally
             {
@@ -140,14 +139,14 @@ namespace CafeCore.Forms
 
             try
             {
-                var silinecekKat = _katRepo.Get().First(x => x.Id == _seciliKat.Id);
+                var silinecekKat = _katRepo.GetById(_seciliKat.Id);
                 silinecekKat.IsDeleted = true;
                 _katRepo.Update(silinecekKat);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                _katRepo = new KatRepo();
             }
             finally
             {
@@ -156,7 +155,7 @@ namespace CafeCore.Forms
         }
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            if (_dbContext.Katlar.Where(x => x.IsDeleted == false).Any(x => x.SiraNo.ToString() == txtSiraNo.Text))
+            if (_katRepo.IsKatSiraNoInDatabase(txtSiraNo.Text))
             {
                 txtSiraNo.Text = "";
                 MessageBox.Show("Farklı bir sıra numarası giriniz !!");
@@ -175,7 +174,7 @@ namespace CafeCore.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                _katRepo = new KatRepo();
             }
             finally
             {

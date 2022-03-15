@@ -1,4 +1,5 @@
 ﻿using CafeCore.Data;
+using CafeCore.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace CafeCore.Forms
         {
             InitializeComponent();
         }
-        CafeContext _dbContext = new CafeContext();
+        private SiparisRepo _siparisRepo = new SiparisRepo();
         string rapor = "";
         int secim = 0;
         private void rbGunluk_CheckedChanged(object sender, EventArgs e)
@@ -54,46 +55,21 @@ namespace CafeCore.Forms
             {
                 case 1:
                     {
-                        var query = _dbContext.Siparisler.Select(x => new
-                        {
-                            x.CreatedDate,
-                            x.Urun.Ad,
-                            x.Adet,
-                            x.Urun.Fiyat,
-                            x.AraToplam,
-                            x.IsDeleted
-                        }).Where(x => (x.CreatedDate.Date.Day > DateTime.Today.AddDays(-1).Day && x.CreatedDate > DateTime.Now.AddDays(-1)) && x.IsDeleted == true).OrderBy(x => x.CreatedDate).ToList();
+                        var query = _siparisRepo.GetDay();
                         DgRaporlar.DataSource = query;
                         DgRaporlar.Columns["IsDeleted"].Visible = false;
-
                     }
                     break;
                 case 2:
                     {
-                        var query = _dbContext.Siparisler.Select(x => new
-                        {
-                            x.CreatedDate,
-                            x.Urun.Ad,
-                            x.Adet,
-                            x.Urun.Fiyat,
-                            x.AraToplam,
-                            x.IsDeleted
-                        }).Where(x => (x.CreatedDate.Date.Month > DateTime.Now.AddMonths(-1).Month) && x.IsDeleted == true).OrderBy(x => x.CreatedDate).ToList();
+                        var query = _siparisRepo.GetMonth();
                         DgRaporlar.DataSource = query;
                         DgRaporlar.Columns["IsDeleted"].Visible = false;
                     }
                     break;
                 case 3:
                     {
-                        var query = _dbContext.Siparisler.Select(x => new
-                        {
-                            x.CreatedDate,
-                            x.Urun.Ad,
-                            x.Adet,
-                            x.Urun.Fiyat,
-                            x.AraToplam,
-                            x.IsDeleted
-                        }).Where(x => (x.CreatedDate >= dtpBaslangic.Value && x.CreatedDate <= dtpBitis.Value) && x.IsDeleted == true).OrderBy(x => x.CreatedDate).ToList();
+                        var query = _siparisRepo.GetByDtp(dtpBitis, dtpBaslangic);
                         DgRaporlar.DataSource = query;
                         DgRaporlar.Columns["IsDeleted"].Visible = false;
                     }

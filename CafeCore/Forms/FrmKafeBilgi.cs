@@ -1,14 +1,7 @@
-﻿using CafeCore.Data;
-using CafeCore.Model;
+﻿using CafeCore.Model;
 using CafeCore.Repository;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CafeCore.Forms
@@ -19,10 +12,10 @@ namespace CafeCore.Forms
         {
             InitializeComponent();
         }
-        CafeContext _dbContext = new CafeContext();
+
         KafeBilgiRepo repo = new KafeBilgiRepo();
         bool kayitli = true;
-       
+
 
         private void yuvarlakButon1_Click(object sender, EventArgs e)
         {
@@ -89,5 +82,5 @@ namespace CafeCore.Forms
             }
         }
     }
-    }
+}
 

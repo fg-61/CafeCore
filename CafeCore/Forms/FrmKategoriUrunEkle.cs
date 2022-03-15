@@ -15,7 +15,8 @@ namespace CafeCore.Forms
         {
             InitializeComponent();
         }
-        private CafeContext _dbContext = new CafeContext();
+        private KategoriRepo _kategoriRepo = new KategoriRepo();
+        private UrunRepo _urunRepo = new UrunRepo();
         private void KategoriUrunEkle_Load(object sender, EventArgs e)
         {
             ListeyiDoldur();
@@ -43,10 +44,7 @@ namespace CafeCore.Forms
             lstKategori.Columns[1].Width = 150;
             lstKategori.Columns.Add("Ürün Sayısı");
             lstKategori.Columns[2].Width = 100;
-            var kategoriView = _dbContext.Kategoriler
-                .Where(x => x.IsDeleted == false)
-                .Include(x => x.Urunler.Where(x => x.IsDeleted == false))
-                .OrderBy(x => x.SiraNo).ToList();
+            var kategoriView = _kategoriRepo.GetNotDeleted().ToList();
             foreach (var item in kategoriView)
             {
                 ListViewItem viewItem = new ListViewItem(item.Ad);
@@ -62,14 +60,14 @@ namespace CafeCore.Forms
         private Kategori _seciliKategori;
         private void btnKategoriEkle_Click(object sender, EventArgs e)
         {
-            if (_dbContext.Kategoriler.Where(x => x.IsDeleted == false).Any(x => x.Ad.ToLower() == txtKategoriAd.Text.ToLower()))
+            if (_kategoriRepo.IsKategoryAdInDatabase(txtKategoriAd.Text))
             {
                 txtKategoriAd.Text = "";
                 txtKategoriSiraNo.Text = "";
                 MessageBox.Show("Farklı bir kategori adı giriniz !!");
                 return;
             }
-            if (_dbContext.Kategoriler.Where(x => x.IsDeleted == false).Any(x => x.SiraNo.ToString() == txtKategoriSiraNo.Text))
+            if (_kategoriRepo.IsSıraNoInDatabase(txtKategoriSiraNo.Text))
             {
                 txtKategoriAd.Text = "";
                 txtKategoriSiraNo.Text = "";
@@ -84,13 +82,12 @@ namespace CafeCore.Forms
                     SiraNo = int.Parse(txtKategoriSiraNo.Text)
                 };
 
-                _dbContext.Kategoriler.Add(yeni);
-                _dbContext.SaveChanges();
+                _kategoriRepo.Add(yeni);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                _kategoriRepo = new KategoriRepo();
             }
             finally
             {
@@ -103,16 +100,15 @@ namespace CafeCore.Forms
             _seciliKategori = lstKategori.SelectedItems[0].Tag as Kategori;
             try
             {
-                var silinenKategori = _dbContext.Kategoriler.Find(_seciliKategori.Id);
+                var silinenKategori = _kategoriRepo.GetById(_seciliKategori.Id);
                 silinenKategori.IsDeleted = true;
                 silinenKategori.DeletedDate = DateTime.Now;
-                _dbContext.Kategoriler.Update(silinenKategori);
-                _dbContext.SaveChanges();
+                _kategoriRepo.Update(silinenKategori);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                _kategoriRepo = new KategoriRepo();
             }
             finally
             {
@@ -129,14 +125,12 @@ namespace CafeCore.Forms
             {
                 _seciliKategori.Ad = txtKategoriAd.Text;
                 _seciliKategori.SiraNo = int.Parse(txtKategoriSiraNo.Text);
-
-                _dbContext.Kategoriler.Update(_seciliKategori);
-                _dbContext.SaveChanges();
+                _kategoriRepo.Update(_seciliKategori);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                _kategoriRepo = new KategoriRepo();
             }
             finally
             {
@@ -196,10 +190,7 @@ namespace CafeCore.Forms
         private void UrunListeDoldur()
         {
             // combobox a kategori doldurma
-            cmbKategoriAdi.DataSource = _dbContext.Kategoriler
-                .Where(x => x.IsDeleted == false)
-                .OrderBy(x => x.SiraNo)
-                .ToList();
+            cmbKategoriAdi.DataSource = _kategoriRepo.GetNotDeleted().ToList();
             cmbKategoriAdi.DisplayMember = "Ad";
 
             // list view doldurma
@@ -217,14 +208,9 @@ namespace CafeCore.Forms
 
 
 
-   
 
-            var urunView = _dbContext.Urunler
-                .Where(x => x.IsDeleted == false)
-                .Include(x => x.Kategori)
-                .Where(x => x.Kategori.IsDeleted == false)
-                .OrderBy(x => x.Kategori.Ad)
-                .ToList();
+
+            var urunView = _urunRepo.GetUrunWithKategori().ToList();
             foreach (var item in urunView)
             {
                 ListViewItem viewItem = new ListViewItem(item.Kategori.Ad);
@@ -238,11 +224,11 @@ namespace CafeCore.Forms
         #region Urun Ekle,Sil,Guncelle
         private void btnUrunEkle_Click(object sender, EventArgs e)
         {
-            if (_dbContext.Urunler.Where(x => x.IsDeleted == false).Any(x => x.Ad.ToLower() == txtUrunAdi.Text.ToLower()))
+            if (_urunRepo.IsUrunAdInDatabase(txtUrunAdi.Text))
             {
                 txtUrunAdi.Text = "";
                 txtUrunFiyat.Text = "";
-                MessageBox.Show("Farklı bir kategori adı giriniz !!");
+                MessageBox.Show("Farklı bir ürün adı giriniz !!");
                 return;
             }
             try
@@ -253,13 +239,12 @@ namespace CafeCore.Forms
                     Ad = txtUrunAdi.Text,
                     Fiyat = Decimal.Parse(txtUrunFiyat.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture)
                 };
-                _dbContext.Urunler.Add(yeni);
-                _dbContext.SaveChanges();
+                _urunRepo.Add(yeni);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                _urunRepo = new UrunRepo();
             }
             finally
             {
@@ -273,16 +258,15 @@ namespace CafeCore.Forms
             _seciliUrun = lstUrun.SelectedItems[0].Tag as Urun;
             try
             {
-                var silinenUrun = _dbContext.Urunler.Find(_seciliUrun.Id);
+                var silinenUrun = _urunRepo.GetById(_seciliUrun.Id);
                 silinenUrun.IsDeleted = true;
                 silinenUrun.DeletedDate = DateTime.Now;
-                _dbContext.Urunler.Update(silinenUrun);
-                _dbContext.SaveChanges();
+                _urunRepo.Update(silinenUrun);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                _urunRepo = new UrunRepo();
             }
             finally
             {
@@ -293,20 +277,18 @@ namespace CafeCore.Forms
         {
             if (lstUrun.SelectedItems.Count == 0) return;
             _seciliUrun = lstUrun.SelectedItems[0].Tag as Urun;
-
             try
             {
                 _seciliUrun.Kategori = (cmbKategoriAdi.SelectedItem as Kategori);
                 _seciliUrun.Ad = txtUrunAdi.Text;
-                _seciliUrun.Fiyat = Decimal.Parse(txtUrunFiyat.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
-
-                _dbContext.Urunler.Update(_seciliUrun);
-                _dbContext.SaveChanges();
+                _seciliUrun.Fiyat = Decimal.Parse(txtUrunFiyat.Text, NumberStyles.AllowDecimalPoint,
+                CultureInfo.InvariantCulture);
+                _urunRepo.Update(_seciliUrun);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _dbContext = new CafeContext();
+                _urunRepo = new UrunRepo();
             }
             finally
             {
@@ -319,7 +301,6 @@ namespace CafeCore.Forms
         {
             if (lstUrun.SelectedItems.Count == 0) return;
             _seciliUrun = lstUrun.SelectedItems[0].Tag as Urun;
-
             txtUrunAdi.Text = _seciliUrun.Ad;
             txtUrunFiyat.Text = _seciliUrun.Fiyat.ToString(CultureInfo.InvariantCulture);
             cmbKategoriAdi.SelectedItem = _seciliUrun.Kategori;

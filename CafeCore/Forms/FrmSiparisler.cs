@@ -1,5 +1,6 @@
 ﻿using CafeCore.Data;
 using CafeCore.Model;
+using CafeCore.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Data;
@@ -17,6 +18,10 @@ namespace CafeCore.Forms
         }
         public Masa _seciliMasa;
         private CafeContext _dbContext = new CafeContext();
+        private UrunRepo _urunRepo = new UrunRepo();
+        private SiparisRepo _siparisRepo = new SiparisRepo();
+        private KategoriRepo _kategoriRepo = new KategoriRepo();
+        private MasaRepo _masaRepo = new MasaRepo();
 
 
         Color defaultColor = Color.LightGray, seciliColor = Color.RoyalBlue;
@@ -36,11 +41,7 @@ namespace CafeCore.Forms
             int kategoriButonYukseklik = 100;
             int kategoriButonGenislik = 100;
 
-            var kategoriler = _dbContext.Kategoriler
-                .Include(x => x.Urunler)
-                .Where(x => x.Urunler.Count > 0 && x.IsDeleted == false)
-                .OrderBy(x => x.SiraNo)
-                .ToList();
+            var kategoriler = _kategoriRepo.GetWithUrun().ToList();
             for (int i = 0; i < kategoriler.Count; i++)
             {
                 Kategori yeni = kategoriler[i];
@@ -67,7 +68,7 @@ namespace CafeCore.Forms
             int urunButonYukseklik = 100;
             int urunButonGenislik = 100;
 
-            var urunler = _dbContext.Urunler.Where(x => x.KategoriId == _seciliKategori.Id && x.IsDeleted == false).ToList();
+            var urunler = _urunRepo.GetUrunWithKategoriId(_seciliKategori.Id).ToList();
 
             for (int i = 0; i < urunler.Count; i++)
             {
@@ -94,7 +95,7 @@ namespace CafeCore.Forms
         private decimal _toplamFiyat;
         private void SepetiDoldur()
         {
-            _toplamFiyat = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id && x.IsDeleted == false).Sum(x => x.AraToplam);
+            _toplamFiyat = _siparisRepo.AraToplam(_seciliMasa.Id);
             txtToplam.Text = $"{_toplamFiyat:c2}";
 
             lstSepet.Columns.Clear();
@@ -109,7 +110,7 @@ namespace CafeCore.Forms
             lstSepet.Columns.Add("Ara Toplam");
             lstSepet.Columns[2].Width = 120;
 
-            var siparisView = _dbContext.Siparisler.Where(x => x.MasaId == _seciliMasa.Id && x.IsDeleted == false).ToList();
+            var siparisView = _siparisRepo.Get(x => x.MasaId == _seciliMasa.Id && x.IsDeleted == false).ToList();
             foreach (var item in siparisView)
             {
                 ListViewItem viewItem = new ListViewItem(item.Adet.ToString());
@@ -125,7 +126,7 @@ namespace CafeCore.Forms
             Button btnUrun = sender as Button;
             _seciliUrun = btnUrun.Tag as Urun;
 
-            var sepetUrun = _dbContext.Siparisler.FirstOrDefault(x => x.Urun.Id == _seciliUrun.Id && x.MasaId == _seciliMasa.Id && x.IsDeleted == false); // bu compositle oluyo olabilir
+            var sepetUrun = _siparisRepo.GetSepetUrun(_seciliUrun.Id, _seciliMasa.Id);
 
             if (sepetUrun == null)
             {
@@ -137,16 +138,16 @@ namespace CafeCore.Forms
                     UrunId = _seciliUrun.Id,
                     MasaId = _seciliMasa.Id,
                 };
-                _dbContext.Masalar.FirstOrDefault(x => x.Id == yeni.MasaId).Durum = true;
-                _dbContext.Siparisler.Add(yeni);
+                _masaRepo.GetById(yeni.MasaId).Durum = true;
+                _siparisRepo.Add(yeni);
             }
             else
             {
                 sepetUrun.Adet++;
                 sepetUrun.AraToplam = sepetUrun.Adet * sepetUrun.Fiyat;
-                _dbContext.Siparisler.Update(sepetUrun);
+                _siparisRepo.Update(sepetUrun);
             }
-            _dbContext.SaveChanges();
+            //_dbContext.SaveChanges(); çalışmazsa geri al
             SepetiDoldur();
         }
         private void lstSepet_DoubleClick(object sender, EventArgs e)
@@ -155,15 +156,15 @@ namespace CafeCore.Forms
             var secili = lstSepet.SelectedItems[0].Tag as Siparis;
             if (secili.Adet == 1)
             {
-                _dbContext.Siparisler.Remove(secili);
+                _siparisRepo.Remove(secili);
             }
             else
             {
                 secili.Adet--;
                 secili.AraToplam = secili.Adet * secili.Fiyat;
-                _dbContext.Siparisler.Update(secili);
+                _siparisRepo.Update(secili);
             }
-            _dbContext.SaveChanges();
+            //_dbContext.SaveChanges(); çalışmassa geri al
 
             SepetiDoldur();
         }
@@ -188,10 +189,10 @@ namespace CafeCore.Forms
                 while (i < lstSepet.Items.Count)
                 {
                     Siparis sepetSiparis = lstSepet.Items[i].Tag as Siparis;
-                    _dbContext.Siparisler.Remove(sepetSiparis);
+                    _siparisRepo.Remove(sepetSiparis);
                     lstSepet.Items.Remove(lstSepet.Items[i]);
                 }
-                var iptalMasa = _dbContext.Masalar.FirstOrDefault(x => x.Id == _seciliMasa.Id);
+                var iptalMasa = _masaRepo.GetById(_seciliMasa.Id);
                 iptalMasa.Durum = false; // masa bos
                 _dbContext.SaveChanges();
                 MessageBox.Show($"Masa {_seciliMasa.No} iptal edilmiştir. Ücret tahsil edilmeyecektir.");
@@ -206,7 +207,7 @@ namespace CafeCore.Forms
             catch (Exception ex)
             {
                 MessageBox.Show("Sipariş iptal işleminizde bir hata oluştu " + ex.Message);
-                _dbContext = new();
+                _siparisRepo = new();
             }
         }
         private void btnHesapYazdir_Click(object sender, EventArgs e)
@@ -220,10 +221,10 @@ namespace CafeCore.Forms
                     Siparis sepetSiparis = lstSepet.Items[i].Tag as Siparis;
                     sepetSiparis.IsDeleted = true;
                     sepetSiparis.DeletedDate = DateTime.Now;
-                    _dbContext.Siparisler.Update(sepetSiparis);
+                    _siparisRepo.Update(sepetSiparis);
                     lstSepet.Items.Remove(lstSepet.Items[i]);
                 }
-                var iptalMasa = _dbContext.Masalar.FirstOrDefault(x => x.Id == _seciliMasa.Id);
+                var iptalMasa = _masaRepo.GetById(_seciliMasa.Id);
                 iptalMasa.Durum = false;
                 _dbContext.SaveChanges();
 
